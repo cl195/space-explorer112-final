@@ -1,143 +1,102 @@
-<!DOCTYPE html> <!-- Declaration of HTML5 document type -->
-<html lang="en"> <!-- Specifies English as the document language -->
+<!DOCTYPE html> <!-- Declare document type as HTML5 -->
+<html lang="en"> <!-- Specify webpage language as English -->
 <head>
-    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8, supporting various language characters -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design setting, ensures proper display on mobile devices -->
-    <title>Solar System - The Moon</title> <!-- Page title, displayed in browser tab -->
+    <meta charset="UTF-8"> <!-- Character encoding set to UTF-8, supporting various language characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design, ensuring proper display on mobile devices -->
+    <title>The Moon - Solar System Explorer</title> <!-- Page title, displayed in browser tab -->
     <link rel="stylesheet" href="styles.css"> <!-- Link to main stylesheet -->
     <link rel="stylesheet" href="moon-styles.css"> <!-- Link to Moon page specific stylesheet -->
-    <!-- Import Font Awesome icon library, used for displaying various moon-related icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Font Awesome icon library for displaying various moon-related icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="moon-page"> <!-- body with moon-page class for applying moon-specific styles and animations -->
+<body class="moon-page"> <!-- Add moon-page class to body for applying moon-specific styles and animations -->
     <!-- Top navigation bar - using moon-nav for moon-specific styling -->
     <nav class="top-nav moon-nav">
         <div class="nav-content">
-            <div class="logo">Space Explorer</div> <!-- Website logo/name -->
+            <div class="logo">Solar System</div> <!-- Website logo/name -->
             <div class="nav-links"> <!-- Navigation links area -->
-                <a href="index.html" class="structure-link">STRUCTURE</a> <!-- Solar System Structure page link -->
-                <a href="planet.html" class="planet-link">PLANET</a> <!-- Planets page link -->
-                <a href="sun.html" class="sun-link">SUN</a> <!-- Sun page link -->
-                <a href="moon.html" class="active moon-link">MOON</a> <!-- Current page: Moon, active class indicates current state -->
+                <a href="index.html" class="structure-link">Home</a> <!-- Solar system structure page link -->
+                <a href="planet.html" class="planet-link">Planets</a> <!-- Planets page link -->
+                <a href="sun.html" class="sun-link">Sun</a> <!-- Sun page link -->
+                <a href="moon.html" class="active moon-link">Moon</a> <!-- Current page: Moon, add active class to indicate current active state -->
             </div>
         </div>
     </nav>
 
-    <!-- Hero/banner area - Moon main visual with parallax effect -->
+    <!-- Hero/banner area - contains parallax effect for main moon visual -->
     <div class="moon-hero">
-        <div class="moon-parallax"> <!-- Parallax effect container with multiple parallax layers -->
-            <div class="stars-layer"></div> <!-- Background stars layer -->
+        <div class="moon-parallax"> <!-- Parallax effect container, containing multiple parallax layers -->
+            <div class="stars-layer"></div> <!-- Background star field layer -->
             <div class="moon-image"></div> <!-- Moon image layer -->
-            <div class="clouds-layer"></div> <!-- Cloud effect layer, adds atmosphere feeling -->
+            <div class="clouds-layer"></div> <!-- Cloud effect layer, adding atmosphere feeling -->
         </div>
-        <h1 class="moon-title">Earth's Faithful<br>Companion</h1> <!-- Main title with line break -->
+        <h1 class="moon-title">Earth's Moon</h1> <!-- Main title -->
     </div>
 
-    <!-- Main content area -->
+    <!-- Page main content area -->
     <div class="moon-content">
         <div class="container">
             <!-- Moon introduction text area -->
             <div class="moon-introduction">
-                <p class="intro-text"> <!-- Introduction paragraph with fade-in animation effect -->
-                    The Moon is Earth's only natural satellite and the fifth largest satellite in the Solar System. 
-                    It is the largest natural satellite relative to its planet in the Solar System. The Moon has been a 
-                    source of fascination for humanity throughout history, influencing our calendars, cultures, and 
-                    inspiring countless stories and myths.
-                </p>
-                <p class="intro-text"> <!-- Second introduction paragraph with delayed fade-in effect -->
-                    The Moon formed approximately 4.5 billion years ago, not long after Earth. The most widely 
-                    accepted explanation is that the Moon formed from the debris left over after a giant impact 
-                    between Earth and a Mars-sized body called Theia.
+                <h2 class="section-title">Our Natural Satellite</h2>
+                <p class="intro-text">
+                    The Moon is Earth's only natural satellite. It is the fifth largest satellite in the Solar System 
+                    and the largest relative to its parent planet.
                 </p>
             </div>
 
-            <!-- Moon phases section - showing 8 main moon phases -->
+            <!-- Moon phases section - displaying 8 main phases of the moon -->
             <div class="moon-phases-section">
-                <h2 class="section-title">Phases of the Moon</h2> <!-- Section title -->
+                <h2 class="section-title">Moon Phases</h2>
+                
                 <div class="phases-container"> <!-- Moon phases grid container -->
                     <!-- Phase item 1: New Moon -->
                     <div class="phase-item">
-                        <div class="phase-animation"> <!-- Moon phase animation container -->
-                            <img src="images/moon/New Moon.jpg" alt="New Moon" class="phase-img"> <!-- New Moon image -->
+                        <div class="phase-animation"> <!-- Phase animation container -->
+                            <img src="images/moon/new-moon.jpg" alt="New Moon" class="phase-img"> <!-- New moon image -->
                         </div>
-                        <h3>New Moon</h3> <!-- New Moon title -->
-                        <p>When the Moon is between Earth and the Sun, the side facing Earth is not illuminated.</p> <!-- New Moon description -->
+                        <h3>New Moon</h3> <!-- New moon title -->
+                        <p>The Moon is between Earth and the Sun, and the side of the Moon facing Earth is not illuminated.</p> <!-- New moon description -->
                     </div>
                     
-                    <!-- Phase item 2: Waxing Crescent -->
+                    <!-- Phase item 2: First Crescent -->
                     <div class="phase-item">
                         <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0034.jpg" alt="Waxing Crescent" class="phase-img">
+                            <img src="images/moon/first-quarter.jpg" alt="First Quarter" class="phase-img">
                         </div>
-                        <h3>Waxing Crescent</h3>
-                        <p>As the Moon moves away from the Sun, a small crescent becomes visible.</p>
+                        <h3>First Quarter</h3>
+                        <p>Half of the Moon's disk is illuminated, and the Moon is one-quarter of the way through its orbit.</p>
                     </div>
                     
                     <!-- Phase item 3: First Quarter -->
                     <div class="phase-item">
                         <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0071.jpg" alt="First Quarter" class="phase-img">
+                            <img src="images/moon/full-moon.jpg" alt="Full Moon" class="phase-img">
                         </div>
-                        <h3>First Quarter</h3>
-                        <p>Half of the visible side of the Moon is illuminated.</p>
+                        <h3>Full Moon</h3>
+                        <p>The entire face of the Moon is illuminated by the Sun's rays.</p>
                     </div>
                     <!-- Phase item 4: Waxing Gibbous -->
                     <div class="phase-item">
                         <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0106.jpg" alt="Waxing Gibbous" class="phase-img">
-                        </div>
-                        <h3>Waxing Gibbous</h3>
-                        <p>More than half of the visible side is illuminated, approaching full moon.</p>
-                    </div>
-                    
-                    <!-- Phase item 5: Full Moon -->
-                    <div class="phase-item">
-                        <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0142.jpg" alt="Full Moon" class="phase-img">
-                        </div>
-                        <h3>Full Moon</h3>
-                        <p>The entire visible side of the Moon is illuminated.</p>
-                    </div>
-                    
-                    <!-- Phase item 6: Waning Gibbous -->
-                    <div class="phase-item">
-                        <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0177.jpg" alt="Waning Gibbous" class="phase-img">
-                        </div>
-                        <h3>Waning Gibbous</h3>
-                        <p>The illuminated portion starts to decrease.</p>
-                    </div>
-                    
-                    <!-- Phase item 7: Last Quarter -->
-                    <div class="phase-item">
-                        <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0213.jpg" alt="Last Quarter" class="phase-img">
+                            <img src="images/moon/last-quarter.jpg" alt="Last Quarter" class="phase-img">
                         </div>
                         <h3>Last Quarter</h3>
-                        <p>Half of the visible side is illuminated, opposite to first quarter.</p>
-                    </div>
-                    
-                    <!-- Phase item 8: Waning Crescent -->
-                    <div class="phase-item">
-                        <div class="phase-animation">
-                            <img src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004768/frames/730x730_1x1_30p/moon.0249.jpg" alt="Waning Crescent" class="phase-img">
-                        </div>
-                        <h3>Waning Crescent</h3>
-                        <p>A small crescent remains visible before returning to new moon.</p>
+                        <p>Half of the Moon's disk is illuminated, and the Moon is three-quarters of the way through its orbit.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Moon information grid - showing key moon data and information -->
+            <!-- Moon information grid - displaying key data and information about the Moon -->
             <div class="moon-info-grid">
                 <!-- Card 1: Moon key facts -->
                 <div class="moon-card facts">
-                    <div class="card-backdrop"></div> <!-- Card background effect layer, adds depth -->
+                    <div class="card-backdrop"></div> <!-- Card background effect layer, adding depth -->
                     <h2>Key Facts</h2>
                     <div class="fact-list"> <!-- Facts list grid -->
                         <div class="fact-item">
                             <h3>Distance from Earth</h3>
-                            <p>384,400 km (average)</p>
+                            <p>384,400 km</p>
                         </div>
                         <div class="fact-item">
                             <h3>Orbital Period</h3>
@@ -162,41 +121,41 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Moon notable features -->
+                <!-- Card 2: Notable Moon features -->
                 <div class="moon-card impact">
                     <div class="card-backdrop"></div>
                     <h2>Notable Features</h2>
-                    <div class="impact-container"> <!-- Features container -->
-                        <!-- Feature item 1: Maria -->
+                    <div class="impact-container"> <!-- Features items container -->
+                        <!-- Feature item 1: Mare -->
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <i class="fas fa-mountain"></i> <!-- Mountain icon -->
                             </div>
                             <div class="feature-info">
-                                <h4>Maria (Seas)</h4>
-                                <p>Large, dark plains formed by ancient volcanic eruptions</p>
+                                <h4>Mountains</h4>
+                                <p>The Moon has mountains that can reach heights of up to 5 km.</p>
                             </div>
                         </div>
                         
                         <!-- Feature item 2: Craters -->
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-circle"></i> <!-- Circle icon -->
+                                <i class="fas fa-crater"></i> <!-- Crater icon -->
                             </div>
                             <div class="feature-info">
                                 <h4>Craters</h4>
-                                <p>Impact craters formed by meteoroids and asteroids</p>
+                                <p>Impact craters cover the lunar surface, some as large as 1,000 km in diameter.</p>
                             </div>
                         </div>
                         
                         <!-- Feature item 3: Highlands -->
                         <div class="feature-item">
                             <div class="feature-icon">
-                                <i class="fas fa-mountain"></i> <!-- Mountain icon -->
+                                <i class="fas fa-water"></i> <!-- Water wave icon -->
                             </div>
                             <div class="feature-info">
-                                <h4>Highlands</h4>
-                                <p>Light-colored, heavily cratered regions</p>
+                                <h4>Maria</h4>
+                                <p>Dark, flat plains formed by ancient volcanic eruptions.</p>
                             </div>
                         </div>
                         
@@ -213,7 +172,7 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Human Exploration -->
+                <!-- Card 3: Human lunar exploration history -->
                 <div class="moon-card exploration">
                     <div class="card-backdrop"></div>
                     <h2>Human Exploration</h2>
@@ -254,8 +213,8 @@
                             </div>
                         </div>
                         
-                        <!-- Timeline item 5: Artemis Program (Future) -->
-                        <div class="timeline-item future"> <!-- future class indicates future plan -->
+                        <!-- Timeline item 5: Artemis Program (future) -->
+                        <div class="timeline-item future"> <!-- future class indicates future plans -->
                             <div class="timeline-date">Future</div>
                             <div class="timeline-content">
                                 <h4>Artemis Program</h4>
@@ -269,17 +228,17 @@
                 <div class="moon-card influence">
                     <div class="card-backdrop"></div>
                     <h2>Influence on Earth</h2>
-                    <div class="influence-content"> <!-- Influence container -->
+                    <div class="influence-content"> <!-- Influence items container -->
                         <!-- Influence item 1: Tides -->
                         <div class="influence-item">
                             <div class="influence-icon">
-                                <i class="fas fa-water"></i> <!-- Water icon -->
+                                <i class="fas fa-water"></i> <!-- Water wave icon -->
                             </div>
                             <h4>Tides</h4>
                             <p>The Moon's gravity pulls on Earth's oceans, causing high and low tides</p>
                         </div>
                         
-                        <!-- Influence item 2: Stabilization -->
+                        <!-- Influence item 2: Stabilizing Earth's axis -->
                         <div class="influence-item">
                             <div class="influence-icon">
                                 <i class="fas fa-balance-scale"></i> <!-- Balance scale icon -->
@@ -288,7 +247,7 @@
                             <p>Helps stabilize Earth's axial tilt, preventing extreme seasonal variations</p>
                         </div>
                         
-                        <!-- Influence item 3: Calendars -->
+                        <!-- Influence item 3: Calendar influence -->
                         <div class="influence-item">
                             <div class="influence-icon">
                                 <i class="fas fa-calendar-alt"></i> <!-- Calendar icon -->
@@ -300,11 +259,11 @@
                 </div>
             </div>
 
-            <!-- Moon resources section - showing moon-related resources and interesting facts -->
+            <!-- Moon resources section - displaying moon-related resources and fun facts -->
             <div class="moon-resources-section">
                 <h2 class="section-title">Lunar Resources</h2>
                 
-                <div class="resources-container"> <!-- Resources container -->
+                <div class="resources-container"> <!-- Resource cards container -->
                     <!-- Resource card 1: Lunar terrain -->
                     <div class="resource-card terrain">
                         <h3>Lunar Terrain</h3>
@@ -313,7 +272,7 @@
                         </div>
                         <div class="resource-description">
                             <p>The lunar surface features mountains, valleys, and vast plains called maria. The near side (facing Earth) has more maria, while the far side is heavily cratered.</p>
-                            <div class="terrain-stats"> <!-- Terrain stats grid -->
+                            <div class="terrain-stats"> <!-- Terrain statistics grid -->
                                 <div class="terrain-stat">
                                     <span class="stat-name">Highest Point:</span>
                                     <span class="stat-value">10.8 km (Mons Huygens)</span>
@@ -367,16 +326,16 @@
                     <div class="resource-card panorama">
                         <h3>Lunar Panorama</h3>
                         <div class="panorama-viewer"> <!-- Panorama viewer container -->
-                            <img src="images/moon/unnamed.jpg" alt="Lunar Surface Panorama"> <!-- Use local Moon image -->
+                            <img src="images/moon/unnamed.jpg" alt="Lunar Surface Panorama"> <!-- Using local moon image -->
                         </div>
                         <p class="panorama-caption">Apollo 11 mission panorama showing Buzz Aldrin on the lunar surface, July 20, 1969.</p> <!-- Panorama caption text -->
                     </div>
                     
-                    <!-- Resource card 4: Lunar quick facts -->
+                    <!-- Resource card 4: Moon fun facts -->
                     <div class="resource-card quick-facts">
                         <h3>Did You Know?</h3>
-                        <div class="fact-carousel"> <!-- Quick facts carousel container -->
-                            <div class="fact-slide active"> <!-- active class indicates current carousel item -->
+                        <div class="fact-carousel"> <!-- Fun facts carousel container -->
+                            <div class="fact-slide active"> <!-- active class indicates currently displayed carousel item -->
                                 <p><i class="fas fa-moon"></i> The Moon is gradually moving away from Earth at a rate of about 3.8 cm per year.</p>
                             </div>
                             <div class="fact-slide"> <!-- Carousel item 2 -->
@@ -388,25 +347,25 @@
                             <div class="fact-slide"> <!-- Carousel item 4 -->
                                 <p><i class="fas fa-user-astronaut"></i> Only 12 humans have walked on the lunar surface, all of them American men.</p>
                             </div>
-                            <div class="fact-navigation"> <!-- Carousel navigation points container -->
-                                <span class="fact-dot active"></span> <!-- Navigation point for current carousel item -->
-                                <span class="fact-dot"></span> <!-- Navigation point for second carousel item -->
-                                <span class="fact-dot"></span> <!-- Navigation point for third carousel item -->
-                                <span class="fact-dot"></span> <!-- Navigation point for fourth carousel item -->
+                            <div class="fact-navigation"> <!-- Carousel navigation dots container -->
+                                <span class="fact-dot active"></span> <!-- Current carousel item navigation dot -->
+                                <span class="fact-dot"></span> <!-- Second carousel item navigation dot -->
+                                <span class="fact-dot"></span> <!-- Third carousel item navigation dot -->
+                                <span class="fact-dot"></span> <!-- Fourth carousel item navigation dot -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Moon-Earth system section - Visualizing Earth and Moon relationship -->
+            <!-- Earth-Moon system display section - visualizing the relationship between Earth and Moon -->
             <div class="moon-earth-section">
                 <h2>The Moon and Earth</h2>
                 <div class="earth-moon-visual"> <!-- Earth-Moon system visualization container -->
                     <div class="earth-moon-container">
-                        <div class="earth"></div> <!-- Earth element, with rotation animation -->
+                        <div class="earth"></div> <!-- Earth element with rotation animation -->
                         <div class="orbit-path"></div> <!-- Moon orbit path dashed line -->
-                        <div class="moon-orbital"></div> <!-- Moon element on orbit, with Earth rotation animation -->
+                        <div class="moon-orbital"></div> <!-- Orbiting moon element with animation around Earth -->
                     </div>
                 </div>
                 <div class="earth-moon-info"> <!-- Earth-Moon system information text -->
@@ -424,16 +383,16 @@
                 </div>
             </div>
 
-            <!-- Footer navigation - Linking to other pages -->
+            <!-- Footer navigation - links to other pages -->
             <div class="footer-navigation">
-                <!-- Navigation button 1: Linking to planets page -->
+                <!-- Navigation button 1: Link to planets page -->
                 <div class="nav-button">
                     <a href="planet.html" class="planet-button">
                         <span class="icon"><i class="fas fa-globe-americas"></i></span> <!-- Earth icon -->
                         <span class="text">Explore Planets</span> <!-- Button text -->
                     </a>
                 </div>
-                <!-- Navigation button 2: Linking to sun page -->
+                <!-- Navigation button 2: Link to sun page -->
                 <div class="nav-button">
                     <a href="sun.html" class="sun-button">
                         <span class="icon"><i class="fas fa-sun"></i></span> <!-- Sun icon -->
@@ -444,8 +403,8 @@
         </div>
     </div>
 
-    <!-- Import JavaScript file -->
-    <script src="script.js"></script> <!-- Main JavaScript file, handling shared functionality -->
-    <script src="moon-script.js"></script> <!-- Moon page specific JavaScript, handling Moon-related animations and interactions -->
+    <!-- Include JavaScript files -->
+    <script src="script.js"></script> <!-- Main JavaScript file for shared functionality -->
+    <script src="moon-script.js"></script> <!-- Moon page specific JavaScript for moon-related animations and interactions -->
 </body>
 </html> 
