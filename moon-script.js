@@ -1,20 +1,17 @@
-/**
- * Moon Page Script - Ultra-simplified Version 2
- * 
- * This JavaScript file was originally part of the moon page's interactive features.
- * In this version 2 downgrade, all functionality has been removed to create
- * an extremely simplified experience with minimal scripting.
- * 
- * Previous version likely contained:
- * - Moon phase animations and transitions
- * - Interactive elements for exploring moon features
- * - Parallax scrolling effects
- * - Dynamic content loading
- */
-
-// Execute when the page has fully loaded
-window.onload = function() {
-    // Empty function, only marking that the page has loaded
-    // All functional scripts and interactive elements have been removed
-    // This serves as a placeholder for where functionality would be in version 3
-}; 
+// Ensure all elements are visible after page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Make all content elements immediately visible
+    document.querySelectorAll('.phase-item, .moon-card, .resource-card, .fact-slide, .timeline-item, .feature-item').forEach(el => {
+        el.style.opacity = 1; // Set full opacity
+        el.style.transform = 'none'; // Remove any transform effects
+    });
+    
+    // Show only the first fact, hide others
+    const factSlides = document.querySelectorAll('.fact-slide');
+    if (factSlides.length > 0) {
+        factSlides[0].classList.add('active'); // Mark first fact as active
+        for (let i = 1; i < factSlides.length; i++) {
+            factSlides[i].style.display = 'none'; // Hide all other facts
+        }
+    }
+}); 

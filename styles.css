@@ -1,235 +1,297 @@
-/* Global Styles - Ultra-simplified Version 2 */
+/* Global styles - Version 3 minimalist version */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Include padding and border in element's width and height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 body {
-    font-family: Arial, sans-serif; /* Basic, widely available font for cross-platform compatibility */
-    background: #000000; /* Black background to represent space/cosmos */
+    font-family: Arial, sans-serif; /* Set primary font */
+    background: #000000; /* Black background for space theme */
     color: #ffffff; /* White text for readability on dark background */
-    line-height: 1.4; /* Slightly increased line height for better readability */
-    margin: 0;
-    padding: 0;
+    line-height: 1.5; /* Set comfortable line height for readability */
 }
 
-/* Simplified Navigation Bar */
+/* Basic navigation bar styles */
 .top-nav {
     background: #111; /* Dark gray navigation background */
-    padding: 10px;
-    width: 100%; /* Full width navigation */
+    padding: 1rem; /* Add space around navigation content */
+    position: fixed; /* Fix navigation at top of viewport */
+    width: 100%; /* Full width */
+    top: 0; /* Position at top */
+    z-index: 100; /* Ensure navigation appears above other content */
 }
 
 .nav-content {
-    width: 90%; /* Container width, leaving some margin on sides */
-    margin: 0 auto; /* Center the navigation content */
+    max-width: 1000px; /* Limit width for large screens */
+    margin: 0 auto; /* Center horizontally */
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
 }
 
 .logo {
-    color: #fff; /* White color for logo text */
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-weight: bold; /* Bold text for logo */
+    color: #fff; /* White color for visibility */
 }
 
 .nav-links {
-    margin-top: 5px;
+    display: flex; /* Horizontal layout for links */
 }
 
 .nav-links a {
-    color: #ccc; /* Light gray for inactive navigation links */
-    text-decoration: none; /* Remove underline from links */
-    margin-right: 10px;
+    color: #ccc; /* Light gray for inactive links */
+    text-decoration: none; /* Remove underline */
+    margin-left: 1rem; /* Space between links */
 }
 
 .nav-links a.active {
-    color: #fff; /* White color for active/current page link */
+    color: #fff; /* White for active link */
     font-weight: bold; /* Bold text for active link */
 }
 
-/* Simplified Hero/Banner Area */
+/* Basic hero section styles */
 .hero-section {
-    height: 200px;
-    text-align: center;
-    background: #111; /* Dark gray background for hero section */
-    padding-top: 50px;
+    height: 70vh; /* 70% of viewport height */
+    background: url('images/galaxy-bg.jpg') no-repeat center center; /* Galaxy background image */
+    background-size: cover; /* Ensure background covers entire area */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center content vertically */
+    position: relative; /* For positioning child elements */
+}
+
+.hero-section::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position relative to parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+}
+
+.hero-content {
+    width: 100%; /* Full width */
+    position: relative; /* Ensures content appears above overlay */
+    text-align: center; /* Center text */
 }
 
 .hero-title {
-    font-size: 24px;
-    color: #fff;
+    font-size: 3rem; /* Large font for title */
+    color: #fff; /* White for visibility */
+    text-align: center; /* Center text */
+    width: 100%; /* Full width */
 }
 
-/* Simplified Content Styles */
+/* Responsive design basic styles */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem; /* Smaller font on mobile */
+    }
+    
+    .nav-content {
+        flex-direction: column; /* Stack navigation items on mobile */
+    }
+    
+    .nav-links {
+        margin-top: 1rem; /* Add space between logo and links on mobile */
+    }
+}
+
+/* Basic content styles */
 .main-content {
-    background: #000; /* Black background for main content area */
-    padding-top: 20px;
+    background: #000; /* Black background */
+    padding-top: 2rem; /* Top padding for spacing */
 }
 
 .container {
-    width: 90%; /* Content width, leaving some margin on sides */
-    margin: 0 auto; /* Center the content container */
-    padding: 10px;
+    max-width: 1000px; /* Limit width for large screens */
+    margin: 0 auto; /* Center horizontally */
+    padding: 1rem; /* Padding around content */
 }
 
 header {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Center header text */
+    margin-bottom: 2rem; /* Space below header */
 }
 
-/* Structure Item Styles - Ultra-minimal version */
+/* Removed all star background styles */
+
+/* Basic structure item styles */
 .structure-grid {
-    margin-top: 10px;
+    display: grid; /* Use CSS grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid columns */
+    gap: 1rem; /* Space between grid items */
+    margin-top: 1rem; /* Space above grid */
 }
 
 .structure-item {
-    background: #222; /* Dark gray background for content items */
-    padding: 10px;
-    margin-bottom: 10px;
-    text-align: center;
+    background: #222; /* Dark gray background for cards */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Internal spacing */
+    text-align: center; /* Center content */
 }
 
 .structure-item h3 {
-    margin: 5px 0;
-    color: #fff; /* White color for headings */
-    font-size: 18px;
+    margin: 0.5rem 0; /* Vertical spacing */
+    color: #fff; /* White text */
+    font-size: 1.2rem; /* Slightly larger font */
 }
 
 .structure-item p {
-    color: #ccc; /* Light gray for descriptive text */
-    font-size: 14px;
+    color: #ccc; /* Light gray text */
+    font-size: 0.9rem; /* Slightly smaller font */
 }
 
-/* Ultra-minimal Planet Card Styles */
+/* Basic planet card styles */
 .planet-card {
-    background: #222; /* Dark gray background for planet cards */
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer; /* Hand cursor to indicate clickable */
+    background: #222; /* Dark gray background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Internal spacing */
+    cursor: pointer; /* Show hand cursor on hover */
 }
 
 .planet-image {
-    width: 120px;
-    margin: 0 auto 5px; /* Center the image and add bottom margin */
+    width: 100%; /* Full width */
+    max-width: 150px; /* Maximum size */
+    margin: 0 auto 0.5rem; /* Center horizontally, space below */
 }
 
 .planet-image img {
-    width: 100%; /* Make image fill its container */
+    width: 100%; /* Full width of container */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
 }
 
-/* Ultra-minimal Planet Detail Styles */
+/* Basic planet detail styles */
 .planet-detail-section {
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #222; /* Dark gray background for detail sections */
+    margin-bottom: 2rem; /* Space below section */
+    padding: 1rem; /* Internal spacing */
+    background: #222; /* Dark gray background */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .planet-detail-content {
-    margin-top: 10px;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .planet-detail-image {
-    width: 200px;
-    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    width: 100%; /* Full width */
+    max-width: 300px; /* Maximum size */
+    margin: 0 auto 1rem; /* Center horizontally, space below */
 }
 
 .planet-detail-image img {
-    width: 100%; /* Make image fill its container */
+    width: 100%; /* Full width of container */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .planet-detail-info {
-    width: 100%;
+    flex: 1; /* Take up remaining space */
 }
 
 .planet-detail-description {
-    margin-bottom: 10px;
-    color: #ddd; /* Off-white color for description text */
+    margin-bottom: 1rem; /* Space below */
+    line-height: 1.5; /* Line spacing */
+    color: #ddd; /* Light gray text */
 }
 
 .planet-detail-stats {
-    margin-top: 10px;
+    display: grid; /* Use CSS grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0.5rem; /* Space between grid items */
 }
 
 .stat-item {
-    background: #333; /* Slightly lighter gray for stat items */
-    padding: 5px;
-    margin-bottom: 5px;
+    background: #333; /* Darker gray for stat items */
+    padding: 0.5rem; /* Internal spacing */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .stat-item h4 {
-    color: #fff; /* White color for stat labels */
-    margin-bottom: 2px;
-    font-size: 14px;
+    color: #fff; /* White text */
+    margin-bottom: 0.2rem; /* Space below */
+    font-size: 0.9rem; /* Slightly smaller font */
 }
 
 .stat-item p {
-    color: #ddd; /* Off-white color for stat values */
-    font-size: 14px;
+    color: #ddd; /* Light gray text */
+    font-size: 1rem; /* Standard font size */
 }
 
-/* Page Title Styles */
+/* Basic section title styles */
 .section-title {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #fff; /* White color for section titles */
+    text-align: center; /* Center text */
+    margin-bottom: 1.5rem; /* Space below */
+    font-size: 1.5rem; /* Larger font */
+    color: #fff; /* White text */
 }
 
-/* Footer Area */
+/* Basic footer area */
 .distance-info {
-    text-align: center;
-    margin-top: 15px;
-    padding: 5px;
-    background: #222; /* Dark gray background for footer area */
+    text-align: center; /* Center text */
+    margin-top: 1.5rem; /* Space above */
+    padding: 0.5rem; /* Internal spacing */
+    background: #222; /* Dark gray background */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .au-info {
-    font-size: 14px;
-    color: #aaa; /* Medium gray for footer information text */
+    font-size: 0.9rem; /* Slightly smaller font */
+    color: #aaa; /* Light gray text */
 }
 
-/* Content Section Styles */
+/* Content section styles */
 .content-section {
-    background: #000; /* Black background for content sections */
-    padding: 20px 0;
+    background: #000; /* Black background */
+    padding: 4rem 0 2rem; /* Top, right/left, bottom padding */
+    min-height: 100vh; /* Minimum full viewport height */
 }
 
-/* Planet Page Styles */
+/* Planet categories styles */
 .planet-categories {
-    padding: 20px 0;
+    margin-bottom: 2rem; /* Space below */
 }
 
 .category {
-    margin-bottom: 30px;
+    margin-bottom: 2rem; /* Space between categories */
 }
 
 .category-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #fff; /* White color for category titles */
-    text-align: center;
+    font-size: 1.5rem; /* Larger font */
+    color: #fff; /* White text */
+    text-align: center; /* Center text */
+    margin-bottom: 1rem; /* Space below */
 }
 
 .category-description {
-    text-align: center;
-    margin: 0 auto 20px;
-    color: #ccc; /* Light gray for category descriptions */
-    font-size: 14px;
+    font-size: 0.9rem; /* Slightly smaller font */
+    color: #ccc; /* Light gray text */
+    text-align: center; /* Center text */
+    margin-bottom: 1.5rem; /* Space below */
+    max-width: 800px; /* Maximum width */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 }
 
+/* Planets grid layout */
 .planets-grid {
-    /* Ultra-simplified grid, changed to single column layout */
+    display: grid; /* Use CSS grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid columns */
+    gap: 1rem; /* Space between grid items */
 }
 
+/* Planet details section */
 .planet-details {
-    margin-top: 20px;
+    margin-top: 3rem; /* Space above */
 }
 
 .planet-detail-title {
-    font-size: 20px;
-    color: #fff; /* White color for detail titles */
-    text-align: center;
-    margin-bottom: 10px;
-} 
+    color: #fff; /* White text */
+    margin-bottom: 1rem; /* Space below */
+    text-align: center; /* Center text */
+}
+
+/* Removed all animations, transitions and transform effects */ 

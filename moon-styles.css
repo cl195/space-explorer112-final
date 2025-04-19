@@ -1,262 +1,305 @@
-/* Lunar Page Base Styles - Version 2 Extremely Simplified */
+/* Moon page basic styles - Version 3 minimalist version */
+
+/* Simplified variables */
+:root {
+    --moon-bg: #111; /* Dark background color for moon theme */
+    --moon-text: #eee; /* Light text color for readability */
+    --moon-accent: #aaa; /* Accent color for highlights */
+}
 
 /* Page base styles */
 .moon-page {
-    background: #000;
-    color: #eee;
+    background: #000; /* Black background for space theme */
+    color: var(--moon-text); /* Text color from variable */
 }
 
-/* Navigation bar style */
+/* Navigation bar styles */
 .moon-nav {
-    background-color: #111;
-    padding: 10px;
+    background-color: #111; /* Dark navigation background */
 }
 
-/* Hero Area - Extremely Simplified */
+/* Hero area - minimalist static version */
 .moon-hero {
-    height: 150px;
-    background-color: #000;
-    text-align: center;
-    padding-top: 50px;
+    height: 300px; /* Fixed height for hero section */
+    background: url('../images/moon/f3de9a48aa76cc6.jpg') no-repeat center center; /* Moon background image */
+    background-size: cover; /* Ensure image covers the entire area */
+    position: relative; /* Position context for overlay */
 }
 
-/* Remove all complex backgrounds and overlays */
 .moon-hero::before {
-    display: none;
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position relative to parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
 }
 
 /* Remove all parallax components */
 .moon-parallax {
-    display: none;
+    display: none; /* Hide parallax elements */
 }
 
-/* main title */
+/* Main title */
 .moon-title {
-    font-size: 20px;
-    color: #fff;
-    padding-top: 10px;
+    position: relative; /* Position above overlay */
+    font-size: 2rem; /* Large font size for title */
+    text-align: center; /* Center align text */
+    color: #fff; /* White text for visibility */
+    padding-top: 120px; /* Top padding to position vertically */
+    z-index: 2; /* Ensure title appears above overlay */
 }
 
-/* content area */
+/* Content area */
 .moon-content {
-    padding: 10px 0;
-    background: #000;
+    padding: 1rem 0; /* Vertical padding */
+    background: #000; /* Black background */
 }
 
-/* Introductory text */
+/* Introduction text */
 .moon-introduction {
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 1.5rem; /* Space below introduction */
+    text-align: center; /* Center align text */
 }
 
 .intro-text {
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.5; /* Comfortable line height */
+    margin-bottom: 0.5rem; /* Space between paragraphs */
 }
 
-/* moon phase */
+/* Moon phases section */
 .moon-phases-section {
-    margin-bottom: 20px;
+    margin-bottom: 2rem; /* Space below section */
 }
 
 .phases-container {
-    margin-top: 10px;
+    display: grid; /* Grid layout for phases */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid columns */
+    gap: 1rem; /* Space between grid items */
+    margin-top: 1rem; /* Space above grid */
 }
 
 .phase-item {
-    text-align: center;
-    padding: 8px;
-    background: #222;
-    margin-bottom: 10px;
+    text-align: center; /* Center align content */
+    padding: 0.8rem; /* Internal padding */
+    background: #222; /* Dark background for cards */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .phase-animation {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 5px;
+    width: 100px; /* Fixed width for phase image container */
+    height: 100px; /* Fixed height for phase image container */
+    margin: 0 auto 0.5rem; /* Center horizontally, space below */
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Hide overflow */
 }
 
 .phase-img {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    object-fit: cover; /* Maintain aspect ratio while filling container */
 }
 
 .phase-item h3 {
-    color: #fff;
-    margin-bottom: 3px;
-    font-size: 16px;
+    color: #fff; /* White text for heading */
+    margin-bottom: 0.3rem; /* Space below heading */
+    font-size: 1rem; /* Standard font size for heading */
 }
 
 .phase-item p {
-    font-size: 13px;
-    color: #ccc;
+    font-size: 0.8rem; /* Smaller font for description */
+    color: #ccc; /* Light gray text for description */
 }
 
-/* Lunar Information */
+/* Moon information grid */
 .moon-info-grid {
-    margin-bottom: 20px;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1rem; /* Space between grid items */
+    margin-bottom: 2rem; /* Space below grid */
 }
 
-/* Moon Info Card */
+/* Moon information cards */
 .moon-card {
-    background: #222;
-    padding: 10px;
-    margin-bottom: 10px;
+    background: #222; /* Dark background for cards */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Internal padding */
 }
 
 .moon-card h2 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 18px;
+    color: #fff; /* White text for card title */
+    margin-bottom: 1rem; /* Space below title */
+    font-size: 1.2rem; /* Slightly larger font for title */
 }
 
-/* Remove card background effect */
+/* Remove card background effects */
 .card-backdrop {
-    display: none;
+    display: none; /* Hide backdrop elements */
 }
 
-/* fact sheet */
+/* Facts list */
 .fact-list {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout for facts */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Space between fact items */
 }
 
 .fact-item {
-    padding: 5px;
-    background: #333;
-    margin-bottom: 5px;
+    padding: 0.5rem; /* Internal padding */
+    border-radius: 5px; /* Rounded corners */
+    background: #333; /* Darker background for fact items */
 }
 
 .fact-item h3 {
-    color: #ccc;
-    font-size: 14px;
-    margin-bottom: 3px;
+    color: #ccc; /* Light gray text for fact title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
+    margin-bottom: 0.3rem; /* Space below title */
 }
 
 .fact-item p {
-    color: #eee;
-    font-size: 14px;
+    color: #eee; /* Off-white text for fact content */
+    font-size: 0.9rem; /* Slightly smaller font for content */
 }
 
-/* characteristic container */
+/* Features container */
 .impact-container {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout for features */
+    gap: 0.5rem; /* Space between feature items */
 }
 
-/* characteristic term */
+/* Feature items */
 .feature-item {
-    padding: 5px;
-    background: #333;
-    margin-bottom: 5px;
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    padding: 0.5rem; /* Internal padding */
+    border-radius: 5px; /* Rounded corners */
+    background: #333; /* Darker background for feature items */
 }
 
-/* Feature Icons */
+/* Feature icons */
 .feature-icon {
-    width: 20px;
-    height: 20px;
-    background: #444;
-    margin-right: 8px;
-    float: left;
+    width: 30px; /* Fixed width for icon container */
+    height: 30px; /* Fixed height for icon container */
+    border-radius: 50%; /* Circular shape */
+    background: #444; /* Darker background for icons */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-right: 0.8rem; /* Space between icon and text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .feature-icon i {
-    font-size: 12px;
-    color: #fff;
+    font-size: 0.8rem; /* Smaller font for icons */
+    color: #fff; /* White color for icons */
 }
 
 .feature-info h4 {
-    color: #eee;
-    margin-bottom: 3px;
-    font-size: 14px;
+    color: #eee; /* Off-white text for feature title */
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .feature-info p {
     color: #ccc;
-    font-size: 13px;
+    font-size: 0.8rem;
+    line-height: 1.3;
 }
 
-/* Explore Cards */
+/* Exploration cards */
 .mission-timeline {
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 /* Timeline items */
 .timeline-item {
-    margin-bottom: 8px;
+    display: flex;
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
 }
 
 .timeline-date {
+    min-width: 50px;
     font-weight: bold;
     color: #ccc;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .timeline-content {
-    padding-left: 5px;
+    padding-left: 0.5rem;
 }
 
 .timeline-content h4 {
     color: #eee;
-    margin-bottom: 3px;
-    font-size: 14px;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .timeline-content p {
     color: #ccc;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
-/* term of influence */
+/* Impact items */
 .influence-item {
-    padding: 8px;
+    padding: 0.8rem;
     background: #333;
-    margin-bottom: 5px;
+    border-radius: 5px;
     text-align: center;
 }
 
 .influence-icon {
-    font-size: 16px;
+    font-size: 1.2rem;
     color: #ccc;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .influence-item h4 {
     color: #eee;
-    margin-bottom: 3px;
-    font-size: 14px;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .influence-item p {
     color: #ccc;
-    font-size: 13px;
+    font-size: 0.8rem;
+    line-height: 1.3;
 }
 
-/* Resource component */
+/* Resources section */
 .moon-resources-section {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .resources-container {
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* resource card */
+/* Resource cards */
 .resource-card {
     background: #222;
-    padding: 10px;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 1rem;
 }
 
 .resource-card h3 {
     color: #fff;
-    margin-bottom: 8px;
-    font-size: 16px;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
 }
 
-/* Topographic resources */
+/* Terrain resources */
 .terrain-image {
     width: 100%;
-    max-height: 150px;
-    margin-bottom: 8px;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 0.8rem;
 }
 
 .terrain-image img {
@@ -265,128 +308,147 @@
 }
 
 .resource-description p {
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #ccc;
-    margin-bottom: 8px;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
 }
 
-/* Topographic statistics */
+/* Terrain statistics */
 .terrain-stat {
-    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem;
     background: #333;
-    margin-bottom: 3px;
+    border-radius: 3px;
+    margin-bottom: 0.3rem;
 }
 
 .stat-name {
     font-weight: bold;
     color: #ccc;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
 .stat-value {
     color: #eee;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
-/* reading resource */
+/* Reading resources */
 .reading-links {
     list-style: none;
 }
 
 .reading-links li {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .reading-links a {
     color: #ccc;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 0.8rem;
+    display: block;
 }
 
 .reading-links i {
-    margin-right: 3px;
+    margin-right: 0.3rem;
 }
 
-/* panorama */
+/* Panorama */
 .panorama-viewer {
     width: 100%;
-    height: 100px;
-    margin-bottom: 5px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .panorama-viewer img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .panorama-caption {
-    font-size: 13px;
+    font-size: 0.8rem;
     color: #ccc;
     text-align: center;
 }
 
-/* Fun Facts */
+/* Fun facts */
 .fact-slide {
-    padding: 8px;
+    padding: 0.8rem;
     background: #333;
+    border-radius: 5px;
     text-align: center;
-    margin-bottom: 5px;
+}
+
+.fact-slide:not(.active) {
+    display: none;
 }
 
 .fact-slide p {
-    font-size: 13px;
+    font-size: 0.8rem;
     color: #eee;
+    line-height: 1.4;
 }
 
 .fact-slide i {
     color: #ccc;
-    margin-right: 3px;
+    margin-right: 0.3rem;
 }
 
-/* Remove navigation points */
+/* Remove navigation dots */
 .fact-navigation {
     display: none;
 }
 
 /* Earth-Moon system */
 .moon-earth-section {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
 .moon-earth-section h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
     color: #fff;
 }
 
-/* Reduced to still images */
+/* Simplified to static image */
 .earth-moon-visual {
     display: none;
 }
 
 .earth-moon-info p {
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #ccc;
-    margin-bottom: 8px;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
     text-align: left;
 }
 
 /* Footer navigation */
 .footer-navigation {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.nav-button {
-    display: inline-block;
-    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .nav-button a {
-    padding: 5px 10px;
+    display: inline-block;
+    padding: 0.5rem 1rem;
     background: #222;
+    border-radius: 3px;
     color: #eee;
     text-decoration: none;
-    font-size: 14px;
-} 
+    font-size: 0.9rem;
+}
+
+.nav-button .icon {
+    margin-right: 0.3rem;
+}
+
+/* Removed all animations and transition effects */ 

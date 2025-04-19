@@ -1,278 +1,327 @@
-/* 太阳页面特定样式 - 第2版本超简化版 */
+/* Sun page specific styles - Version 3 minimalist styles */
 .sun-page {
-    background: #000;
+    background: #000; /* Black background for space theme */
 }
 
 .sun-nav {
-    background: #111;
-    padding: 10px;
+    background: #111; /* Dark gray navigation background */
 }
 
-/* 极简太阳区域 */
+/* Simplified sun hero area */
 .sun-hero {
-    height: 150px;
-    background: #111;
-    text-align: center;
-    padding-top: 50px;
+    height: 300px; /* Fixed height for hero section */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    position: relative; /* For positioning child elements */
+    background: #000; /* Black background */
+    padding: 1rem 5%; /* Vertical and horizontal padding */
 }
 
-/* 完全移除太阳动画 */
+/* Remove sun animation and effects */
 .sun-animation {
-    display: none;
+    display: none; /* Hide animation elements */
 }
 
 .sun-title {
-    color: #fff;
-    font-size: 20px;
-    width: 100%;
+    color: #fff; /* White text for title */
+    font-size: 2rem; /* Large font size for title */
+    text-align: center; /* Center align text */
+    width: 100%; /* Full width */
 }
 
-/* 内容样式 */
+/* Content styles */
 .sun-content {
-    padding: 10px 0;
+    padding: 2rem 0; /* Vertical padding */
 }
 
 .sun-info-grid {
-    margin-bottom: 20px;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1rem; /* Space between grid items */
+    margin-bottom: 2rem; /* Space below grid */
 }
 
 .sun-card {
-    background: #222;
-    padding: 10px;
-    margin-bottom: 10px;
+    background: #222; /* Dark gray background for cards */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Internal padding */
+    border: none; /* Remove borders */
 }
 
 .sun-card h2 {
-    color: #fff;
-    font-size: 18px;
-    margin-bottom: 10px;
+    color: #fff; /* White text for card title */
+    font-size: 1.5rem; /* Larger font for title */
+    margin-bottom: 1rem; /* Space below title */
 }
 
-/* 事实列表样式 */
+/* Fact list styles */
 .fact-list {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout for facts */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Space between fact items */
 }
 
 .fact-item {
-    text-align: center;
-    padding: 5px;
-    background: #333;
-    margin-bottom: 5px;
+    text-align: center; /* Center align text */
+    padding: 0.5rem; /* Internal padding */
+    background: #333; /* Darker background for fact items */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .fact-item h3 {
-    color: #ccc;
-    margin-bottom: 3px;
-    font-size: 14px;
+    color: #ccc; /* Light gray text for fact title */
+    margin-bottom: 0.3rem; /* Space below title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
 }
 
-/* 成分图表样式 */
+/* Composition chart styles */
 .composition-chart {
-    margin-bottom: 10px;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 0.5rem; /* Space between chart bars */
 }
 
 .chart-bar {
-    background: #333;
-    height: 20px;
-    margin-bottom: 5px;
+    background: #333; /* Dark background for chart bar container */
+    border-radius: 3px; /* Slightly rounded corners */
+    overflow: hidden; /* Hide overflow for inner bar fill */
+    height: 20px; /* Fixed height for chart bars */
 }
 
 .bar-fill {
-    height: 100%;
-    padding: 0 5px;
-    color: #fff;
-    font-size: 13px;
+    height: 100%; /* Full height of parent */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center text vertically */
+    padding: 0 0.5rem; /* Horizontal padding for text */
+    color: #fff; /* White text */
+    font-size: 0.8rem; /* Small font size for bar text */
 }
 
 .hydrogen {
-    background: #666;
+    background: #666; /* Medium gray for hydrogen bar */
 }
 
 .helium {
-    background: #555;
+    background: #555; /* Darker gray for helium bar */
 }
 
 .other {
-    background: #444;
+    background: #444; /* Darkest gray for other elements bar */
 }
 
-/* 图层样式 */
+/* Simplified layers styles */
 .layers-diagram {
-    margin-bottom: 10px;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 0.5rem; /* Space between layers */
 }
 
 .layer {
-    padding: 5px;
-    background: #333;
-    margin-bottom: 5px;
+    padding: 0.5rem; /* Internal padding */
+    border-radius: 5px; /* Rounded corners */
+    background: #333; /* Dark background for layers */
 }
 
 .layer h4 {
-    color: #ccc;
-    margin-bottom: 3px;
-    font-size: 14px;
+    color: #ccc; /* Light gray text for layer title */
+    margin-bottom: 0.3rem; /* Space below title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
 }
 
-/* 活动网格样式 */
+/* Simplified activity grid styles */
 .activity-grid {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Space between grid items */
 }
 
 .activity-item {
-    padding: 5px;
-    background: #333;
-    margin-bottom: 5px;
+    padding: 0.5rem; /* Internal padding */
+    background: #333; /* Dark background for activity items */
+    border-radius: 5px; /* Rounded corners */
 }
 
-/* 导航门户样式 */
+/* Simplified navigation portal styles */
 .navigation-portal {
-    text-align: center;
-    margin-top: 20px;
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    gap: 1rem; /* Space between portal links */
+    margin-top: 2rem; /* Space above portal */
 }
 
 .portal-link {
-    padding: 5px 10px;
-    color: #fff;
-    text-decoration: none;
-    background: #333;
-    margin: 0 5px;
-    display: inline-block;
+    padding: 0.5rem 1rem; /* Vertical and horizontal padding */
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline from links */
+    background: #333; /* Dark background for links */
+    border-radius: 5px; /* Rounded corners */
 }
 
-/* 介绍文本 */
+/* Introduction text */
 .sun-introduction {
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 1.5rem; /* Space below introduction */
+    text-align: center; /* Center align text */
 }
 
 .intro-text {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 5px;
+    font-size: 0.9rem; /* Slightly smaller font */
+    line-height: 1.4; /* Comfortable line height */
+    color: #ccc; /* Light gray text */
+    margin-bottom: 0.5rem; /* Space below paragraphs */
 }
 
-/* 元素样式 */
+/* Simplified element styles */
 .element-row {
-    margin-bottom: 5px;
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 0.5rem; /* Space below rows */
 }
 
 .element-icon {
-    margin-right: 5px;
-    float: left;
+    margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.element-info {
+    flex: 1; /* Take up remaining space */
 }
 
 .element-info h4 {
-    color: #ccc;
-    font-size: 14px;
-    margin-bottom: 3px;
+    color: #ccc; /* Light gray text for element title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
+    margin-bottom: 0.3rem; /* Space below title */
 }
 
-/* 温度列表样式 */
+/* Temperature list styles */
 .temp-list {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Space between temperature items */
 }
 
 .temp-item {
-    padding: 5px;
-    background: #333;
-    text-align: center;
-    margin-bottom: 5px;
+    padding: 0.5rem; /* Internal padding */
+    background: #333; /* Dark background */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text alignment */
 }
 
 .temp-item h4 {
-    color: #ccc;
-    margin-bottom: 3px;
-    font-size: 14px;
+    color: #ccc; /* Light gray text for title */
+    margin-bottom: 0.3rem; /* Space below title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
 }
 
 .temp-item p {
-    color: #eee;
-    font-size: 14px;
+    color: #eee; /* Off-white text for value */
+    font-size: 0.9rem; /* Slightly smaller font for value */
 }
 
-/* 速度列表样式 */
+/* Velocity list styles */
 .velocity-list {
-    margin-bottom: 10px;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Space between velocity items */
 }
 
 .velocity-item {
-    padding: 5px;
-    background: #333;
-    text-align: center;
-    margin-bottom: 5px;
+    padding: 0.5rem; /* Internal padding */
+    background: #333; /* Dark background */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text alignment */
 }
 
 .velocity-item h4 {
-    color: #ccc;
-    margin-bottom: 3px;
-    font-size: 14px;
+    color: #ccc; /* Light gray text for title */
+    margin-bottom: 0.3rem; /* Space below title */
+    font-size: 0.9rem; /* Slightly smaller font for title */
 }
 
 .velocity-item p {
-    color: #eee;
-    font-size: 14px;
+    color: #eee; /* Off-white text for value */
+    font-size: 0.9rem; /* Slightly smaller font for value */
 }
 
-/* 位置样式 */
+/* Location styles */
 .sun-location,
 .sun-neighborhood {
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem; /* Space below sections */
 }
 
 .sun-location h2,
 .sun-neighborhood h2 {
-    font-size: 18px;
-    color: #fff;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 1.2rem; /* Heading font size */
+    color: #fff; /* White text for headings */
+    margin-bottom: 1rem; /* Space below headings */
+    text-align: center; /* Center text alignment */
 }
 
-/* 位置内容 */
+/* Location content */
 .location-content,
 .neighborhood-content {
-    margin-bottom: 10px;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .location-image,
 .neighborhood-image {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Space below image */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
 }
 
 .location-image img,
 .neighborhood-image img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block display */
 }
 
-/* 位置文本 */
+/* Location text */
+.location-text,
+.neighborhood-text {
+    flex: 1; /* Take up remaining space */
+}
+
 .location-text p,
 .neighborhood-text p {
-    font-size: 14px;
-    color: #ccc;
+    font-size: 0.9rem; /* Slightly smaller font */
+    line-height: 1.4; /* Comfortable line height */
+    color: #ccc; /* Light gray text */
 }
 
-/* 元素框样式 */
+/* Simplified element box styles */
 .element-box {
-    width: 30px;
-    height: 30px;
-    background: #333;
-    margin-right: 5px;
-    text-align: center;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    background: #333; /* Dark background */
+    border-radius: 3px; /* Rounded corners */
+    margin-right: 0.5rem; /* Space to the right */
 }
 
 .element-number {
-    font-size: 10px;
-    color: #999;
+    font-size: 0.6rem; /* Small font size */
+    color: #999; /* Medium gray text */
 }
 
 .element-symbol {
-    font-size: 14px;
-    font-weight: bold;
-    color: #eee;
+    font-size: 1rem; /* Standard font size */
+    font-weight: bold; /* Bold text */
+    color: #eee; /* Off-white text */
 }
 
 .element-weight {
-    font-size: 10px;
-    color: #999;
+    font-size: 0.6rem; /* Small font size */
+    color: #999; /* Medium gray text */
+}
+
+/* Removed all complex layouts from media queries */
+@media (max-width: 768px) {
+    .sun-title {
+        font-size: 1.5rem; /* Smaller font size on mobile */
+    }
 } 

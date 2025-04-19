@@ -1,16 +1,23 @@
-/**
- * Sun Page Script - Ultra-simplified Version 2
- * 
- * This script is a minimalist version of the original sun page functionality.
- * All interactive features, animations, and special effects that were present in Version 3
- * have been completely removed to create an extremely simplified experience.
- * 
- * This empty script remains as a placeholder, indicating where functionality
- * would be implemented in more advanced versions of the site.
- */
+// Sun page script - Version 3 basic version
 
-// Execute when the page has fully loaded
-window.onload = function() {
-    // Empty function, no operations performed
-    // All animations, transitions, and interactive elements from version 3 were removed
-}; 
+// Execute basic initialization when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure all elements are immediately visible, no animations needed
+    document.querySelectorAll('.sun-card, .temp-item, .velocity-item, .element-row').forEach(el => {
+        el.style.opacity = '1'; // Set full opacity
+        el.style.transform = 'none'; // Remove any transform effects
+        el.classList.add('visible'); // Add visible class
+    });
+    
+    // Set progress bars directly to final width
+    const bars = document.querySelectorAll('.bar-fill');
+    bars.forEach(bar => {
+        // Display final width immediately, no animations
+        bar.style.transition = 'none';
+    });
+    
+    // Remove all animation classes and interactive effects
+    document.querySelectorAll('.animated, .fadeIn, .fadeInUp').forEach(el => {
+        el.classList.remove('animated', 'fadeIn', 'fadeInUp');
+    });
+}); 

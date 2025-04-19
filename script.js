@@ -1,23 +1,25 @@
-// Ultra-simplified Version - Version 2
-// All special features have been removed, keeping only basic page functionality
+// Basic version - Version 3 minimalist version
+// Removed star background and all animation effects
 
-/**
- * Main JavaScript file for the Solar System Explorer website
- * Version 2: Ultra-simplified version with minimal functionality
- * This script only handles basic page initialization and ensures navigation works properly
- */
-
-// Execute when the page has fully loaded
-window.onload = function() {
-    // Optional: Print a message in the console in strict compatibility mode
-    if (console && console.log) {
-        console.log("Page has loaded");
-    }
+// Page load initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Add basic anchor jump functionality
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Ignore empty anchors
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                window.scrollTo(0, targetElement.offsetTop - 50); // Scroll to target with 50px offset from top
+            }
+        });
+    });
     
-    // Ensure navigation links are clickable
-    var links = document.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-        // No additional operations, just ensuring default link behavior works correctly
-        // In version 3, this likely had event listeners or animation effects that were removed
-    }
-}; 
+    // Ensure all content is immediately visible when loaded
+    document.querySelectorAll('.fade-in-element, .slide-in-element, .structure-item, .planet-detail-section').forEach(el => {
+        el.style.opacity = '1'; // Set full opacity
+        el.style.transform = 'none'; // Reset any transform properties
+    });
+}); 

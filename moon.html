@@ -1,39 +1,39 @@
-<!DOCTYPE html> <!-- Declaring document type as HTML5 -->
-<html lang="en"> <!-- Specifying webpage language as English -->
+<!DOCTYPE html> <!-- Declaration of HTML5 document type -->
+<html lang="en"> <!-- Specifies English as the document language -->
 <head>
-    <meta charset="UTF-8"> <!-- Setting character encoding to UTF-8, supporting various language characters -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings, ensuring page displays correctly on mobile devices -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8, supporting various language characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design setting, ensures proper display on mobile devices -->
     <title>Solar System - The Moon</title> <!-- Page title, displayed in browser tab -->
     <link rel="stylesheet" href="styles.css"> <!-- Link to main stylesheet -->
-    <link rel="stylesheet" href="moon-styles.css"> <!-- Link to moon page specific stylesheet -->
-    <!-- Adding Font Awesome icon library for displaying various moon-related icons -->
+    <link rel="stylesheet" href="moon-styles.css"> <!-- Link to Moon page specific stylesheet -->
+    <!-- Import Font Awesome icon library, used for displaying various moon-related icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="moon-page"> <!-- Body tag with moon-page class for applying moon-specific styles and animations -->
-    <!-- Top navigation bar - using moon-nav to add moon-specific styling -->
+<body class="moon-page"> <!-- body with moon-page class for applying moon-specific styles and animations -->
+    <!-- Top navigation bar - using moon-nav for moon-specific styling -->
     <nav class="top-nav moon-nav">
         <div class="nav-content">
             <div class="logo">Space Explorer</div> <!-- Website logo/name -->
             <div class="nav-links"> <!-- Navigation links area -->
-                <a href="index.html" class="structure-link">STRUCTURE</a> <!-- Solar System structure page link -->
-                <a href="planet.html" class="planet-link">PLANET</a> <!-- Planet page link -->
+                <a href="index.html" class="structure-link">STRUCTURE</a> <!-- Solar System Structure page link -->
+                <a href="planet.html" class="planet-link">PLANET</a> <!-- Planets page link -->
                 <a href="sun.html" class="sun-link">SUN</a> <!-- Sun page link -->
-                <a href="moon.html" class="active moon-link">MOON</a> <!-- Current page: Moon, active class indicates current active state -->
+                <a href="moon.html" class="active moon-link">MOON</a> <!-- Current page: Moon, active class indicates current state -->
             </div>
         </div>
     </nav>
 
-    <!-- Hero/banner area - includes parallax effect for the main moon visual -->
+    <!-- Hero/banner area - Moon main visual with parallax effect -->
     <div class="moon-hero">
         <div class="moon-parallax"> <!-- Parallax effect container with multiple parallax layers -->
-            <div class="stars-layer"></div> <!-- Background starry sky layer -->
+            <div class="stars-layer"></div> <!-- Background stars layer -->
             <div class="moon-image"></div> <!-- Moon image layer -->
-            <div class="clouds-layer"></div> <!-- Cloud effect layer, adding atmosphere feeling -->
+            <div class="clouds-layer"></div> <!-- Cloud effect layer, adds atmosphere feeling -->
         </div>
-        <h1 class="moon-title">Earth's Faithful<br>Companion</h1> <!-- Main title, separated into two lines with break tag -->
+        <h1 class="moon-title">Earth's Faithful<br>Companion</h1> <!-- Main title with line break -->
     </div>
 
-    <!-- Main content area of the page -->
+    <!-- Main content area -->
     <div class="moon-content">
         <div class="container">
             <!-- Moon introduction text area -->
@@ -51,13 +51,13 @@
                 </p>
             </div>
 
-            <!-- Moon phases display section - showing 8 major moon phases -->
+            <!-- Moon phases section - showing 8 main moon phases -->
             <div class="moon-phases-section">
                 <h2 class="section-title">Phases of the Moon</h2> <!-- Section title -->
                 <div class="phases-container"> <!-- Moon phases grid container -->
                     <!-- Phase item 1: New Moon -->
                     <div class="phase-item">
-                        <div class="phase-animation"> <!-- Phase animation container -->
+                        <div class="phase-animation"> <!-- Moon phase animation container -->
                             <img src="images/moon/New Moon.jpg" alt="New Moon" class="phase-img"> <!-- New Moon image -->
                         </div>
                         <h3>New Moon</h3> <!-- New Moon title -->
@@ -128,11 +128,11 @@
                 </div>
             </div>
 
-            <!-- Moon information grid - displaying key moon data and information -->
+            <!-- Moon information grid - showing key moon data and information -->
             <div class="moon-info-grid">
                 <!-- Card 1: Moon key facts -->
                 <div class="moon-card facts">
-                    <div class="card-backdrop"></div> <!-- Card background effect layer, adding depth perception -->
+                    <div class="card-backdrop"></div> <!-- Card background effect layer, adds depth -->
                     <h2>Key Facts</h2>
                     <div class="fact-list"> <!-- Facts list grid -->
                         <div class="fact-item">
@@ -166,8 +166,8 @@
                 <div class="moon-card impact">
                     <div class="card-backdrop"></div>
                     <h2>Notable Features</h2>
-                    <div class="impact-container"> <!-- Features items container -->
-                        <!-- Feature item 1: Maria (Seas) -->
+                    <div class="impact-container"> <!-- Features container -->
+                        <!-- Feature item 1: Maria -->
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <i class="fas fa-mountain"></i> <!-- Mountain icon -->
@@ -213,7 +213,7 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Human Moon exploration history -->
+                <!-- Card 3: Human Exploration -->
                 <div class="moon-card exploration">
                     <div class="card-backdrop"></div>
                     <h2>Human Exploration</h2>
@@ -269,7 +269,7 @@
                 <div class="moon-card influence">
                     <div class="card-backdrop"></div>
                     <h2>Influence on Earth</h2>
-                    <div class="influence-content"> <!-- Influence items container -->
+                    <div class="influence-content"> <!-- Influence container -->
                         <!-- Influence item 1: Tides -->
                         <div class="influence-item">
                             <div class="influence-icon">
@@ -300,12 +300,12 @@
                 </div>
             </div>
 
-            <!-- Moon resources section - displaying moon-related resources and interesting facts -->
+            <!-- Moon resources section - showing moon-related resources and interesting facts -->
             <div class="moon-resources-section">
                 <h2 class="section-title">Lunar Resources</h2>
                 
-                <div class="resources-container"> <!-- Resources card container -->
-                    <!-- Resource card 1: Moon terrain -->
+                <div class="resources-container"> <!-- Resources container -->
+                    <!-- Resource card 1: Lunar terrain -->
                     <div class="resource-card terrain">
                         <h3>Lunar Terrain</h3>
                         <div class="terrain-image"> <!-- Terrain image container -->
@@ -363,19 +363,19 @@
                         </ul>
                     </div>
 
-                    <!-- Resource card 3: Moon panorama -->
+                    <!-- Resource card 3: Lunar panorama -->
                     <div class="resource-card panorama">
                         <h3>Lunar Panorama</h3>
                         <div class="panorama-viewer"> <!-- Panorama viewer container -->
-                            <img src="images/moon/unnamed.jpg" alt="Lunar Surface Panorama"> <!-- Using local moon image -->
+                            <img src="images/moon/unnamed.jpg" alt="Lunar Surface Panorama"> <!-- Use local Moon image -->
                         </div>
                         <p class="panorama-caption">Apollo 11 mission panorama showing Buzz Aldrin on the lunar surface, July 20, 1969.</p> <!-- Panorama caption text -->
                     </div>
                     
-                    <!-- Resource card 4: Moon interesting facts -->
+                    <!-- Resource card 4: Lunar quick facts -->
                     <div class="resource-card quick-facts">
                         <h3>Did You Know?</h3>
-                        <div class="fact-carousel"> <!-- Interesting facts carousel container -->
+                        <div class="fact-carousel"> <!-- Quick facts carousel container -->
                             <div class="fact-slide active"> <!-- active class indicates current carousel item -->
                                 <p><i class="fas fa-moon"></i> The Moon is gradually moving away from Earth at a rate of about 3.8 cm per year.</p>
                             </div>
@@ -399,7 +399,7 @@
                 </div>
             </div>
 
-            <!-- Moon-Earth system display section - visualizing Earth and Moon relationship -->
+            <!-- Moon-Earth system section - Visualizing Earth and Moon relationship -->
             <div class="moon-earth-section">
                 <h2>The Moon and Earth</h2>
                 <div class="earth-moon-visual"> <!-- Earth-Moon system visualization container -->
@@ -424,9 +424,9 @@
                 </div>
             </div>
 
-            <!-- Footer navigation - linking to other pages -->
+            <!-- Footer navigation - Linking to other pages -->
             <div class="footer-navigation">
-                <!-- Navigation button 1: Linking to planet page -->
+                <!-- Navigation button 1: Linking to planets page -->
                 <div class="nav-button">
                     <a href="planet.html" class="planet-button">
                         <span class="icon"><i class="fas fa-globe-americas"></i></span> <!-- Earth icon -->
@@ -444,8 +444,8 @@
         </div>
     </div>
 
-    <!-- Including JavaScript file -->
+    <!-- Import JavaScript file -->
     <script src="script.js"></script> <!-- Main JavaScript file, handling shared functionality -->
-    <script src="moon-script.js"></script> <!-- Moon page specific JavaScript, handling moon-related animations and interactions -->
+    <script src="moon-script.js"></script> <!-- Moon page specific JavaScript, handling Moon-related animations and interactions -->
 </body>
 </html> 
