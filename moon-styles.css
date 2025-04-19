@@ -1,305 +1,339 @@
-/* Moon page basic styles - Version 3 minimalist version */
+/* Moon page specific styles - Version 4 simplified */
 
-/* Simplified variables */
+/* Root variables for consistent theming */
 :root {
-    --moon-bg: #111; /* Dark background color for moon theme */
-    --moon-text: #eee; /* Light text color for readability */
-    --moon-accent: #aaa; /* Accent color for highlights */
+    --moon-primary: #4b6dba;     /* Moon color - light gray */
+    --moon-dark: #585e81;        /* Dark background */
+    --moon-accent: #7fabf6;      /* Accent color - light blue */
+    --moon-light: #f0f0f0;       /* Light text color */
 }
 
-/* Page base styles */
+/* Base page styles */
 .moon-page {
-    background: #000; /* Black background for space theme */
-    color: var(--moon-text); /* Text color from variable */
+    background: #0b0364;
+    color: var(--moon-light);
 }
 
 /* Navigation bar styles */
 .moon-nav {
-    background-color: #111; /* Dark navigation background */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
 }
 
-/* Hero area - minimalist static version */
+/* Hero section styles */
 .moon-hero {
-    height: 300px; /* Fixed height for hero section */
-    background: url('../images/moon/f3de9a48aa76cc6.jpg') no-repeat center center; /* Moon background image */
-    background-size: cover; /* Ensure image covers the entire area */
-    position: relative; /* Position context for overlay */
+    height: 80vh; /* Reduced height */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url('../images/moon/f3de9a48aa76cc6.jpg') no-repeat center center;
+    background-size: cover;
 }
 
-.moon-hero::before {
-    content: ''; /* Required for pseudo-element */
-    position: absolute; /* Position relative to parent */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
-}
-
-/* Remove all parallax components */
+/* Parallax effect container */
 .moon-parallax {
-    display: none; /* Hide parallax elements */
+    display: none; /* Parallax effect removed */
 }
 
-/* Main title */
+/* Moon title styles */
 .moon-title {
-    position: relative; /* Position above overlay */
-    font-size: 2rem; /* Large font size for title */
-    text-align: center; /* Center align text */
-    color: #fff; /* White text for visibility */
-    padding-top: 120px; /* Top padding to position vertically */
-    z-index: 2; /* Ensure title appears above overlay */
+    position: relative;
+    font-size: 3.5rem; /* Reduced font size */
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Enhanced text shadow */
+    z-index: 5;
+    max-width: 80%;
 }
 
-/* Content area */
+/* Content section styles */
 .moon-content {
-    padding: 1rem 0; /* Vertical padding */
-    background: #000; /* Black background */
+    padding: 2rem 0; /* Reduced padding */
+    position: relative;
+    background: #0e0e0e;
 }
 
-/* Introduction text */
+/* Introduction text styles */
 .moon-introduction {
-    margin-bottom: 1.5rem; /* Space below introduction */
-    text-align: center; /* Center align text */
+    margin-bottom: 2rem; /* Reduced margin */
+    text-align: center;
 }
 
 .intro-text {
-    font-size: 1rem; /* Standard font size */
-    line-height: 1.5; /* Comfortable line height */
-    margin-bottom: 0.5rem; /* Space between paragraphs */
+    font-size: 1.1rem; /* Reduced font size */
+    line-height: 1.5;
+    color: var(--moon-light);
+    margin-bottom: 1rem; /* Reduced margin */
 }
 
-/* Moon phases section */
+/* Moon phases section styles */
 .moon-phases-section {
-    margin-bottom: 2rem; /* Space below section */
+    margin-bottom: 3rem; /* Reduced margin */
 }
 
+/* Phases container grid */
 .phases-container {
-    display: grid; /* Grid layout for phases */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid columns */
-    gap: 1rem; /* Space between grid items */
-    margin-top: 1rem; /* Space above grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Reduced size */
+    gap: 20px; /* Reduced gap */
+    margin-top: 2rem;
 }
 
+/* Phase item styles */
 .phase-item {
-    text-align: center; /* Center align content */
-    padding: 0.8rem; /* Internal padding */
-    background: #222; /* Dark background for cards */
-    border-radius: 5px; /* Rounded corners */
+    text-align: center;
+    padding: 1rem; /* Reduced padding */
+    background: rgba(33, 35, 45, 0.7); /* Simplified background */
+    border-radius: 10px; /* Reduced border radius */
+    border: 1px solid rgba(194, 197, 204, 0.1); /* Simple border */
 }
 
+/* Phase animation container */
 .phase-animation {
-    width: 100px; /* Fixed width for phase image container */
-    height: 100px; /* Fixed height for phase image container */
-    margin: 0 auto 0.5rem; /* Center horizontally, space below */
-    border-radius: 50%; /* Circular shape */
-    overflow: hidden; /* Hide overflow */
+    width: 120px; /* Reduced size */
+    height: 120px; /* Reduced size */
+    margin: 0 auto 1rem; /* Reduced margin */
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
+/* Phase image styles */
 .phase-img {
-    width: 100%; /* Full width of container */
-    height: 100%; /* Full height of container */
-    object-fit: cover; /* Maintain aspect ratio while filling container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
+/* Phase item heading styles */
 .phase-item h3 {
-    color: #fff; /* White text for heading */
-    margin-bottom: 0.3rem; /* Space below heading */
-    font-size: 1rem; /* Standard font size for heading */
+    color: var(--moon-primary);
+    margin-bottom: 0.5rem; /* Reduced margin */
+    font-size: 1.2rem; /* Reduced font size */
 }
 
+/* Phase item paragraph styles */
 .phase-item p {
-    font-size: 0.8rem; /* Smaller font for description */
-    color: #ccc; /* Light gray text for description */
+    font-size: 0.9rem; /* Reduced font size */
+    color: var(--moon-light);
+    opacity: 0.8;
 }
 
-/* Moon information grid */
+/* Moon info grid styles */
 .moon-info-grid {
-    display: grid; /* Grid layout */
+    display: grid;
     grid-template-columns: 1fr; /* Single column layout */
-    gap: 1rem; /* Space between grid items */
-    margin-bottom: 2rem; /* Space below grid */
+    gap: 2rem; /* Reduced gap */
+    margin-bottom: 3rem; /* Reduced margin */
 }
 
-/* Moon information cards */
+/* Moon card styles */
 .moon-card {
-    background: #222; /* Dark background for cards */
-    border-radius: 5px; /* Rounded corners */
-    padding: 1rem; /* Internal padding */
+    background: rgba(33, 35, 45, 0.7); /* Simplified background */
+    border-radius: 10px; /* Reduced border radius */
+    padding: 1.5rem; /* Reduced padding */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(143, 184, 255, 0.1); /* Simple border */
 }
 
-.moon-card h2 {
-    color: #fff; /* White text for card title */
-    margin-bottom: 1rem; /* Space below title */
-    font-size: 1.2rem; /* Slightly larger font for title */
-}
-
-/* Remove card background effects */
+/* Card backdrop styles */
 .card-backdrop {
-    display: none; /* Hide backdrop elements */
+    display: none; /* Backdrop effect removed */
 }
 
-/* Facts list */
+/* Card title styles */
+.moon-card h2 {
+    color: var(--moon-accent);
+    margin-bottom: 1.5rem; /* Reduced margin */
+    font-size: 1.5rem; /* Reduced font size */
+}
+
+/* Fact list grid */
 .fact-list {
-    display: grid; /* Grid layout for facts */
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 0.5rem; /* Space between fact items */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Reduced gap */
 }
 
+/* Fact item styles */
 .fact-item {
-    padding: 0.5rem; /* Internal padding */
-    border-radius: 5px; /* Rounded corners */
-    background: #333; /* Darker background for fact items */
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px; /* Reduced border radius */
+    background: rgba(26, 26, 46, 0.5); /* Simplified background */
 }
 
+/* Fact item heading styles */
 .fact-item h3 {
-    color: #ccc; /* Light gray text for fact title */
-    font-size: 0.9rem; /* Slightly smaller font for title */
-    margin-bottom: 0.3rem; /* Space below title */
+    color: var(--moon-accent);
+    font-size: 0.9rem; /* Reduced font size */
+    margin-bottom: 5px; /* Reduced margin */
 }
 
+/* Fact item paragraph styles */
 .fact-item p {
-    color: #eee; /* Off-white text for fact content */
-    font-size: 0.9rem; /* Slightly smaller font for content */
+    color: var(--moon-light);
+    font-size: 1rem; /* Reduced font size */
 }
 
-/* Features container */
+/* Feature container styles */
 .impact-container {
-    display: grid; /* Grid layout for features */
-    gap: 0.5rem; /* Space between feature items */
+    display: grid;
+    gap: 15px; /* Reduced gap */
 }
 
-/* Feature items */
+/* Feature item styles */
 .feature-item {
-    display: flex; /* Flexbox layout */
-    align-items: center; /* Center items vertically */
-    padding: 0.5rem; /* Internal padding */
-    border-radius: 5px; /* Rounded corners */
-    background: #333; /* Darker background for feature items */
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px; /* Reduced border radius */
+    background: rgba(26, 26, 46, 0.5); /* Simplified background */
 }
 
-/* Feature icons */
+/* Feature icon container */
 .feature-icon {
-    width: 30px; /* Fixed width for icon container */
-    height: 30px; /* Fixed height for icon container */
-    border-radius: 50%; /* Circular shape */
-    background: #444; /* Darker background for icons */
-    display: flex; /* Flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    margin-right: 0.8rem; /* Space between icon and text */
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 40px; /* Reduced size */
+    height: 40px; /* Reduced size */
+    border-radius: 50%;
+    background: var(--moon-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
 }
 
+/* Feature icon styles */
 .feature-icon i {
-    font-size: 0.8rem; /* Smaller font for icons */
-    color: #fff; /* White color for icons */
+    font-size: 16px; /* Reduced icon size */
+    color: var(--moon-accent);
 }
 
+/* Feature info heading styles */
 .feature-info h4 {
-    color: #eee; /* Off-white text for feature title */
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
+    color: var(--moon-primary);
+    margin-bottom: 5px;
+    font-size: 1.1rem; /* Reduced font size */
 }
 
+/* Feature info paragraph styles */
 .feature-info p {
-    color: #ccc;
-    font-size: 0.8rem;
-    line-height: 1.3;
+    color: var(--moon-light);
+    font-size: 0.8rem; /* Reduced font size */
+    line-height: 1.4;
 }
 
-/* Exploration cards */
+/* Mission timeline styles */
 .mission-timeline {
     margin-top: 1rem;
 }
 
-/* Timeline items */
+/* Timeline item styles */
 .timeline-item {
     display: flex;
-    margin-bottom: 0.8rem;
-    padding-left: 0.5rem;
+    margin-bottom: 1rem; /* Reduced margin */
+    padding-left: 1rem; /* Reduced padding */
+    position: relative;
 }
 
+/* Timeline animation removed */
+
 .timeline-date {
-    min-width: 50px;
+    min-width: 60px; /* Reduced width */
     font-weight: bold;
-    color: #ccc;
-    font-size: 0.9rem;
+    color: var(--moon-accent);
+    font-size: 1rem; /* Reduced font size */
 }
 
 .timeline-content {
-    padding-left: 0.5rem;
+    padding-left: 1rem; /* Reduced padding */
 }
 
 .timeline-content h4 {
-    color: #eee;
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
+    color: var(--moon-primary);
+    margin-bottom: 5px;
+    font-size: 1.1rem; /* Reduced font size */
 }
 
 .timeline-content p {
-    color: #ccc;
-    font-size: 0.8rem;
+    color: var(--moon-light);
+    font-size: 0.8rem; /* Reduced font size */
+    opacity: 0.8;
 }
 
-/* Impact items */
-.influence-item {
-    padding: 0.8rem;
-    background: #333;
-    border-radius: 5px;
-    text-align: center;
+/* Influence card - simplified version */
+.influence-content {
+    display: grid;
+    gap: 15px; /* Reduced gap */
 }
+
+/* Influence item - simplified version */
+.influence-item {
+    padding: 1rem; /* Reduced padding */
+    background: rgba(26, 26, 46, 0.5); /* Simplified background */
+    border-radius: 8px; /* Reduced border radius */
+    text-align: center;
+    /* Transition effects removed */
+}
+
+/* Hover effects removed */
 
 .influence-icon {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem; /* Reduced icon size */
+    color: var(--moon-accent);
+    margin-bottom: 0.5rem; /* Reduced margin */
+    /* Transition effects removed */
 }
 
 .influence-item h4 {
-    color: #eee;
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
+    color: var(--moon-primary);
+    margin-bottom: 0.5rem; /* Reduced margin */
+    font-size: 1.1rem; /* Reduced font size */
 }
 
 .influence-item p {
-    color: #ccc;
-    font-size: 0.8rem;
-    line-height: 1.3;
+    color: var(--moon-light);
+    font-size: 0.8rem; /* Reduced font size */
+    line-height: 1.4;
 }
 
-/* Resources section */
+/* Resources section - simplified version */
 .moon-resources-section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Reduced margin */
 }
 
 .resources-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: 1fr; /* Changed to single column layout */
+    gap: 2rem; /* Reduced gap */
+    margin-top: 2rem;
 }
 
-/* Resource cards */
+/* Resource card - simplified version */
 .resource-card {
-    background: #222;
-    border-radius: 5px;
-    padding: 1rem;
+    background: rgba(33, 35, 45, 0.7); /* Simplified background */
+    border-radius: 10px; /* Reduced border radius */
+    padding: 1.5rem; /* Reduced padding */
+    overflow: hidden;
+    border: 1px solid rgba(143, 184, 255, 0.1); /* Simple border added */
 }
 
 .resource-card h3 {
-    color: #fff;
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
+    color: var(--moon-accent);
+    margin-bottom: 1rem; /* Reduced margin */
+    font-size: 1.3rem; /* Reduced font size */
 }
 
-/* Terrain resources */
+/* Terrain resources - simplified version */
 .terrain-image {
     width: 100%;
-    max-height: 200px;
+    max-height: 250px; /* Maximum height limited */
     overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 0.8rem;
+    border-radius: 8px; /* Reduced border radius */
+    margin-bottom: 1rem; /* Reduced margin */
 }
 
 .terrain-image img {
@@ -307,61 +341,74 @@
     height: auto;
 }
 
-.resource-description p {
-    font-size: 0.9rem;
-    color: #ccc;
-    line-height: 1.4;
-    margin-bottom: 0.8rem;
+.resource-description {
+    margin-top: 1rem; /* Reduced margin */
 }
 
-/* Terrain statistics */
+.resource-description p {
+    font-size: 0.9rem; /* Reduced font size */
+    color: var(--moon-light);
+    line-height: 1.5;
+    margin-bottom: 1rem; /* Reduced margin */
+}
+
+/* Terrain statistics - simplified version */
+.terrain-stats {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem; /* Reduced gap */
+}
+
 .terrain-stat {
     display: flex;
     justify-content: space-between;
-    padding: 0.3rem;
-    background: #333;
-    border-radius: 3px;
-    margin-bottom: 0.3rem;
+    padding: 0.5rem; /* Reduced padding */
+    background: rgba(26, 26, 46, 0.5); /* Simplified background */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .stat-name {
     font-weight: bold;
-    color: #ccc;
-    font-size: 0.8rem;
+    color: var(--moon-accent);
+    font-size: 0.8rem; /* Reduced font size */
 }
 
 .stat-value {
-    color: #eee;
-    font-size: 0.8rem;
+    color: var(--moon-light);
+    font-size: 0.8rem; /* Reduced font size */
 }
 
-/* Reading resources */
+/* Reading resources - simplified version */
 .reading-links {
     list-style: none;
 }
 
 .reading-links li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
 
 .reading-links a {
-    color: #ccc;
+    color: var(--moon-accent);
     text-decoration: none;
-    font-size: 0.8rem;
-    display: block;
+    font-size: 0.9rem; /* Reduced font size */
+    display: flex;
+    align-items: center;
+    /* Transition effects removed */
 }
 
 .reading-links i {
-    margin-right: 0.3rem;
+    margin-right: 0.5rem; /* Reduced margin */
 }
 
-/* Panorama */
+/* Link hover effects removed */
+
+/* Panorama - simplified version */
 .panorama-viewer {
     width: 100%;
-    height: 150px;
+    height: 200px; /* Reduced height */
     overflow: hidden;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
+    border-radius: 8px; /* Reduced border radius */
+    margin-bottom: 1rem; /* Reduced margin */
 }
 
 .panorama-viewer img {
@@ -371,49 +418,55 @@
 }
 
 .panorama-caption {
-    font-size: 0.8rem;
-    color: #ccc;
+    font-size: 0.8rem; /* Reduced font size */
+    color: var(--moon-light);
+    opacity: 0.8;
     text-align: center;
 }
 
-/* Fun facts */
+/* Fun facts - simplified version */
+.fact-carousel {
+    position: relative;
+}
+
 .fact-slide {
-    padding: 0.8rem;
-    background: #333;
-    border-radius: 5px;
+    padding: 1rem; /* Reduced padding */
+    background: rgba(26, 26, 46, 0.5); /* Simplified background */
+    border-radius: 8px; /* Reduced border radius */
     text-align: center;
+    /* Simplified to static display, no longer carousel */
 }
 
 .fact-slide:not(.active) {
-    display: none;
+    display: none; /* Hide non-active items */
 }
 
 .fact-slide p {
-    font-size: 0.8rem;
-    color: #eee;
-    line-height: 1.4;
+    font-size: 0.9rem; /* Reduced font size */
+    color: var(--moon-light);
+    line-height: 1.5;
 }
 
 .fact-slide i {
-    color: #ccc;
-    margin-right: 0.3rem;
+    color: var(--moon-accent);
+    margin-right: 0.5rem; /* Reduced margin */
 }
 
-/* Remove navigation dots */
+/* Navigation dots removed */
 .fact-navigation {
     display: none;
 }
 
-/* Earth-Moon system */
+/* Earth-Moon system - simplified version */
 .moon-earth-section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Reduced margin */
     text-align: center;
 }
 
 .moon-earth-section h2 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #fff;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    font-size: 1.5rem; /* Reduced font size */
+    color: var(--moon-accent);
 }
 
 /* Simplified to static image */
@@ -421,34 +474,45 @@
     display: none;
 }
 
+.earth-moon-info {
+    margin-top: 1rem; /* Reduced margin */
+}
+
 .earth-moon-info p {
-    font-size: 0.9rem;
-    color: #ccc;
-    line-height: 1.4;
-    margin-bottom: 0.8rem;
+    font-size: 0.9rem; /* Reduced font size */
+    color: var(--moon-light);
+    line-height: 1.5;
+    margin-bottom: 1rem; /* Reduced margin */
     text-align: left;
 }
 
-/* Footer navigation */
+/* Footer navigation - simplified version */
 .footer-navigation {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 1.5rem; /* Reduced gap */
+    margin-top: 2rem; /* Reduced margin */
 }
 
 .nav-button a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: #222;
-    border-radius: 3px;
-    color: #eee;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem; /* Reduced padding */
+    background: rgba(33, 35, 45, 0.7); /* Simplified background */
+    border-radius: 5px; /* Reduced border radius */
+    color: var(--moon-light);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Reduced font size */
+    /* Transition effects removed */
 }
+
+/* Button hover effects removed */
 
 .nav-button .icon {
-    margin-right: 0.3rem;
+    margin-right: 0.5rem; /* Reduced margin */
 }
 
-/* Removed all animations and transition effects */ 
+.planet-button,
+.sun-button {
+    border: 1px solid var(--moon-accent); /* Simple border added */
+} 
