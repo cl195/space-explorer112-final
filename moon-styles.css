@@ -2,15 +2,15 @@
 
 /* Root variables for consistent theming */
 :root {
-    --moon-primary: #4b6dba;     /* Moon color - light gray */
-    --moon-dark: #585e81;        /* Dark background */
-    --moon-accent: #7fabf6;      /* Accent color - light blue */
+    --moon-primary: #c2c5cc;     /* Moon color - light gray */
+    --moon-dark: #21232d;        /* Dark background */
+    --moon-accent: #8fb8ff;      /* Accent color - light blue */
     --moon-light: #f0f0f0;       /* Light text color */
 }
 
 /* Base page styles */
 .moon-page {
-    background: #0b0364;
+    background: #000;
     color: var(--moon-light);
 }
 
@@ -51,7 +51,7 @@
 .moon-content {
     padding: 2rem 0; /* Reduced padding */
     position: relative;
-    background: #0e0e0e;
+    background: #000;
 }
 
 /* Introduction text styles */
