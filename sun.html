@@ -1,0 +1,232 @@
+<!DOCTYPE html> <!-- Declares document type as HTML5, ensures browser renders page in standard mode -->
+<html lang="en"> <!-- HTML root element, sets page language to English -->
+<head> <!-- Head section, contains metadata and resource links -->
+    <meta charset="UTF-8"> <!-- Character encoding set to UTF-8, supports international characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design viewport setting, optimizes display for mobile devices -->
+    <title>Solar System - The Sun</title> <!-- Page title, displayed in browser tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to main stylesheet file, provides site-wide shared styles -->
+    <link rel="stylesheet" href="sun-styles.css"> <!-- Link to sun page specific stylesheet, provides styles unique to this page -->
+</head>
+<body class="sun-page"> <!-- Page body, sun-page class for specific styling -->
+    <!-- Top navigation area - provides site navigation links -->
+    <nav class="top-nav sun-nav"> <!-- Navigation element, applying top-nav and sun-nav classes for styling -->
+        <div class="nav-content"> <!-- Navigation content container, controls layout and alignment -->
+            <div class="logo">Space Explorer</div> <!-- Website logo/name display -->
+            <div class="nav-links"> <!-- Navigation links container, organizes all navigation buttons -->
+                <a href="index.html" class="structure-link">STRUCTURE</a> <!-- Link to home/structure page -->
+                <a href="planet.html" class="planet-link">PLANET</a> <!-- Link to planets page -->
+                <a href="sun.html" class="active sun-link">SUN</a> <!-- Current active page link, active class highlights it -->
+                <a href="moon.html" class="moon-link">MOON</a> <!-- Link to moon page -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero/banner area - displays main title and sun animation -->
+    <div class="sun-hero"> <!-- Hero area container, typically a large visual element at the top of the page -->
+        <h1 class="sun-title">The Heart of<br>Our Solar System</h1> <!-- Main title, using <br> to create line break effect -->
+        <div class="sun-animation"> <!-- Sun animation container, for displaying visual effects of the sun -->
+            <div class="sun-core"></div> <!-- Sun core element, likely implements a glow effect with CSS -->
+            <div class="sun-rays"></div> <!-- Sun rays element, likely implements radiating effect with CSS animations -->
+        </div>
+    </div>
+
+    <!-- Main content area - contains all information about the sun -->
+    <div class="sun-content"> <!-- Main content container, contains all sun-related information -->
+        <div class="container"> <!-- Content width control container, ensures content is properly centered and width-constrained -->
+            <!-- Sun introduction text area -->
+            <div class="sun-introduction"> <!-- Container for sun introduction paragraphs -->
+                <p class="intro-text"> <!-- First introduction paragraph, using intro-text class for specific styling -->
+                    The Sun is the star at the center of the Solar System. It is a massive, hot ball of plasma, 
+                    inflated and heated by energy produced by nuclear fusion reactions at its core. Part of this 
+                    energy is emitted from its surface as light, ultraviolet, and infrared radiation, providing 
+                    most of the energy for life on Earth.
+                </p>
+                <p class="intro-text"> <!-- Second introduction paragraph -->
+                    The Sun is a G-type main-sequence star (G2V), informally called a yellow dwarf, though its 
+                    light is actually white. It formed approximately 4.6 billion years ago from the gravitational 
+                    collapse of matter within a region of a large molecular cloud.
+                </p>
+            </div>
+
+            <!-- Sun information grid - uses grid layout to display various sun data -->
+            <div class="sun-info-grid"> <!-- Information grid container, likely uses CSS grid or flexbox for layout -->
+                <!-- Card 1: Sun key data -->
+                <div class="sun-card facts"> <!-- Sun data card, facts class specifies this is a data card -->
+                    <h2>Key Facts</h2> <!-- Card title -->
+                    <div class="fact-list"> <!-- Data list container -->
+                        <div class="fact-item"> <!-- Single data item container -->
+                            <h3>Visual Brightness</h3> <!-- Data item title -->
+                            <p>−26.74 (V)</p> <!-- Data item value -->
+                        </div>
+                        <div class="fact-item">
+                            <h3>Absolute Magnitude</h3>
+                            <p>4.83</p>
+                        </div>
+                        <div class="fact-item">
+                            <h3>Metallicity</h3>
+                            <p>Z = 0.0122</p>
+                        </div>
+                        <div class="fact-item">
+                            <h3>Angular Size</h3>
+                            <p>0.527–0.545°</p>
+                        </div>
+                        <div class="fact-item">
+                            <h3>Age</h3>
+                            <p>4.6 billion years</p>
+                        </div>
+                        <div class="fact-item">
+                            <h3>Galactic Period</h3>
+                            <p>225–250 million years</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Sun composition -->
+                <div class="sun-card composition"> <!-- Composition card, displays sun's chemical composition -->
+                    <h2>Composition</h2> <!-- Card title -->
+                    <div class="composition-chart"> <!-- Composition chart container -->
+                        <!-- Hydrogen element row -->
+                        <div class="element-row"> <!-- Element row container, contains element icon and data bar -->
+                            <div class="element-icon element-box"> <!-- Element icon container, mimics periodic table style -->
+                                <span class="element-number">1</span> <!-- Element number -->
+                                <span class="element-symbol">H</span> <!-- Element symbol -->
+                                <span class="element-weight">1.008</span> <!-- Element atomic weight -->
+                            </div>
+                            <div class="element-info"> <!-- Element info container -->
+                                <h4>Hydrogen (H)</h4> <!-- Element name -->
+                                <div class="chart-bar"> <!-- Data bar container -->
+                                    <div class="bar-fill hydrogen" style="width: 74.9%"> <!-- Fill bar, width represents percentage -->
+                                        <span>74.9%</span> <!-- Percentage text -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Helium element row -->
+                        <div class="element-row">
+                            <div class="element-icon element-box">
+                                <span class="element-number">2</span>
+                                <span class="element-symbol">He</span>
+                                <span class="element-weight">4.0026</span>
+                            </div>
+                            <div class="element-info">
+                                <h4>Helium (He)</h4>
+                                <div class="chart-bar">
+                                    <div class="bar-fill helium" style="width: 23.8%">
+                                        <span>23.8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Oxygen element row -->
+                        <div class="element-row">
+                            <div class="element-icon element-box">
+                                <span class="element-number">8</span>
+                                <span class="element-symbol">O</span>
+                                <span class="element-weight">16.00</span>
+                            </div>
+                            <div class="element-info">
+                                <h4>Oxygen (O₂)</h4>
+                                <div class="chart-bar">
+                                    <div class="bar-fill oxygen" style="width: 1%">
+                                        <span>~1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sun temperature information -->
+                <div class="sun-card temperature"> <!-- Temperature card, displays temperatures of different sun regions -->
+                    <h2>Temperature</h2> <!-- Card title -->
+                    <div class="temp-list"> <!-- Temperature list container -->
+                        <div class="temp-item"> <!-- Single temperature item -->
+                            <h4>Core</h4> <!-- Region name: Core -->
+                            <p>15,700,000 K</p> <!-- Temperature value, in Kelvin -->
+                        </div>
+                        <div class="temp-item">
+                            <h4>Photosphere</h4> <!-- Region name: Photosphere -->
+                            <p>5,772 K</p>
+                        </div>
+                        <div class="temp-item">
+                            <h4>Corona</h4> <!-- Region name: Corona -->
+                            <p>5,000,000 K</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Sun velocity information -->
+                <div class="sun-card velocity"> <!-- Velocity card, displays sun's motion speeds in the universe -->
+                    <h2>Velocity</h2> <!-- Card title -->
+                    <div class="velocity-list"> <!-- Velocity list container -->
+                        <div class="velocity-item"> <!-- Single velocity item -->
+                            <h4>Orbit Galactic Center</h4> <!-- Speed around galactic center -->
+                            <p>251 km/s</p> <!-- Speed value, in kilometers per second -->
+                        </div>
+                        <div class="velocity-item">
+                            <h4>To Stellar Neighborhood</h4> <!-- Speed relative to nearby stars -->
+                            <p>20 km/s</p>
+                        </div>
+                        <div class="velocity-item">
+                            <h4>To Cosmic Microwave Background</h4> <!-- Speed relative to cosmic microwave background radiation -->
+                            <p>370 km/s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sun's position in the solar system section -->
+            <div class="sun-location"> <!-- Sun location information container -->
+                <h2>Location in the Solar System</h2> <!-- Section title -->
+                <div class="location-content"> <!-- Location content container -->
+                    <div class="location-image"> <!-- Image container -->
+                        <img src="images/solar-system.jpg" alt="Solar System Location"> <!-- Solar system image, alt attribute provides image description -->
+                    </div>
+                    <div class="location-text"> <!-- Text container -->
+                        <p> <!-- Sun location description text -->
+                            The Sun has eight known planets orbiting it. This includes four terrestrial planets 
+                            (Mercury, Venus, Earth, and Mars), two gas giants (Jupiter and Saturn), and two ice 
+                            giants (Uranus and Neptune). The Solar System also has nine bodies generally considered 
+                            as dwarf planets and some more candidates, an asteroid belt, numerous comets, and a 
+                            large number of icy bodies which lie beyond the orbit of Neptune.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sun's interstellar environment section -->
+            <div class="sun-neighborhood"> <!-- Interstellar environment container -->
+                <h2>Celestial Neighbourhood</h2> <!-- Section title -->
+                <div class="neighborhood-content"> <!-- Content container -->
+                    <div class="neighborhood-image"> <!-- Image container -->
+                        <img src="images/milky-way.jpg" alt="Celestial Neighbourhood"> <!-- Milky Way image -->
+                    </div>
+                    <div class="neighborhood-text"> <!-- Text container -->
+                        <p> <!-- Interstellar environment description text -->
+                            The Solar System is surrounded by the Local Interstellar Cloud, although it is not 
+                            clear if it is embedded in the Local Interstellar Cloud or if it lies just outside 
+                            the cloud's edge. Multiple other interstellar clouds also exist in the region within 
+                            300 light-years of the Sun, known as the Local Bubble.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer navigation area - provides links to jump to other pages -->
+            <div class="sun-footer"> <!-- Footer container -->
+                <div class="navigation-portal"> <!-- Navigation portal container, provides large link areas -->
+                    <a href="index.html" class="portal-link structure"> <!-- Link to structure page -->
+                        <span>Explore Structure</span> <!-- Link text -->
+                    </a>
+                    <a href="planet.html" class="portal-link planets"> <!-- Link to planets page -->
+                        <span>Discover Planets</span> <!-- Link text -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript script references -->
+    <script src="script.js"></script> <!-- Main script file, handles shared functionality -->
+    <script src="sun-script.js"></script> <!-- Sun page specific script, handles sun-specific animations and interactions -->
+</body>
+</html>

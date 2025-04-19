@@ -1,0 +1,158 @@
+<!DOCTYPE html> <!-- Declares document type as HTML5, instructs browsers to render page in standard mode -->
+<html lang="en"> <!-- HTML root element, sets page language to English, helps search engines and screen readers correctly parse the page -->
+<head>
+    <!-- Basic metadata settings -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8, supports multilingual characters, ensures special characters display correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings, ensures page displays correctly on mobile devices -->
+    <title>Solar System - Planetary exploration</title> <!-- Page title, displayed in browser tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- Links to main stylesheet, provides site-wide shared styles -->
+    <!-- Import Font Awesome icon library, used for displaying various cosmic elements icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Inline styles specifically for homepage icons design */
+        /* Icon container style - creates circular semi-transparent black background */
+        .icon-container {
+            width: 80px; /* Sets container width */
+            height: 80px; /* Sets container height */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            border-radius: 50%; /* Circular border */
+            display: flex; /* Uses flexbox layout */
+            align-items: center; /* Vertically centers content */
+            justify-content: center; /* Horizontally centers content */
+            margin: 0 auto; /* Centers container horizontally */
+            transition: all 0.3s ease; /* Adds transition effect for smoother animations */
+        }
+        
+        /* Icon style settings */
+        .icon-container i {
+            font-size: 40px; /* Sets icon size */
+            color: #fff; /* Sets icon color to white */
+            transition: all 0.3s ease; /* Adds transition effect */
+        }
+        
+        /* Hover animation effect for icon container */
+        .structure-item:hover .icon-container {
+            transform: rotate(15deg); /* Rotates container 15 degrees on hover */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Adds glow effect */
+        }
+        
+        /* Hover animation effect for icon */
+        .structure-item:hover .icon-container i {
+            transform: scale(1.2); /* Enlarges icon 1.2 times */
+        }
+        
+        /* Color settings for different icon types, simulating real celestial body colors */
+        .sun-icon { color: #ffcc00; } /* Sun icon - yellow */
+        .planets-icon { color: #66ccff; } /* Planets icon - blue */
+        .asteroids-icon { color: #cc9966; } /* Asteroids icon - brown */
+        .comets-icon { color: #99ccff; } /* Comets icon - light blue */
+        .satellites-icon { color: #cccccc; } /* Satellites icon - gray */
+        .stars-icon { color: #ffffff; } /* Stars icon - white */
+    </style>
+</head>
+<body>
+    <!-- Top navigation bar -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo">Space Explorer</div> <!-- Website logo/name -->
+            <div class="nav-links"> <!-- Navigation links area -->
+                <!-- Navigation links, active class indicates current page -->
+                <a href="index.html" class="active structure-link">STRUCTURE</a> <!-- Current page: Solar System Structure -->
+                <a href="planet.html" class="planet-link">PLANET</a> <!-- Planet page link -->
+                <a href="sun.html" class="sun-link">SUN</a> <!-- Sun page link -->
+                <a href="moon.html" class="moon-link">MOON</a> <!-- Moon page link -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero/banner section - large visual display area -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Planetary<br>exploration</h1> <!-- Main title, using break tag to display on two lines -->
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="content-section">
+        <div class="container"> <!-- Content container, controls width and margins -->
+            <h2 class="section-title">What are the things that exist in our Solar System?</h2> <!-- Content area title -->
+            
+            <!-- Solar system structure grid - using grid layout to display different celestial bodies -->
+            <div class="structure-grid">
+                <!-- Sun information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-sun sun-icon"></i> <!-- Sun icon -->
+                        </div>
+                    </div>
+                    <h3>Sun</h3> <!-- Sun title -->
+                    <p>Sun is the biggest star in the solar system and consists of 99.86% of all the mass of the solar system. It is located in the centre and is a sphere of hot plasma. Continuous nuclear reactions take place in its core which radiates energy in the form of light and infrared radiation.</p> <!-- Sun description -->
+                </div>
+
+                <!-- Planets information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-globe-americas planets-icon"></i> <!-- Planet icon -->
+                        </div>
+                    </div>
+                    <h3>Planets</h3> <!-- Planets title -->
+                    <p>The solar system consists of eight planets, namely, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. Mercury is closest to the sun and also the smallest planet. It has no natural satellites.</p> <!-- Planets description -->
+                </div>
+
+                <!-- Asteroids information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-meteor asteroids-icon"></i> <!-- Asteroid icon -->
+                        </div>
+                    </div>
+                    <h3>Asteroids</h3> <!-- Asteroids title -->
+                    <p>Asteroids are big and irregular shaped pieces of carbon, rock or metal which can be found mostly in the asteroid belt, orbiting the Sun between Mars and Jupiter. These are also often called minor planets.</p> <!-- Asteroids description -->
+                </div>
+
+                <!-- Comets information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-comet comets-icon"></i> <!-- Comet icon -->
+                        </div>
+                    </div>
+                    <h3>Comets</h3> <!-- Comets title -->
+                    <p>These are small and irregular shaped objects composed of ice. It is believed that they generally come from the Kuiper belt. When comets come close to the Sun, due to the heat the ice vaporizes and leaves a beautiful tail behind them.</p> <!-- Comets description -->
+                </div>
+
+                <!-- Satellites information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-satellite satellites-icon"></i> <!-- Satellite icon -->
+                        </div>
+                    </div>
+                    <h3>Satellites</h3> <!-- Satellites title -->
+                    <p>The objects that revolve around the planets in the same direction as that of the planet are known as satellites. Moon is Earth's natural satellite. Satellites can also be man-made known as artificial satellites.</p> <!-- Satellites description -->
+                </div>
+
+                <!-- Stars information card -->
+                <div class="structure-item">
+                    <div class="item-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-star stars-icon"></i> <!-- Star icon -->
+                        </div>
+                    </div>
+                    <h3>Stars</h3> <!-- Stars title -->
+                    <p>A star is a celestial object that consists of a luminous spheroid of plasma which is bound by its own gravity. During the night, they are easily visible with a naked eye. These are grouped into constellations and asterisms.</p> <!-- Stars description -->
+                </div>
+            </div>
+
+            <!-- Astronomical Unit explanation area -->
+            <div class="distance-info">
+                <p class="au-info">1 AU (Astronomical Unit) = 149,598,000 km</p> <!-- Astronomical Unit definition -->
+            </div>
+        </div>
+    </div>
+    <!-- Import JavaScript file, handles page interactions such as starry background, scroll animations, etc. -->
+    <script src="script.js"></script>
+</body>
+</html> 
