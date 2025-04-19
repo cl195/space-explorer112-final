@@ -1,17 +1,38 @@
-// Ensure all elements are visible after page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Make all content elements immediately visible
-    document.querySelectorAll('.phase-item, .moon-card, .resource-card, .fact-slide, .timeline-item, .feature-item').forEach(el => {
-        el.style.opacity = 1; // Set full opacity
-        el.style.transform = 'none'; // Remove any transform effects
+// Moon page specific JavaScript - Version 4 simplified
+
+// Initialize page when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Make all phase items immediately visible
+    document.querySelectorAll('.phase-item').forEach(item => {
+        item.style.opacity = '1';
     });
     
-    // Show only the first fact, hide others
-    const factSlides = document.querySelectorAll('.fact-slide');
-    if (factSlides.length > 0) {
-        factSlides[0].classList.add('active'); // Mark first fact as active
-        for (let i = 1; i < factSlides.length; i++) {
-            factSlides[i].style.display = 'none'; // Hide all other facts
-        }
-    }
-}); 
+    // Make all moon cards immediately visible
+    document.querySelectorAll('.moon-card').forEach(card => {
+        card.style.opacity = '1';
+    });
+    
+    // Make all resource cards immediately visible
+    document.querySelectorAll('.resource-card').forEach(card => {
+        card.style.opacity = '1';
+    });
+    
+    // Remove all animation classes
+    document.querySelectorAll('.animated, .fadeIn, .slideIn').forEach(element => {
+        element.classList.remove('animated', 'fadeIn', 'slideIn');
+    });
+    
+    // Initialize simple scroll handling
+    handleSimpleScroll();
+});
+
+// Function to handle simple scroll effects
+function handleSimpleScroll() {
+    // Make all fade-in and slide-in elements immediately visible
+    document.querySelectorAll('.fade-in-element, .slide-in-element').forEach(element => {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+    });
+}
+
+// Note: All animations and interactive effects have been removed for simplicity 
