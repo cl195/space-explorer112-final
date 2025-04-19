@@ -1,12 +1,12 @@
-<!DOCTYPE html> <!-- Declares document type as HTML5, instructs browsers to render page in standard mode -->
-<html lang="en"> <!-- HTML root element, sets page language to English, helps search engines and screen readers correctly parse the page -->
+<!DOCTYPE html> <!-- Declares document type as HTML5 -->
+<html lang="en"> <!-- Specifies the webpage language as English -->
 <head>
     <!-- Basic metadata settings -->
-    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8, supports multilingual characters, ensures special characters display correctly -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings, ensures page displays correctly on mobile devices -->
-    <title>Solar System - Planetary exploration</title> <!-- Page title, displayed in browser tab -->
-    <link rel="stylesheet" href="styles.css"> <!-- Links to main stylesheet, provides site-wide shared styles -->
-    <!-- Import Font Awesome icon library, used for displaying various cosmic elements icons -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8, supporting various language characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings to ensure proper display on mobile devices -->
+    <title>Solar System - Planetary exploration</title> <!-- Webpage title displayed in browser tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to main stylesheet -->
+    <!-- Import Font Awesome icon library for displaying various cosmic elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Inline styles specifically for homepage icons design */
@@ -16,7 +16,7 @@
             height: 80px; /* Sets container height */
             background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
             border-radius: 50%; /* Circular border */
-            display: flex; /* Uses flexbox layout */
+            display: flex; /* Uses flex layout */
             align-items: center; /* Vertically centers content */
             justify-content: center; /* Horizontally centers content */
             margin: 0 auto; /* Centers container horizontally */
@@ -36,18 +36,18 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Adds glow effect */
         }
         
-        /* Hover animation effect for icon */
+        /* Hover animation effect for icons */
         .structure-item:hover .icon-container i {
-            transform: scale(1.2); /* Enlarges icon 1.2 times */
+            transform: scale(1.2); /* Enlarges icon by 1.2 times */
         }
         
-        /* Color settings for different icon types, simulating real celestial body colors */
+        /* Different icon color settings to simulate real celestial body colors */
         .sun-icon { color: #ffcc00; } /* Sun icon - yellow */
         .planets-icon { color: #66ccff; } /* Planets icon - blue */
-        .asteroids-icon { color: #cc9966; } /* Asteroids icon - brown */
-        .comets-icon { color: #99ccff; } /* Comets icon - light blue */
-        .satellites-icon { color: #cccccc; } /* Satellites icon - gray */
-        .stars-icon { color: #ffffff; } /* Stars icon - white */
+        .asteroids-icon { color: #cc9966; } /* Asteroid icon - brown */
+        .comets-icon { color: #99ccff; } /* Comet icon - light blue */
+        .satellites-icon { color: #cccccc; } /* Satellite icon - gray */
+        .stars-icon { color: #ffffff; } /* Star icon - white */
     </style>
 </head>
 <body>
@@ -68,7 +68,7 @@
     <!-- Hero/banner section - large visual display area -->
     <div class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">Planetary<br>exploration</h1> <!-- Main title, using break tag to display on two lines -->
+            <h1 class="hero-title">Planetary<br>exploration</h1> <!-- Main title with line break -->
         </div>
     </div>
 
@@ -77,7 +77,7 @@
         <div class="container"> <!-- Content container, controls width and margins -->
             <h2 class="section-title">What are the things that exist in our Solar System?</h2> <!-- Content area title -->
             
-            <!-- Solar system structure grid - using grid layout to display different celestial bodies -->
+            <!-- Solar System structure grid - uses grid layout to display different celestial bodies -->
             <div class="structure-grid">
                 <!-- Sun information card -->
                 <div class="structure-item">
@@ -146,13 +146,13 @@
                 </div>
             </div>
 
-            <!-- Astronomical Unit explanation area -->
+            <!-- Astronomical unit explanation area -->
             <div class="distance-info">
-                <p class="au-info">1 AU (Astronomical Unit) = 149,598,000 km</p> <!-- Astronomical Unit definition -->
+                <p class="au-info">1 AU (Astronomical Unit) = 149,598,000 km</p> <!-- Astronomical unit definition -->
             </div>
         </div>
     </div>
-    <!-- Import JavaScript file, handles page interactions such as starry background, scroll animations, etc. -->
+    <!-- Import JavaScript file for page interaction effects like starry background, scroll animations, etc. -->
     <script src="script.js"></script>
 </body>
 </html> 
