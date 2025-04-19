@@ -1,0 +1,235 @@
+/* Global Styles - Ultra-simplified Version 2 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Basic, widely available font for cross-platform compatibility */
+    background: #000000; /* Black background to represent space/cosmos */
+    color: #ffffff; /* White text for readability on dark background */
+    line-height: 1.4; /* Slightly increased line height for better readability */
+    margin: 0;
+    padding: 0;
+}
+
+/* Simplified Navigation Bar */
+.top-nav {
+    background: #111; /* Dark gray navigation background */
+    padding: 10px;
+    width: 100%; /* Full width navigation */
+}
+
+.nav-content {
+    width: 90%; /* Container width, leaving some margin on sides */
+    margin: 0 auto; /* Center the navigation content */
+}
+
+.logo {
+    color: #fff; /* White color for logo text */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.nav-links {
+    margin-top: 5px;
+}
+
+.nav-links a {
+    color: #ccc; /* Light gray for inactive navigation links */
+    text-decoration: none; /* Remove underline from links */
+    margin-right: 10px;
+}
+
+.nav-links a.active {
+    color: #fff; /* White color for active/current page link */
+    font-weight: bold; /* Bold text for active link */
+}
+
+/* Simplified Hero/Banner Area */
+.hero-section {
+    height: 200px;
+    text-align: center;
+    background: #111; /* Dark gray background for hero section */
+    padding-top: 50px;
+}
+
+.hero-title {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Simplified Content Styles */
+.main-content {
+    background: #000; /* Black background for main content area */
+    padding-top: 20px;
+}
+
+.container {
+    width: 90%; /* Content width, leaving some margin on sides */
+    margin: 0 auto; /* Center the content container */
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Structure Item Styles - Ultra-minimal version */
+.structure-grid {
+    margin-top: 10px;
+}
+
+.structure-item {
+    background: #222; /* Dark gray background for content items */
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.structure-item h3 {
+    margin: 5px 0;
+    color: #fff; /* White color for headings */
+    font-size: 18px;
+}
+
+.structure-item p {
+    color: #ccc; /* Light gray for descriptive text */
+    font-size: 14px;
+}
+
+/* Ultra-minimal Planet Card Styles */
+.planet-card {
+    background: #222; /* Dark gray background for planet cards */
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Hand cursor to indicate clickable */
+}
+
+.planet-image {
+    width: 120px;
+    margin: 0 auto 5px; /* Center the image and add bottom margin */
+}
+
+.planet-image img {
+    width: 100%; /* Make image fill its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Ultra-minimal Planet Detail Styles */
+.planet-detail-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #222; /* Dark gray background for detail sections */
+}
+
+.planet-detail-content {
+    margin-top: 10px;
+}
+
+.planet-detail-image {
+    width: 200px;
+    margin: 0 auto 10px; /* Center the image and add bottom margin */
+}
+
+.planet-detail-image img {
+    width: 100%; /* Make image fill its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.planet-detail-info {
+    width: 100%;
+}
+
+.planet-detail-description {
+    margin-bottom: 10px;
+    color: #ddd; /* Off-white color for description text */
+}
+
+.planet-detail-stats {
+    margin-top: 10px;
+}
+
+.stat-item {
+    background: #333; /* Slightly lighter gray for stat items */
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.stat-item h4 {
+    color: #fff; /* White color for stat labels */
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+
+.stat-item p {
+    color: #ddd; /* Off-white color for stat values */
+    font-size: 14px;
+}
+
+/* Page Title Styles */
+.section-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #fff; /* White color for section titles */
+}
+
+/* Footer Area */
+.distance-info {
+    text-align: center;
+    margin-top: 15px;
+    padding: 5px;
+    background: #222; /* Dark gray background for footer area */
+}
+
+.au-info {
+    font-size: 14px;
+    color: #aaa; /* Medium gray for footer information text */
+}
+
+/* Content Section Styles */
+.content-section {
+    background: #000; /* Black background for content sections */
+    padding: 20px 0;
+}
+
+/* Planet Page Styles */
+.planet-categories {
+    padding: 20px 0;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff; /* White color for category titles */
+    text-align: center;
+}
+
+.category-description {
+    text-align: center;
+    margin: 0 auto 20px;
+    color: #ccc; /* Light gray for category descriptions */
+    font-size: 14px;
+}
+
+.planets-grid {
+    /* Ultra-simplified grid, changed to single column layout */
+}
+
+.planet-details {
+    margin-top: 20px;
+}
+
+.planet-detail-title {
+    font-size: 20px;
+    color: #fff; /* White color for detail titles */
+    text-align: center;
+    margin-bottom: 10px;
+} 

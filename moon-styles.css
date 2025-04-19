@@ -1,0 +1,392 @@
+/* 月球页面基础样式 - 第2版本极度简化版 */
+
+/* 页面基础样式 */
+.moon-page {
+    background: #000;
+    color: #eee;
+}
+
+/* 导航栏样式 */
+.moon-nav {
+    background-color: #111;
+    padding: 10px;
+}
+
+/* 英雄区域 - 极度简化 */
+.moon-hero {
+    height: 150px;
+    background-color: #000;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 移除所有复杂背景和覆盖层 */
+.moon-hero::before {
+    display: none;
+}
+
+/* 移除所有视差组件 */
+.moon-parallax {
+    display: none;
+}
+
+/* 主标题 */
+.moon-title {
+    font-size: 20px;
+    color: #fff;
+    padding-top: 10px;
+}
+
+/* 内容区域 */
+.moon-content {
+    padding: 10px 0;
+    background: #000;
+}
+
+/* 介绍文本 */
+.moon-introduction {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* 月相部分 */
+.moon-phases-section {
+    margin-bottom: 20px;
+}
+
+.phases-container {
+    margin-top: 10px;
+}
+
+.phase-item {
+    text-align: center;
+    padding: 8px;
+    background: #222;
+    margin-bottom: 10px;
+}
+
+.phase-animation {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 5px;
+}
+
+.phase-img {
+    width: 100%;
+    height: 100%;
+}
+
+.phase-item h3 {
+    color: #fff;
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+
+.phase-item p {
+    font-size: 13px;
+    color: #ccc;
+}
+
+/* 月球信息 */
+.moon-info-grid {
+    margin-bottom: 20px;
+}
+
+/* 月球信息卡片 */
+.moon-card {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.moon-card h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* 移除卡片背景效果 */
+.card-backdrop {
+    display: none;
+}
+
+/* 事实列表 */
+.fact-list {
+    margin-bottom: 10px;
+}
+
+.fact-item {
+    padding: 5px;
+    background: #333;
+    margin-bottom: 5px;
+}
+
+.fact-item h3 {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.fact-item p {
+    color: #eee;
+    font-size: 14px;
+}
+
+/* 特征容器 */
+.impact-container {
+    margin-bottom: 10px;
+}
+
+/* 特征项 */
+.feature-item {
+    padding: 5px;
+    background: #333;
+    margin-bottom: 5px;
+}
+
+/* 特征图标 */
+.feature-icon {
+    width: 20px;
+    height: 20px;
+    background: #444;
+    margin-right: 8px;
+    float: left;
+}
+
+.feature-icon i {
+    font-size: 12px;
+    color: #fff;
+}
+
+.feature-info h4 {
+    color: #eee;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.feature-info p {
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* 探索卡片 */
+.mission-timeline {
+    margin-top: 10px;
+}
+
+/* 时间线项 */
+.timeline-item {
+    margin-bottom: 8px;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.timeline-content {
+    padding-left: 5px;
+}
+
+.timeline-content h4 {
+    color: #eee;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.timeline-content p {
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* 影响项 */
+.influence-item {
+    padding: 8px;
+    background: #333;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.influence-icon {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.influence-item h4 {
+    color: #eee;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.influence-item p {
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* 资源部分 */
+.moon-resources-section {
+    margin-bottom: 20px;
+}
+
+.resources-container {
+    margin-top: 10px;
+}
+
+/* 资源卡片 */
+.resource-card {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.resource-card h3 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* 地形资源 */
+.terrain-image {
+    width: 100%;
+    max-height: 150px;
+    margin-bottom: 8px;
+}
+
+.terrain-image img {
+    width: 100%;
+    height: auto;
+}
+
+.resource-description p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+/* 地形统计 */
+.terrain-stat {
+    padding: 3px;
+    background: #333;
+    margin-bottom: 3px;
+}
+
+.stat-name {
+    font-weight: bold;
+    color: #ccc;
+    font-size: 13px;
+}
+
+.stat-value {
+    color: #eee;
+    font-size: 13px;
+}
+
+/* 阅读资源 */
+.reading-links {
+    list-style: none;
+}
+
+.reading-links li {
+    margin-bottom: 5px;
+}
+
+.reading-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.reading-links i {
+    margin-right: 3px;
+}
+
+/* 全景图 */
+.panorama-viewer {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.panorama-viewer img {
+    width: 100%;
+    height: 100%;
+}
+
+.panorama-caption {
+    font-size: 13px;
+    color: #ccc;
+    text-align: center;
+}
+
+/* 趣味事实 */
+.fact-slide {
+    padding: 8px;
+    background: #333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.fact-slide p {
+    font-size: 13px;
+    color: #eee;
+}
+
+.fact-slide i {
+    color: #ccc;
+    margin-right: 3px;
+}
+
+/* 移除导航点 */
+.fact-navigation {
+    display: none;
+}
+
+/* 地月系统 */
+.moon-earth-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.moon-earth-section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+/* 简化为静态图像 */
+.earth-moon-visual {
+    display: none;
+}
+
+.earth-moon-info p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* 页脚导航 */
+.footer-navigation {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.nav-button {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.nav-button a {
+    padding: 5px 10px;
+    background: #222;
+    color: #eee;
+    text-decoration: none;
+    font-size: 14px;
+} 

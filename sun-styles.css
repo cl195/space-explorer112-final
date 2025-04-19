@@ -1,0 +1,278 @@
+/* 太阳页面特定样式 - 第2版本超简化版 */
+.sun-page {
+    background: #000;
+}
+
+.sun-nav {
+    background: #111;
+    padding: 10px;
+}
+
+/* 极简太阳区域 */
+.sun-hero {
+    height: 150px;
+    background: #111;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 完全移除太阳动画 */
+.sun-animation {
+    display: none;
+}
+
+.sun-title {
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+}
+
+/* 内容样式 */
+.sun-content {
+    padding: 10px 0;
+}
+
+.sun-info-grid {
+    margin-bottom: 20px;
+}
+
+.sun-card {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sun-card h2 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 事实列表样式 */
+.fact-list {
+    margin-bottom: 10px;
+}
+
+.fact-item {
+    text-align: center;
+    padding: 5px;
+    background: #333;
+    margin-bottom: 5px;
+}
+
+.fact-item h3 {
+    color: #ccc;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+/* 成分图表样式 */
+.composition-chart {
+    margin-bottom: 10px;
+}
+
+.chart-bar {
+    background: #333;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+.bar-fill {
+    height: 100%;
+    padding: 0 5px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.hydrogen {
+    background: #666;
+}
+
+.helium {
+    background: #555;
+}
+
+.other {
+    background: #444;
+}
+
+/* 图层样式 */
+.layers-diagram {
+    margin-bottom: 10px;
+}
+
+.layer {
+    padding: 5px;
+    background: #333;
+    margin-bottom: 5px;
+}
+
+.layer h4 {
+    color: #ccc;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+/* 活动网格样式 */
+.activity-grid {
+    margin-bottom: 10px;
+}
+
+.activity-item {
+    padding: 5px;
+    background: #333;
+    margin-bottom: 5px;
+}
+
+/* 导航门户样式 */
+.navigation-portal {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.portal-link {
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    background: #333;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+/* 介绍文本 */
+.sun-introduction {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* 元素样式 */
+.element-row {
+    margin-bottom: 5px;
+}
+
+.element-icon {
+    margin-right: 5px;
+    float: left;
+}
+
+.element-info h4 {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+/* 温度列表样式 */
+.temp-list {
+    margin-bottom: 10px;
+}
+
+.temp-item {
+    padding: 5px;
+    background: #333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.temp-item h4 {
+    color: #ccc;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.temp-item p {
+    color: #eee;
+    font-size: 14px;
+}
+
+/* 速度列表样式 */
+.velocity-list {
+    margin-bottom: 10px;
+}
+
+.velocity-item {
+    padding: 5px;
+    background: #333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.velocity-item h4 {
+    color: #ccc;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.velocity-item p {
+    color: #eee;
+    font-size: 14px;
+}
+
+/* 位置样式 */
+.sun-location,
+.sun-neighborhood {
+    margin-bottom: 15px;
+}
+
+.sun-location h2,
+.sun-neighborhood h2 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* 位置内容 */
+.location-content,
+.neighborhood-content {
+    margin-bottom: 10px;
+}
+
+.location-image,
+.neighborhood-image {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.location-image img,
+.neighborhood-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* 位置文本 */
+.location-text p,
+.neighborhood-text p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 元素框样式 */
+.element-box {
+    width: 30px;
+    height: 30px;
+    background: #333;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.element-number {
+    font-size: 10px;
+    color: #999;
+}
+
+.element-symbol {
+    font-size: 14px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.element-weight {
+    font-size: 10px;
+    color: #999;
+} 
