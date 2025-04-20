@@ -8,6 +8,9 @@
     --background-dark: #1a1a2e;  /* Dark background color - deep blue for space-like ambiance */
     --text-light: #ffffff;       /* Light text color - white for maximum readability on dark backgrounds */
     --text-dark: #000000;        /* Dark text color - black for maximum readability on light backgrounds */
+    --content-max-width: 1200px; /* Maximum content width variable */
+    --content-padding: 2rem;     /* Content Margin Variables */
+    --card-gap: 2rem;            /* Card spacing variables */
 }
 
 /* Global styles - Reset browser defaults for consistent cross-browser rendering */
@@ -30,14 +33,20 @@ body {
 }
 
 /* Navigation bar styles - Fixed position navigation that stays at the top of the viewport */
-.navbar {
+.navbar, .top-nav, .sun-nav, .moon-nav {
     position: fixed; /* Keep navbar at top of screen during scrolling */
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for depth effect */
-    padding: 1rem 2rem; /* Comfortable inner spacing */
+    background: rgba(0, 0, 0, 0.8); /* Increase opacity to improve contrast */
+    padding: 1rem var(--content-padding); /* Using variables to set fill */
     z-index: 1000; /* Ensure navbar appears above other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add shadows to enhance separation */
+}
+
+.nav-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between; /* Push logo to left, links to right */
     align-items: center; /* Vertically center items */
@@ -63,10 +72,13 @@ body {
     text-decoration: none; /* Remove underline from links */
     font-size: 1rem; /* Standard text size */
     transition: color 0.3s ease; /* Smooth color change on hover */
+    padding: 0.5rem 1rem; /* 添加内边距提高可点击面积 */
+    border-radius: 4px; /* 添加圆角 */
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
     color: var(--secondary-color); /* Gold color on hover for interactive feedback */
+    background-color: rgba(255, 255, 255, 0.1); /* 添加背景色增强交互效果 */
 }
 
 /* Hero section styles - Large banner/introductory area at the top of pages */
@@ -79,14 +91,16 @@ body {
     background: linear-gradient(to bottom, #000000, var(--background-dark)); /* Gradient background for depth */
     position: relative;
     overflow: hidden; /* Prevents content from spilling outside */
+    padding: 0 var(--content-padding); /* 添加水平内边距 */
 }
 
 /* Hero title styles - Main page heading in hero section */
 .hero-title {
     font-size: 4rem; /* Very large text for impact */
     color: var(--text-light); /* White text for readability */
-    margin-bottom: 1rem; /* Space below the title */
+    margin-bottom: 1.5rem; /* 增加间距 */
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Shadow for improved readability over varying backgrounds */
+    max-width: 800px; /* 限制最大宽度，提高可读性 */
 }
 
 /* Hero subtitle styles - Secondary text in hero section */
@@ -94,45 +108,67 @@ body {
     font-size: 1.5rem; /* Larger than body text but smaller than title */
     color: var(--secondary-color); /* Gold color for visual distinction */
     margin-bottom: 2rem; /* Space below the subtitle */
+    max-width: 600px; /* 限制最大宽度，提高可读性 */
 }
 
 /* Content section styles - Main content area container */
 .content {
-    padding: 4rem 2rem; /* Generous padding for readability */
-    max-width: 1200px; /* Limit width for better readability on large screens */
+    padding: 6rem var(--content-padding) 4rem; /* 增大顶部内边距，为固定导航栏留出空间 */
+    max-width: var(--content-max-width); /* 使用变量设置最大宽度 */
     margin: 0 auto; /* Center content horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; /* 增加各部分之间的间距 */
 }
 
 /* Section title styles - Headings for major content sections */
 .section-title {
     font-size: 2.5rem; /* Large text for hierarchy */
     color: var(--secondary-color); /* Gold color for importance */
-    margin-bottom: 2rem; /* Space below the title */
+    margin-bottom: 2.5rem; /* 增加间距 */
     text-align: center; /* Center align for symmetry */
+    position: relative; /* 为装饰元素提供定位上下文 */
+}
+
+/* 为标题添加装饰下划线 */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 0.8rem auto 0;
+    border-radius: 3px;
 }
 
 /* Structure grid - Layout for displaying structural components */
 .structure-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid that adapts to screen width */
-    gap: 3rem; /* Generous spacing between items */
-    padding: 2rem; /* Inner spacing for the entire grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 调整最小宽度 */
+    gap: var(--card-gap); /* 使用变量设置间距 */
+    padding: 1rem 0; /* 减小垂直内边距，保持水平对齐 */
+    width: 100%; /* 确保网格占据整个容器宽度 */
 }
 
 /* Structure item - Individual component in the structure grid */
 .structure-item {
     background: rgba(255, 255, 255, 0.05); /* Very subtle light background */
-    border-radius: 20px; /* Significantly rounded corners for modern look */
+    border-radius: 12px; /* 减小圆角 */
     padding: 2rem; /* Generous internal spacing */
     text-align: center; /* Center-aligned content */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover effects */
     backdrop-filter: blur(10px); /* Frosted glass effect for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 添加细边框增强边界感 */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 确保所有卡片高度一致 */
 }
 
 /* Hover effect for structure items */
 .structure-item:hover {
-    transform: translateY(-10px); /* Significant upward movement on hover for interactive feel */
+    transform: translateY(-5px); /* 减小上移效果 */
     background: rgba(255, 255, 255, 0.1); /* Slightly brighter background on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加阴影增强立体感 */
 }
 
 /* Icon container in structure items */
@@ -140,12 +176,12 @@ body {
     display: flex;
     justify-content: center; /* Horizontally center icon */
     align-items: center; /* Vertically center icon */
-    margin-bottom: 1rem; /* Space below icon */
+    margin-bottom: 1.5rem; /* 增加间距 */
 }
 
 /* Heading within structure items */
 .structure-item h3 {
-    font-size: 1.8rem; /* Large heading size */
+    font-size: 1.5rem; /* 调整标题大小 */
     margin-bottom: 1rem; /* Space below heading */
     color: #fff; /* White for maximum contrast */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
@@ -156,6 +192,14 @@ body {
     font-size: 1rem; /* Standard text size */
     line-height: 1.6; /* Increased line height for readability */
     color: #ccc; /* Light gray for less visual weight than headings */
+    margin-top: auto; /* 将段落推到底部，实现卡片内容垂直对齐 */
+}
+
+/* 添加结构图标样式 */
+.structure-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--secondary-color);
 }
 
 /* Distance information container - Used for astronomical unit explanations */
@@ -165,6 +209,7 @@ body {
     padding: 2rem; /* Generous internal padding */
     background: rgba(255, 255, 255, 0.05); /* Subtle background */
     border-radius: 10px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 添加细边框 */
 }
 
 /* Astronomical unit explanation text */
@@ -172,6 +217,8 @@ body {
     font-size: 1.2rem; /* Larger text for readability */
     color: #fff; /* White for contrast */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+    max-width: 800px; /* 限制最大宽度 */
+    margin: 0 auto; /* 水平居中 */
 }
 
 /* Responsive adjustments for smaller screens */
@@ -180,13 +227,37 @@ body {
     .section-title {
         font-size: 1.8rem; /* Reduced size for proportion */
         padding: 0 1rem; /* Horizontal padding */
+        margin-bottom: 2rem; /* 减小间距 */
+    }
+
+    /* Hero title adjustments for mobile */
+    .hero-title {
+        font-size: 2.5rem; /* 减小字体大小 */
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem; /* 减小字体大小 */
+    }
+
+    /* 导航栏移动端优化 */
+    .navbar {
+        padding: 0.8rem 1rem; /* 减小内边距 */
+    }
+    
+    .nav-links {
+        gap: 0.5rem; /* 减小间距 */
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.6rem; /* 减小内边距 */
+        font-size: 0.9rem; /* 减小字体大小 */
     }
 
     /* Single column structure grid on mobile */
     .structure-grid {
         grid-template-columns: 1fr; /* Stack items vertically */
-        gap: 2rem; /* Reduced spacing */
-        padding: 1rem; /* Reduced padding */
+        gap: 1.5rem; /* Reduced spacing */
+        padding: 0; /* 移除内边距 */
     }
 
     /* Smaller structure item padding on mobile */
@@ -196,19 +267,34 @@ body {
 
     /* Fixed size for item icons on mobile */
     .item-icon {
-        width: 80px; /* Consistent width */
-        height: 80px; /* Consistent height */
+        width: 60px; /* 减小尺寸 */
+        height: 60px; /* 减小尺寸 */
+        margin-bottom: 1rem; /* 减小间距 */
     }
 
     /* Smaller structure item headings on mobile */
     .structure-item h3 {
-        font-size: 1.5rem; /* Reduced size for proportion */
+        font-size: 1.3rem; /* Reduced size for proportion */
+        margin-bottom: 0.8rem; /* 减小间距 */
+    }
+    
+    /* 内容区域移动端优化 */
+    .content {
+        padding: 5rem 1rem 3rem; /* 减小内边距 */
+        gap: 3rem; /* 减小间距 */
+    }
+    
+    /* 结构图标移动端优化 */
+    .structure-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 }
 
 /* Smooth scrolling behavior for the entire page */
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling to anchor links */
+    scroll-padding-top: 60px; /* 添加滚动偏移，防止内容被固定导航栏遮挡 */
 }
 
 /* Planet page specific styles - Visual elements unique to planet pages */
@@ -221,11 +307,15 @@ html {
 /* Container for planet categories */
 .planet-categories {
     padding: 4rem 0; /* Vertical padding */
+    max-width: var(--content-max-width); /* 使用变量设置最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    width: 100%; /* 确保占据整个容器宽度 */
 }
 
 /* Individual category section */
 .category {
-    margin-bottom: 6rem; /* Generous space between categories */
+    margin-bottom: 5rem; /* 减小间距 */
+    padding: 0 var(--content-padding); /* 使用变量设置内边距 */
 }
 
 /* Decorative lines around category titles */
@@ -249,234 +339,214 @@ html {
     right: -60px; /* Position to right of title */
 }
 
-/* Category description text */
+/* 新增的优化 - 行星页面响应式布局优化 */
 .category-description {
-    text-align: center;
-    max-width: 800px; /* Limit width for readability */
-    margin: 0 auto 3rem; /* Center horizontally with space below */
-    color: #ccc; /* Light gray for less emphasis than headings */
-    line-height: 1.8; /* Generous line height for readability */
-    font-size: 1.1rem; /* Slightly larger than standard text */
+    max-width: 800px; /* 限制最大宽度，提高可读性 */
+    margin: 0 auto 2.5rem; /* 居中并增加下方间距 */
+    line-height: 1.8; /* 增加行高提高可读性 */
 }
 
-/* Grid layout for planet cards */
 .planets-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid adapting to screen width */
-    gap: 2rem; /* Space between planet cards */
-    padding: 2rem 0; /* Vertical padding */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 调整最小宽度 */
+    gap: var(--card-gap);
+    width: 100%;
 }
 
-/* Planet card styles - Simplified version for better performance */
 .planet-card {
-    background: rgba(255, 255, 255, 0.05); /* Subtle light background */
-    border-radius: 20px; /* Rounded corners for modern look */
-    padding: 1.5rem; /* Internal spacing */
-    transition: all 0.4s ease; /* Smooth transition for all properties */
-    cursor: pointer; /* Hand cursor to indicate clickability */
-    overflow: hidden; /* Prevent content from spilling outside */
-    position: relative; /* Create positioning context */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    background: rgba(20, 20, 30, 0.7); /* 调整背景色 */
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* 添加细边框 */
+    height: 100%; /* 确保卡片高度一致 */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Hover effect for planet cards */
 .planet-card:hover {
-    transform: translateY(-10px); /* Upward movement on hover */
-    background: rgba(255, 255, 255, 0.1); /* Slightly brighter background on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(30, 30, 45, 0.8);
 }
 
-/* Planet image container */
 .planet-image {
     width: 100%;
-    aspect-ratio: 1; /* Maintain square aspect ratio */
-    border-radius: 15px; /* Rounded corners */
-    overflow: hidden; /* Crop image to container */
-    margin-bottom: 1.5rem; /* Space below image */
+    height: 180px; /* 固定高度确保一致性 */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
 }
 
-/* Planet image element */
 .planet-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fill container while maintaining aspect ratio */
-    transition: transform 0.4s ease; /* Smooth zoom transition */
+    object-fit: cover; /* 保持图像比例同时填充容器 */
+    transition: transform 0.3s ease;
 }
 
-/* Simplified image hover effect */
 .planet-card:hover .planet-image img {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05);
 }
 
-/* Planet card heading */
 .planet-card h3 {
-    font-size: 1.5rem; /* Large text for importance */
-    margin-bottom: 0.5rem; /* Space below heading */
-    color: #fff; /* White for contrast */
-    text-align: center; /* Center alignment */
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
 }
 
-/* Planet card description text */
 .planet-card p {
-    color: #ccc; /* Light gray for less visual weight */
-    text-align: center; /* Center alignment */
-    font-size: 1rem; /* Standard text size */
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-top: auto; /* 将描述推到底部 */
 }
 
-/* Responsive adjustments for planet cards */
-@media (max-width: 768px) {
-    /* Smaller category headings on mobile */
-    .category-title {
-        font-size: 2rem; /* Reduced size for proportion */
-    }
-
-    /* Smaller category descriptions on mobile */
-    .category-description {
-        font-size: 1rem; /* Standard text size */
-        padding: 0 1rem; /* Horizontal padding */
-    }
-
-    /* Adjust planet grid for smaller screens */
-    .planets-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minimum width */
-        gap: 1.5rem; /* Reduced spacing */
-        padding: 1rem; /* Reduced padding */
-    }
-}
-
-/* Planet detailed information container */
+/* 行星详情部分优化 */
 .planet-details {
-    margin-top: 4rem; /* Space above container */
+    padding: 2rem var(--content-padding);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Individual planet detail section */
 .planet-detail-section {
-    margin-bottom: 5rem; /* Generous space between sections */
-    padding: 2rem; /* Internal padding */
-    background: rgba(0, 0, 0, 0.3); /* Subtle dark background */
-    border-radius: 15px; /* Rounded corners */
-    opacity: 0; /* Start invisible for fade-in effect */
-    transform: translateY(30px); /* Start offset for movement effect */
-    transition: all 0.5s ease; /* Smooth transition for entrance animation */
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(15, 15, 25, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Visible state for planet detail sections - triggered by JavaScript */
-.planet-detail-section.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* No offset when visible */
-}
-
-/* Planet detail section heading */
 .planet-detail-title {
-    font-size: 2.5rem; /* Large heading size */
-    color: #fff; /* White for contrast */
-    text-align: center; /* Center alignment */
-    margin-bottom: 2rem; /* Space below heading */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-/* Content layout for planet details */
 .planet-detail-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 3rem; /* Generous spacing between columns */
-    align-items: center; /* Vertically center align items */
+    grid-template-columns: 1fr 1fr; /* 改为两列网格布局 */
+    gap: 2.5rem;
+    align-items: start;
 }
 
-/* Planet detail image container */
 .planet-detail-image {
-    border-radius: 15px; /* Rounded corners */
-    overflow: hidden; /* Crop image to container */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for depth */
-    transition: transform 0.3s ease; /* Smooth hover animation */
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover effect for planet detail images */
-.planet-detail-image:hover {
-    transform: scale(1.02); /* Slight enlargement on hover */
-}
-
-/* Planet detail image element */
 .planet-detail-image img {
-    width: 100%; /* Fill container width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove default inline spacing */
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Container for planet textual information */
 .planet-detail-info {
-    color: #ccc; /* Light gray for readability */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-/* Planet detailed description text */
 .planet-detail-description {
-    font-size: 1.1rem; /* Slightly larger text */
-    line-height: 1.8; /* Generous line height for readability */
-    margin-bottom: 2rem; /* Space below description */
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #eee;
 }
 
-/* Grid for planet statistical data */
 .planet-detail-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 1.5rem; /* Space between items */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.2rem;
 }
 
-/* Individual statistic item in planet details */
 .planet-detail-stats .stat-item {
-    background: rgba(255, 255, 255, 0.1); /* Subtle light background */
-    padding: 1rem; /* Internal padding */
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center alignment */
-    transition: all 0.3s ease; /* Smooth hover animation */
-    cursor: pointer; /* Hand cursor to indicate interactivity */
+    background: rgba(40, 40, 60, 0.6);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Hover effect for statistics items */
-.planet-detail-stats .stat-item:hover {
-    background: rgba(255, 255, 255, 0.2); /* Brighter background on hover */
-    transform: translateY(-5px); /* Upward movement on hover */
+.planet-detail-stats .stat-item h4 {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
 }
 
-/* Responsive adjustments for planet details on mobile */
+.planet-detail-stats .stat-item p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+/* 响应式调整 */
 @media (max-width: 768px) {
-    /* Switch to single column layout on mobile */
     .planet-detail-content {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr; /* 移动端改为单列 */
+        gap: 1.5rem;
     }
     
-    /* Smaller heading size on mobile */
     .planet-detail-title {
-        font-size: 2rem; /* Reduced size for proportion */
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
     
-    /* Single column stats on mobile */
     .planet-detail-stats {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: repeat(2, 1fr); /* 移动端改为两列 */
+    }
+    
+    .planet-detail-section {
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .category {
+        padding: 0 1rem;
+        margin-bottom: 3rem;
+    }
+    
+    .category-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .category-description {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .planets-grid {
+        gap: 1.2rem;
+    }
+    
+    .planet-detail-description {
+        font-size: 1rem;
+        line-height: 1.6;
     }
 }
 
-/* Animation for elements fading in while scrolling up */
+/* 动画关键帧定义 */
 @keyframes fadeInUp {
     from {
-        opacity: 0; /* Start invisible */
-        transform: translateY(30px); /* Start offset downward */
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        opacity: 1; /* End fully visible */
-        transform: translateY(0); /* End with no offset */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Animation for initial page loading */
 @keyframes pageLoad {
-    0% {
-        opacity: 0; /* Start invisible */
-        transform: translateY(20px); /* Start offset downward */
+    from {
+        opacity: 0;
     }
-    100% {
-        opacity: 1; /* End fully visible */
-        transform: translateY(0); /* End with no offset */
+    to {
+        opacity: 1;
     }
 } 
