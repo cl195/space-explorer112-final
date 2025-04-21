@@ -12,45 +12,42 @@
 /* ===== Navigation Bar Styles ===== */
 /* Add gradient background to moon page navigation bar, darker at top and transparent at bottom, creating floating feel */
 .moon-nav {
-    background: linear-gradient(to bottom, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.7));
+    background: linear-gradient(to bottom, rgba(26, 26, 46, 0.9), transparent);
 }
 
-/* Simplified moon link styling without animations */
+/* Moon navigation link animation effect - simulating moon phase changes */
 .nav-links a.moon-link {
-    color: var(--moon-primary); /* Moon color for consistent styling */
+    transition: all 0.3s ease; /* Smooth transition effect */
 }
 
-/* Remove moon icon and animation effects */
+/* Create a small dot to the left of the navigation link, simulating the moon */
 .nav-links a.moon-link::before {
-    display: none; /* Hide the moon icon completely */
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Vertically centered */
+    left: -15px; /* Position to the left of the link */
+    width: 8px; /* Small dot width */
+    height: 8px; /* Small dot height */
+    background: var(--moon-primary); /* Moon color */
+    border-radius: 50%; /* Circular shape */
+    box-shadow: 0 0 10px var(--moon-primary); /* Glow effect, simulating moonlight */
+    transform: translateY(-50%) scale(0); /* Initial state scaled to zero */
+    opacity: 0; /* Initially transparent */
+    transition: all 0.3s ease; /* Transition animation */
 }
 
-/* Simplified active state - just keep it bold with moon color */
+/* Link style for hover or active state */
 .nav-links a.moon-link:hover,
 .nav-links a.moon-link.active {
     color: var(--moon-primary); /* Change text color to moon color */
-    font-weight: bold; /* Bold for active state */
+    letter-spacing: 3px; /* Increase letter spacing, creating expanded feel */
 }
 
-/* Remove icon animation completely */
+/* Display the moon icon to the left when hovering or active */
 .nav-links a.moon-link:hover::before,
 .nav-links a.moon-link.active::before {
-    display: none;
-}
-
-/* Add responsive styles for moon nav */
-@media (max-width: 768px) {
-    .moon-nav .nav-content {
-        width: 100%; /* Full width on mobile */
-    }
-    
-    .moon-nav .nav-links {
-        gap: 1rem; /* Reduced spacing on mobile */
-    }
-    
-    .moon-nav .nav-links a {
-        font-size: 0.8rem; /* Smaller font on mobile */
-    }
+    transform: translateY(-50%) scale(1); /* Show and scale to normal size */
+    opacity: 1; /* Fully opaque */
 }
 
 /* ===== Hero Area Styles - Main visual area at top of page ===== */

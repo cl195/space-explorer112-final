@@ -110,13 +110,15 @@ function setupPageTransitions() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Only apply to internal links that aren't for the current page or anchors
             if (!this.classList.contains('active') && !this.getAttribute('href').startsWith('#')) {
                 e.preventDefault();
                 
-                // Simplify transition - just redirect without animation effects
                 const targetHref = this.getAttribute('href');
-                window.location.href = targetHref;
+                document.body.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    window.location.href = targetHref;
+                }, 300);
             }
         });
     });

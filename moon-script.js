@@ -274,7 +274,7 @@ window.addEventListener('load', () => {
 
 /**
  * Handle page exit animations
- * Simplified navigation - remove animations
+ * Add fade-out animation when user clicks navigation links, then redirect
  */
 document.querySelectorAll('a').forEach(link => {
     // Don't add animation to moon link (since we're already on the moon page)
@@ -286,12 +286,32 @@ document.querySelectorAll('a').forEach(link => {
             if (targetHref && targetHref.indexOf('#') !== 0 && !targetHref.match(/^https?:\/\//)) {
                 e.preventDefault(); // Prevent default navigation behavior
                 
-                // Direct navigation without animations
-                window.location.href = targetHref;
+                // Add fade-out animation
+                document.body.classList.add('fade-out');
+                
+                // Execute redirect after animation completes
+                setTimeout(() => {
+                    window.location.href = targetHref;
+                }, 500); // Redirect after 500ms, matching animation duration
             }
         });
     }
 });
+
+// Add fade-out animation style to the page
+const leaveStyle = document.createElement('style');
+leaveStyle.textContent = `
+    /* Page fade-out animation */
+    .fade-out {
+        animation: fadeOut 0.5s forwards !important; /* Force apply fade-out animation */
+    }
+    
+    /* Fade-out animation definition */
+    @keyframes fadeOut {
+        to { opacity: 0; } /* Completely transparent */
+    }
+`;
+document.head.appendChild(leaveStyle);
 
 /**
  * Initialize fact carousel functionality

@@ -24,8 +24,8 @@ body {
     left: 0; /* Aligns to left edge */
     width: 100%; /* Full width of viewport */
     z-index: 1000; /* High z-index ensures it stays above other content */
-    padding: 1rem; /* Reduced padding for more compact nav */
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better visibility */
+    padding: 2rem; /* Adds space inside navigation bar */
+    background: transparent; /* Transparent background initially */
 }
 
 /* Container for navigation content with size constraints */
@@ -33,8 +33,8 @@ body {
     max-width: 1400px; /* Limits maximum width for larger screens */
     margin: 0 auto; /* Centers the navigation horizontally */
     display: flex; /* Uses flexbox layout */
-    flex-direction: column; /* Stack logo and links vertically */
-    align-items: flex-start; /* Align items to the left */
+    justify-content: space-between; /* Pushes logo to left and links to right */
+    align-items: center; /* Vertically centers items */
 }
 
 /* Logo styling in the navigation */
@@ -42,53 +42,66 @@ body {
     font-size: 1.2rem; /* Sets logo text size */
     font-weight: bold; /* Makes logo text bold */
     letter-spacing: 1px; /* Adds slight spacing between logo letters */
-    margin-bottom: 0.5rem; /* Add space between logo and links */
 }
 
 /* Container for navigation links */
 .nav-links {
     display: flex; /* Uses flexbox layout for link arrangement */
-    gap: 1.5rem; /* Reduced gap between navigation links */
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    gap: 3rem; /* Adds space between navigation links */
 }
 
 /* Unified simplified navigation link styles - Base styling for all navigation links */
 .nav-links a {
     color: #fff; /* White text color */
     text-decoration: none; /* Removes underline from links */
-    font-size: 0.9rem; /* Slightly smaller text size */
+    margin-left: 2rem; /* Adds space to the left of each link */
+    font-size: 1rem; /* Sets link text size */
     letter-spacing: 2px; /* Wider letter spacing for modern appearance */
     position: relative; /* Creates positioning context for pseudo-elements */
     padding: 5px 0; /* Adds vertical padding to increase clickable area */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-/* Remove hover transition effect */
+/* Simplified underline animation - Creates animated underline effect for navigation links */
 .nav-links a::after {
-    display: none; /* Hide the animated underline completely */
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Positions outside normal flow */
+    bottom: 0; /* Aligns to bottom of link */
+    left: 0; /* Aligns to left edge of link */
+    width: 0; /* Initially has no width */
+    height: 2px; /* Height of underline */
+    background: #fff; /* White underline */
+    transition: width 0.3s ease; /* Smooth width transition for animation */
+}
+
+/* Hover and active state for navigation underlines */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%; /* Expands underline to full width on hover/active state */
 }
 
 /* Simplified color changes for each page link - Structure page specific styling */
+.nav-links a.structure-link:hover,
 .nav-links a.structure-link.active {
     color: #fff; /* White color for structure page links */
-    font-weight: bold; /* Bold for active link */
 }
 
 /* Planet page specific link styling */
+.nav-links a.planet-link:hover,
 .nav-links a.planet-link.active {
     color: #66ccff; /* Light blue color for planet page links */
-    font-weight: bold; /* Bold for active link */
 }
 
 /* Sun page specific link styling */
+.nav-links a.sun-link:hover,
 .nav-links a.sun-link.active {
     color: #ff751a; /* Orange color for sun page links */
-    font-weight: bold; /* Bold for active link */
 }
 
 /* Moon page specific link styling */
+.nav-links a.moon-link:hover,
 .nav-links a.moon-link.active {
     color: #c2c5cc; /* Light gray color for moon page links */
-    font-weight: bold; /* Bold for active link */
 }
 
 /* Hero section styles - Full-screen introductory section with background image */
@@ -176,15 +189,12 @@ body {
     }
 
     .nav-content {
-        width: 100%; /* Full width on mobile */
+        flex-direction: column; /* Stack navigation elements vertically */
+        gap: 1rem; /* Reduced spacing between elements */
     }
 
     .nav-links {
-        gap: 1rem; /* Further reduced spacing on mobile */
-    }
-
-    .nav-links a {
-        font-size: 0.8rem; /* Even smaller font on mobile */
+        gap: 1rem; /* Reduced spacing between links */
     }
 
     .planet-content {

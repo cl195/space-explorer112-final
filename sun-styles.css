@@ -6,18 +6,9 @@
 
 /* Navigation bar styling specific to the sun page */
 .sun-nav {
-    /* Semi-transparent dark background with simplified styling */
+    /* Semi-transparent dark background with blur effect for modern glass-like appearance */
     background: rgba(0, 0, 0, 0.8);
-}
-
-/* Simplify sun link styling */
-.nav-links a.sun-link {
-    color: #ff751a; /* Orange color for consistency */
-}
-
-/* Sun link active styling */
-.nav-links a.sun-link.active {
-    font-weight: bold; /* Simply make text bold for active state */
+    backdrop-filter: blur(10px); /* Creates frosted glass effect behind navigation */
 }
 
 /* Hero section styling - The prominent full-height header section with sun animation */
@@ -642,17 +633,5 @@
     .location-text,
     .element-text {
         order: -1; /* Display text before image */
-    }
-    
-    .sun-nav .nav-content {
-        width: 100%; /* Full width on mobile */
-    }
-    
-    .sun-nav .nav-links {
-        gap: 1rem; /* Reduced spacing on mobile */
-    }
-    
-    .sun-nav .nav-links a {
-        font-size: 0.8rem; /* Smaller font on mobile */
     }
 } 
