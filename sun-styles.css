@@ -1,54 +1,68 @@
-/* Sun page specific styles - Version 4 simplified */
+/* Sun page specific styles - Version 4 */
 
-/* Root variables for consistent theming */
+/* Sun page specific variables */
 :root {
-    --sun-primary: #ff6b00;      /* Sun color - orange */
-    --sun-dark: #1a1a2e;         /* Dark background */
-    --sun-accent: #ffd700;       /* Accent color - gold */
-    --sun-light: #ffffff;        /* Light text color */
+    --sun-primary: #ffcc00;      /* Sun-primary color - golden yellow */
+    --sun-secondary: #ff8c00;    /* Solar Secondary Color - Orange */
+    --sun-accent: #ff6b00;       /* Sun accent color - bright orange */
+    --sun-background: #1a1a2e;   /* Sun background color - deep blue-black */
+    --sun-text: #ffffff;         /* Sun Text Color - white */
+    --sun-card-gap: 2rem;          /* Sun card spacing variable */
+    --sun-content-width: 1200px;   /* Solar Content Maximum Width variable */
 }
 
-/* Base page styles */
+/* Sun page base styles */
 .sun-page {
-    background: #000;
-    color: var(--sun-light);
+    background-color: var(--sun-background);
+    color: var(--sun-text);
+    min-height: 100vh;
 }
 
-/* Navigation bar styles */
+/* Sun navigation adjustments - only specific customization */
 .sun-nav {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-bottom: 1px solid rgba(255, 155, 0, 0.2);
 }
 
-/* Hero section styles */
+.sun-nav .nav-logo {
+    color: var(--sun-primary);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--sun-primary);
+    background: rgba(255, 204, 0, 0.1);
+}
+
+/* Sun hero section */
 .sun-hero {
-    height: 80vh; /* Reduced height */
-    position: relative;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     overflow: hidden;
-    background: linear-gradient(to bottom, #000000, #1a1a2e);
+    background: radial-gradient(circle at center, #ff8c00 0%, #1a1a2e 70%);
+    margin-top: 60px; /* Make room for a navigation bar */
 }
 
-/* Sun animation container */
+/* Sun animation */
 .sun-animation {
-    width: 300px; /* Reduced size */
-    height: 300px; /* Reduced size */
     position: relative;
-    margin: 0 auto;
+    width: 300px;
+    height: 300px;
 }
 
-/* Sun core styles */
 .sun-core {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--sun-primary), #ff4500);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, #ffee00 0%, #ff8c00 100%);
     border-radius: 50%;
-    position: relative;
-    box-shadow: 0 0 50px var(--sun-primary);
+    box-shadow: 0 0 60px rgba(255, 204, 0, 0.8), 0 0 100px rgba(255, 107, 0, 0.4);
 }
 
-/* Sun rays container */
 .sun-rays {
     position: absolute;
     top: 0;
@@ -57,767 +71,304 @@
     height: 100%;
 }
 
-/* Individual ray styles */
-.ray {
+.sun-ray {
     position: absolute;
-    width: 2px; /* Reduced width */
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, var(--sun-accent), transparent);
-    transform-origin: center;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255, 204, 0, 0.8) 0%, rgba(255, 204, 0, 0) 100%);
+    transform-origin: 0 50%;
 }
 
-/* Content section styles */
+/* Sun content area */
 .sun-content {
-    padding: 2rem 0; /* Reduced padding */
-    position: relative;
-    background: #000;
+    padding: 4rem 0;
+    max-width: var(--sun-content-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-/* Introduction text styles */
+/* Sun introduction section */
 .sun-introduction {
-    margin-bottom: 2rem; /* Reduced margin */
     text-align: center;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    color: var(--sun-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--sun-primary);
+    margin: 0.8rem auto 0;
+    border-radius: 3px;
 }
 
 .intro-text {
-    font-size: 1.1rem; /* Reduced font size */
-    line-height: 1.5;
-    color: var(--sun-light);
-    margin-bottom: 1rem; /* Reduced margin */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e6e6e6;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Info cards grid */
 .info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduced size */
-    gap: 20px; /* Reduced gap */
-    margin-bottom: 3rem; /* Reduced margin */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sun-card-gap);
+    padding: 0 2rem;
 }
 
-/* Card styles */
+/* Individual info card */
 .info-card {
-    background: rgba(26, 26, 46, 0.7); /* Simplified background */
-    border-radius: 10px; /* Reduced border radius */
-    padding: 1.5rem; /* Reduced padding */
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 107, 0, 0.1); /* Simple border */
+    background: rgba(30, 30, 45, 0.7);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Card title styles */
 .info-card h2 {
-    color: var(--sun-accent);
-    margin-bottom: 1.5rem; /* Reduced margin */
-    font-size: 1.5rem; /* Reduced font size */
+    color: var(--sun-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
 }
 
-/* Card content styles */
 .card-content {
-    color: var(--sun-light);
-    font-size: 1rem; /* Reduced font size */
-    line-height: 1.5;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Progress bar container */
-.progress-container {
-    margin-top: 1rem;
+.card-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e6e6e6;
+    margin-bottom: 1.5rem;
 }
 
 /* Progress bar styles */
-.progress-bar {
-    height: 8px; /* Reduced height */
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px; /* Reduced border radius */
-    overflow: hidden;
-    margin-bottom: 0.5rem; /* Reduced margin */
+.progress-container {
+    margin-top: auto;
 }
 
-/* Progress bar fill */
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(to right, var(--sun-primary), var(--sun-accent));
-    width: 0;
-    transition: width 1s ease-in-out;
-}
-
-/* Progress label styles */
 .progress-label {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem; /* Reduced font size */
-    color: var(--sun-light);
-    margin-bottom: 0.5rem; /* Reduced margin */
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #e6e6e6;
 }
 
-/* Temperature section styles */
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sun-primary), var(--sun-accent));
+    border-radius: 4px;
+    transition: width 1s ease-out;
+}
+
+/* Temperature section */
 .temperature-section {
-    margin-top: 2rem;
+    margin-top: auto;
 }
 
-/* Temperature scale styles */
 .temperature-scale {
-    height: 8px; /* Reduced height */
-    background: linear-gradient(to right, #0000ff, #00ff00, #ffff00, #ff0000);
-    border-radius: 4px; /* Reduced border radius */
-    margin: 1rem 0; /* Reduced margin */
+    height: 10px;
+    background: linear-gradient(90deg, #3498db, #e74c3c);
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
 }
 
-/* Temperature markers */
 .temperature-markers {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem; /* Reduced font size */
-    color: var(--sun-light);
+    font-size: 0.9rem;
+    color: #e6e6e6;
 }
 
-/* Velocity section styles */
+/* Velocity section */
 .velocity-section {
-    margin-top: 2rem;
+    margin-top: auto;
 }
 
-/* Velocity indicators */
 .velocity-indicators {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px; /* Reduced gap */
-    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
 }
 
-/* Velocity indicator styles */
 .velocity-indicator {
-    background: rgba(26, 26, 46, 0.5); /* Simplified background */
-    padding: 10px; /* Reduced padding */
-    border-radius: 8px; /* Reduced border radius */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
     text-align: center;
+    flex: 1;
 }
 
-/* Velocity value styles */
+.velocity-indicator h3 {
+    font-size: 0.9rem;
+    color: #e6e6e6;
+    margin-bottom: 0.5rem;
+}
+
 .velocity-value {
-    font-size: 1.2rem; /* Reduced font size */
-    color: var(--sun-accent);
-    margin: 0.5rem 0; /* Reduced margin */
+    font-size: 1.2rem;
+    color: var(--sun-primary);
+    font-weight: bold;
 }
 
-/* Location section styles */
+/* Location section */
 .location-section {
-    margin-top: 2rem;
+    margin-top: auto;
 }
 
-/* Location map container */
 .location-map {
     width: 100%;
-    height: 300px; /* Reduced height */
-    background: rgba(26, 26, 46, 0.5); /* Simplified background */
-    border-radius: 10px; /* Reduced border radius */
-    margin-top: 1rem;
+    height: 150px;
+    background: rgba(40, 40, 55, 0.6);
+    border-radius: 8px;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
 
-/* Location markers */
-.location-marker {
-    position: absolute;
-    width: 10px; /* Reduced size */
-    height: 10px; /* Reduced size */
-    background: var(--sun-accent);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Neighborhood section styles */
-.neighborhood-section {
-    margin-top: 2rem;
-}
-
-/* Star grid styles */
-.star-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduced size */
-    gap: 20px; /* Reduced gap */
-    margin-top: 1rem;
-}
-
-/* Star card styles */
-.star-card {
-    background: rgba(26, 26, 46, 0.5); /* Simplified background */
-    padding: 1rem; /* Reduced padding */
-    border-radius: 8px; /* Reduced border radius */
-    text-align: center;
-}
-
-/* Star name styles */
-.star-name {
-    color: var(--sun-accent);
-    font-size: 1.1rem; /* Reduced font size */
-    margin-bottom: 0.5rem; /* Reduced margin */
-}
-
-/* Star distance styles */
-.star-distance {
-    color: var(--sun-light);
-    font-size: 0.9rem; /* Reduced font size */
-    opacity: 0.8;
-}
-
-/* Sun page specific styles */
-.sun-page {
-    background: linear-gradient(to bottom, #000000, #1a0f02); /* Dark gradient background transitioning to a dark orange-tinged black */
-}
-
-.sun-nav {
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for navigation */
-    backdrop-filter: blur(10px); /* Blur effect for glass-like appearance */
-}
-
-/* Sun animation in hero section */
-.sun-hero {
-    height: 100vh; /* Full viewport height for hero section */
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space content evenly */
-    position: relative;
-    overflow: hidden; /* Hide overflow content */
-    background: #000; /* Black background */
-    padding: 0 5%; /* Horizontal padding */
-}
-
-.sun-animation {
-    position: relative;
-    width: 550px; /* Large width for sun animation */
-    height: 550px; /* Large height for sun animation */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto; /* Push to right side */
-}
-
-.sun-core {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('images/sun.jpg') center/cover no-repeat; /* Sun texture image */
-    border-radius: 50%; /* Perfect circle */
-    box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 0 0 80px rgba(255, 179, 102, 0.4), 0 0 200px rgba(255, 119, 0, 0.3); /* Multiple layered glow effect */
-    animation: pulse 4s ease-in-out infinite; /* Pulsing animation */
-    z-index: 1; /* Stack order */
-}
-
-.sun-rays {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: transparent;
-    z-index: 0; /* Behind the sun core */
-}
-
-.sun-rays::before {
-    content: '';
-    position: absolute;
-    top: -2%;
-    left: -2%;
-    width: 104%; /* Slightly larger than parent */
-    height: 104%; /* Slightly larger than parent */
-    background: radial-gradient(circle at center, rgba(255, 119, 0, 0.3) 0%, rgba(255, 119, 0, 0) 70%); /* Fading radial gradient */
-    border-radius: 50%;
-    animation: rays 8s linear infinite; /* Rotating rays animation */
-}
-
-.sun-title {
-    position: relative;
-    color: #fff;
-    font-size: 4.5rem; /* Large title text */
-    font-weight: 700; /* Bold weight */
-    text-align: left;
-    line-height: 1.2;
-    text-shadow: 0 0 20px rgba(255, 119, 0, 0.7); /* Orange glow shadow */
-    z-index: 2; /* In front of other elements */
-    animation: fadeInLeft 1s ease-out; /* Entrance animation */
-    max-width: 600px; /* Maximum width */
-    margin-right: auto; /* Push to left side */
-}
-
-/* Content area styles */
-.sun-content {
-    position: relative;
-    z-index: 1; /* Stack order */
-    padding: 4rem 0; /* Vertical padding */
-}
-
-.sun-info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two-column grid */
-    gap: 2rem; /* Gap between grid items */
-    margin-bottom: 4rem; /* Bottom margin */
-}
-
-.sun-card {
-    background: rgba(255, 255, 255, 0.05); /* Very subtle white background */
-    border-radius: 20px; /* Rounded corners */
-    padding: 2rem; /* Internal padding */
-    backdrop-filter: blur(10px); /* Blur effect for glass-like appearance */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-
-.sun-card:hover {
-    transform: translateY(-10px); /* Move up on hover */
-    box-shadow: 0 10px 30px rgba(255, 119, 0, 0.2); /* Orange glow shadow on hover */
-}
-
-.sun-card h2 {
-    color: #fff;
-    font-size: 2rem; /* Large heading size */
-    margin-bottom: 1.5rem; /* Bottom margin */
-    text-shadow: 0 0 10px rgba(255, 119, 0, 0.3); /* Subtle orange shadow */
-}
-
-/* Fact list grid layout */
-.fact-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two-column grid */
-    gap: 1.5rem; /* Gap between items */
-}
-
-.fact-item {
-    text-align: center;
-    padding: 1rem; /* Internal padding */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    border-radius: 10px; /* Rounded corners */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.fact-item:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-}
-
-.fact-item h3 {
-    color: #ffb366; /* Light orange heading */
-    margin-bottom: 0.5rem; /* Bottom margin */
-}
-
-/* Composition chart styles */
-.composition-chart {
-    display: flex;
-    flex-direction: column; /* Vertical layout */
-    gap: 1rem; /* Gap between items */
-}
-
-.chart-bar {
-    background: rgba(255, 255, 255, 0.1); /* Subtle white background */
-    border-radius: 5px; /* Rounded corners */
-    overflow: hidden; /* Hide overflow */
-    height: 30px; /* Fixed height */
-}
-
-.bar-fill {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem; /* Horizontal padding */
-    color: #fff; /* White text */
-    transition: width 1s ease-out; /* Animated width change */
-}
-
-.hydrogen {
-    background: linear-gradient(to right, #ff751a, #ffb366); /* Orange gradient for hydrogen */
-}
-
-.helium {
-    background: linear-gradient(to right, #ff9933, #ffcc99); /* Lighter orange gradient for helium */
-}
-
-.other {
-    background: linear-gradient(to right, #ffcc99, #ffe6cc); /* Very light orange gradient for other elements */
-}
-
-/* Sun layers diagram styles */
-.layers-diagram {
-    display: flex;
-    flex-direction: column; /* Vertical layout */
-    gap: 1rem; /* Gap between items */
-}
-
-.layer {
-    padding: 1rem; /* Internal padding */
-    border-radius: 10px; /* Rounded corners */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.layer:hover {
-    transform: translateX(10px); /* Move right on hover */
-}
-
-.layer h4 {
-    color: #ffb366; /* Light orange heading */
-    margin-bottom: 0.5rem; /* Bottom margin */
-}
-
-/* Activity grid layout */
-.activity-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two-column grid */
-    gap: 1rem; /* Gap between items */
-}
-
-.activity-item {
-    padding: 1rem; /* Internal padding */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    border-radius: 10px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-}
-
-.activity-item:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    background: rgba(255, 119, 0, 0.2); /* Darker orange background on hover */
-}
-
-/* Navigation portal links style */
-.navigation-portal {
-    display: flex;
-    justify-content: center;
-    gap: 2rem; /* Gap between items */
-    margin-top: 4rem; /* Top margin */
-}
-
-.portal-link {
-    position: relative;
-    padding: 1rem 2rem; /* Vertical and horizontal padding */
-    color: #fff; /* White text */
-    text-decoration: none; /* Remove underline */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    border-radius: 30px; /* Highly rounded corners */
-    overflow: hidden; /* Hide overflow for shine effect */
-    transition: all 0.3s ease; /* Smooth transition */
-}
-
-.portal-link::before {
+.location-map::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 119, 0, 0.2), transparent); /* Diagonal gradient for shine effect */
-    transform: translateX(-100%); /* Start off-screen */
-    transition: transform 0.5s ease; /* Smooth transition */
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
-.portal-link:hover {
-    background: rgba(255, 119, 0, 0.2); /* Darker orange background on hover */
-    transform: translateY(-5px); /* Move up on hover */
-}
-
-.portal-link:hover::before {
-    transform: translateX(100%); /* Move shine effect across button */
-}
-
-/* Animations */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 0 0 80px rgba(255, 179, 102, 0.4), 0 0 200px rgba(255, 119, 0, 0.3);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 150px rgba(255, 119, 0, 0.7), 0 0 100px rgba(255, 179, 102, 0.5), 0 0 250px rgba(255, 119, 0, 0.4);
-        transform: scale(1.03); /* Slightly enlarge at midpoint */
-    }
-    100% {
-        box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 0 0 80px rgba(255, 179, 102, 0.4), 0 0 200px rgba(255, 119, 0, 0.3);
-        transform: scale(1); /* Return to original size */
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg); /* Full rotation */
-    }
-}
-
-@keyframes rays {
-    0% {
-        opacity: 0.7;
-        transform: rotate(0deg);
-    }
-    50% {
-        opacity: 0.9; /* Slightly more visible at midpoint */
-        transform: rotate(180deg); /* Half rotation at midpoint */
-    }
-    100% {
-        opacity: 0.7;
-        transform: rotate(360deg); /* Full rotation */
-    }
-}
-
-/* Element row styles for chemical composition */
-.element-row {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem; /* Gap between items */
-    margin-bottom: 2rem; /* Bottom margin */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.element-row:hover {
-    transform: translateX(5px); /* Move right on hover */
-}
-
-.element-icon {
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.element-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Maintain aspect ratio */
-    filter: brightness(1.5); /* Brighten the image */
-}
-
-.element-info {
-    flex-grow: 1; /* Allow info to take up remaining space */
-}
-
-.element-info h4 {
-    color: #ffb366; /* Light orange heading */
-    margin-bottom: 0.5rem; /* Bottom margin */
-}
-
-/* Temperature list grid layout */
-.temp-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three-column grid */
-    gap: 1.5rem; /* Gap between items */
-}
-
-.temp-item {
-    text-align: center;
-    padding: 1.5rem; /* Internal padding */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    border-radius: 15px; /* Rounded corners */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.temp-item:hover {
-    transform: translateY(-5px); /* Move up on hover */
-    background: rgba(255, 119, 0, 0.2); /* Darker orange background on hover */
-}
-
-.temp-item h4 {
-    color: #ffb366; /* Light orange heading */
-    margin-bottom: 0.5rem; /* Bottom margin */
-}
-
-.temp-item p {
-    font-size: 1.1rem; /* Slightly larger text */
-    color: #fff; /* White text */
-}
-
-/* Velocity list layout */
-.velocity-list {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column */
-    gap: 1rem; /* Gap between items */
-}
-
-.velocity-item {
-    padding: 1.5rem; /* Internal padding */
-    background: rgba(255, 119, 0, 0.1); /* Subtle orange background */
-    border-radius: 15px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-}
-
-.velocity-item:hover {
-    transform: translateX(10px); /* Move right on hover */
-    background: rgba(255, 119, 0, 0.2); /* Darker orange background on hover */
-}
-
-.velocity-item h4 {
-    color: #ffb366; /* Light orange heading */
-    margin-bottom: 0.5rem; /* Bottom margin */
-}
-
-.velocity-item p {
-    font-size: 1.2rem; /* Larger text */
-    color: #fff; /* White text */
-}
-
-/* Location and neighborhood section styles */
-.sun-location,
-.sun-neighborhood {
-    margin-bottom: 4rem; /* Bottom margin */
-}
-
-.sun-location h2,
-.sun-neighborhood h2 {
-    font-size: 2.5rem; /* Large heading */
-    color: #fff; /* White text */
-    text-align: center;
-    margin-bottom: 2rem; /* Bottom margin */
-    text-shadow: 0 0 15px rgba(255, 119, 0, 0.3); /* Orange shadow */
-}
-
-.location-content,
-.neighborhood-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two-column grid */
-    gap: 3rem; /* Large gap between items */
-    align-items: center;
-}
-
-.location-image,
-.neighborhood-image {
-    border-radius: 20px; /* Rounded corners */
-    overflow: hidden; /* Hide overflow */
-    box-shadow: 0 10px 30px rgba(255, 119, 0, 0.2); /* Orange shadow */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.location-image:hover,
-.neighborhood-image:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-}
-
-.location-image img,
-.neighborhood-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.location-text,
-.neighborhood-text {
-    font-size: 1.1rem; /* Slightly larger text */
-    line-height: 1.8; /* Increased line height for readability */
-    color: #ccc; /* Light gray text */
-}
-
-/* Periodic table element box styles */
-.element-box {
-    width: 80px; /* Fixed width */
-    height: 80px; /* Fixed height */
-    background: rgba(0, 0, 0, 0.7); /* Dark background */
-    border-radius: 10px; /* Rounded corners */
-    display: flex;
-    flex-direction: column; /* Vertical layout */
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* White glow */
-    transition: all 0.3s ease; /* Smooth transition */
-    overflow: hidden; /* Hide overflow */
-}
-
-.element-box:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Stronger white glow on hover */
-}
-
-.element-number {
+.location-marker {
     position: absolute;
-    top: 5px;
-    left: 10px;
-    font-size: 14px; /* Small text */
-    color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    width: 12px;
+    height: 12px;
+    background: var(--sun-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--sun-primary);
 }
 
-.element-symbol {
-    font-size: 32px; /* Large text for element symbol */
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow */
+/* Neighborhood section */
+.neighborhood-section {
+    margin-top: auto;
 }
 
-.element-weight {
-    font-size: 12px; /* Small text */
-    color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    margin-top: 5px; /* Top margin */
+.star-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
 }
 
-/* Special styling for hydrogen element */
-.element-row:nth-child(1) .element-box {
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(30, 30, 100, 0.7)); /* Blue-tinted gradient */
-    border: 1px solid rgba(100, 100, 255, 0.3); /* Blue border */
+.star-card {
+    background: rgba(40, 40, 55, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Special styling for helium element */
-.element-row:nth-child(2) .element-box {
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(100, 30, 30, 0.7)); /* Red-tinted gradient */
-    border: 1px solid rgba(255, 100, 100, 0.3); /* Red border */
+.star-name {
+    font-size: 0.9rem;
+    color: #e6e6e6;
+    margin-bottom: 0.5rem;
 }
 
-/* Special styling for oxygen element */
-.element-row:nth-child(3) .element-box {
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(30, 100, 30, 0.7)); /* Green-tinted gradient */
-    border: 1px solid rgba(100, 255, 100, 0.3); /* Green border */
+.star-distance {
+    font-size: 0.8rem;
+    color: var(--sun-primary);
 }
 
-/* Responsive layout adjustments */
-@media (max-width: 1200px) {
-    .sun-hero {
-        flex-direction: column; /* Change to vertical layout */
-        justify-content: center;
-        text-align: center;
-        padding: 0;
-    }
-    
-    .sun-animation {
-        margin: 0 auto; /* Center animation */
-        width: 400px; /* Reduced size */
-        height: 400px; /* Reduced size */
-    }
-    
-    .sun-title {
-        text-align: center;
-        font-size: 3.5rem; /* Smaller font size */
-        margin: 0 auto 2rem; /* Center with bottom margin */
-    }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .sun-title {
-        font-size: 2.5rem; /* Even smaller font size for mobile */
+    .sun-nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    .sun-hero {
+        height: 70vh;
     }
     
     .sun-animation {
-        width: 300px; /* Further reduced size for mobile */
-        height: 300px; /* Further reduced size for mobile */
+        width: 200px;
+        height: 200px;
     }
     
-    .sun-info-grid {
-        grid-template-columns: 1fr; /* Change to single column for mobile */
+    .sun-core {
+        width: 140px;
+        height: 140px;
     }
     
-    .fact-list,
-    .composition-chart {
-        grid-template-columns: 1fr 1fr; /* Keep two columns for these elements */
+    .sun-ray {
+        width: 80px;
     }
     
-    .navigation-portal {
-        flex-direction: column; /* Stack navigation links vertically */
+    .sun-content {
+        padding: 3rem 0;
+        gap: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
     
     .intro-text {
-        font-size: 1.1rem;
-        padding: 0 1rem; /* Add horizontal padding */
+        font-size: 1rem;
     }
     
-    .temp-list {
-        grid-template-columns: 1fr; /* Change to single column for mobile */
+    .info-cards {
+        gap: 1.5rem;
+        padding: 0 1.5rem;
     }
     
-    .location-content,
-    .neighborhood-content {
-        grid-template-columns: 1fr; /* Change to single column for mobile */
-        gap: 2rem; /* Reduced gap */
+    .info-card {
+        padding: 1.5rem;
     }
     
-    .location-text,
-    .neighborhood-text {
-        padding: 0 1rem; /* Add horizontal padding */
+    .info-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .velocity-indicators {
+        flex-direction: column;
+        gap: 0.8rem;
     }
 } 
