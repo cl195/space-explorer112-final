@@ -1,374 +1,658 @@
-/* Sun page specific styles - Version 4 */
-
-/* Sun page specific variables */
-:root {
-    --sun-primary: #ffcc00;      /* Sun-primary color - golden yellow */
-    --sun-secondary: #ff8c00;    /* Solar Secondary Color - Orange */
-    --sun-accent: #ff6b00;       /* Sun accent color - bright orange */
-    --sun-background: #1a1a2e;   /* Sun background color - deep blue-black */
-    --sun-text: #ffffff;         /* Sun Text Color - white */
-    --sun-card-gap: 2rem;          /* Sun card spacing variable */
-    --sun-content-width: 1200px;   /* Solar Content Maximum Width variable */
-}
-
-/* Sun page base styles */
+/* Sun page specific styles - Main styling for the Sun theme page */
 .sun-page {
-    background-color: var(--sun-background);
-    color: var(--sun-text);
-    min-height: 100vh;
+    /* Dark gradient background transitioning from black to a dark orange-brown, simulating deep space with solar influence */
+    background: linear-gradient(to bottom, #000000, #1a0f02);
 }
 
-/* Sun navigation adjustments - only specific customization */
+/* Navigation bar styling specific to the sun page */
 .sun-nav {
-    border-bottom: 1px solid rgba(255, 155, 0, 0.2);
+    /* Semi-transparent dark background with simplified styling */
+    background: rgba(0, 0, 0, 0.8);
 }
 
-.sun-nav .nav-logo {
-    color: var(--sun-primary);
+/* Simplify sun link styling */
+.nav-links a.sun-link {
+    color: #ff751a; /* Orange color for consistency */
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--sun-primary);
-    background: rgba(255, 204, 0, 0.1);
+/* Sun link active styling */
+.nav-links a.sun-link.active {
+    font-weight: bold; /* Simply make text bold for active state */
 }
 
-/* Sun hero section */
+/* Hero section styling - The prominent full-height header section with sun animation */
 .sun-hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle at center, #ff8c00 0%, #1a1a2e 70%);
-    margin-top: 60px; /* Make room for a navigation bar */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexible layout */
+    align-items: center; /* Vertically center content */
+    justify-content: space-between; /* Space between title and sun animation */
+    position: relative; /* Establish positioning context */
+    overflow: hidden; /* Hide overflowing content */
+    background: #000; /* Black background */
+    padding: 0 5%; /* Horizontal padding */
 }
 
-/* Sun animation */
+/* Sun animation container styling - Houses the animated sun graphic */
 .sun-animation {
-    position: relative;
-    width: 300px;
-    height: 300px;
+    position: relative; /* For positioning child elements */
+    width: 550px; /* Width of the sun animation */
+    height: 550px; /* Height of the sun animation */
+    display: flex; /* Flexible layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    margin-left: auto; /* Push to the right side */
 }
 
+/* Sun core styling - The main sun body */
 .sun-core {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle at center, #ffee00 0%, #ff8c00 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 60px rgba(255, 204, 0, 0.8), 0 0 100px rgba(255, 107, 0, 0.4);
+    position: absolute; /* Position absolutely within container */
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    background: url('images/sun.jpg') center/cover no-repeat; /* Sun texture image */
+    border-radius: 50%; /* Create perfect circle */
+    /* Multiple box shadows creating glowing effect simulating solar flares */
+    box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 0 0 80px rgba(255, 179, 102, 0.4), 0 0 200px rgba(255, 119, 0, 0.3);
+    animation: pulse 4s ease-in-out infinite; /* Pulsating animation */
+    z-index: 1; /* Stack order */
 }
 
+/* Sun rays styling - The halo effect around the sun */
 .sun-rays {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; /* Position absolutely */
+    width: 100%; /* Match parent width */
+    height: 100%; /* Match parent height */
+    border-radius: 50%; /* Circle shape */
+    background: transparent; /* Transparent background */
+    z-index: 0; /* Behind the sun core */
 }
 
-.sun-ray {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(255, 204, 0, 0.8) 0%, rgba(255, 204, 0, 0) 100%);
-    transform-origin: 0 50%;
+/* Sun rays before pseudo-element - Creates the radiating effect */
+.sun-rays::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Absolute positioning */
+    top: -2%; /* Slightly larger than parent */
+    left: -2%; /* Slightly larger than parent */
+    width: 104%; /* Extend beyond parent */
+    height: 104%; /* Extend beyond parent */
+    /* Radial gradient creating fading rays effect */
+    background: radial-gradient(circle at center, rgba(255, 119, 0, 0.3) 0%, rgba(255, 119, 0, 0) 70%);
+    border-radius: 50%; /* Circle shape */
+    animation: rays 8s linear infinite; /* Rays animation effect */
 }
 
-/* Sun content area */
+/* Sun page title styling */
+.sun-title {
+    position: relative; /* For z-index to work */
+    color: #fff; /* White text */
+    font-size: 4.5rem; /* Large font size */
+    font-weight: 700; /* Bold font */
+    text-align: left; /* Left-aligned text */
+    line-height: 1.2; /* Line height for readability */
+    text-shadow: 0 0 20px rgba(255, 119, 0, 0.7); /* Orange glow effect on text */
+    z-index: 2; /* Above other elements */
+    animation: fadeInLeft 1s ease-out; /* Entrance animation */
+    max-width: 600px; /* Maximum width */
+    margin-right: auto; /* Push to the left */
+}
+
+/* Main content section styling */
 .sun-content {
-    padding: 4rem 0;
-    max-width: var(--sun-content-width);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    position: relative; /* For z-index */
+    z-index: 1; /* Stack order */
+    padding: 4rem 0; /* Vertical padding */
 }
 
-/* Sun introduction section */
+/* Grid layout for sun information cards */
+.sun-info-grid {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 2rem; /* Gap between cards */
+    margin-bottom: 4rem; /* Bottom margin */
+}
+
+/* Individual sun information card styling */
+.sun-card {
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 2rem; /* Internal spacing */
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for sun cards */
+.sun-card:hover {
+    transform: translateY(-10px); /* Lift card up */
+    box-shadow: 0 10px 30px rgba(255, 119, 0, 0.2); /* Orange glow shadow */
+}
+
+/* Card heading styling */
+.sun-card h2 {
+    color: #fff; /* White text */
+    font-size: 2rem; /* Large font size */
+    margin-bottom: 1.5rem; /* Bottom spacing */
+    text-shadow: 0 0 10px rgba(255, 119, 0, 0.3); /* Subtle orange glow */
+}
+
+/* Fact list styling - Grid layout for sun facts */
+.fact-list {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 1.5rem; /* Gap between items */
+}
+
+/* Individual fact item styling */
+.fact-item {
+    text-align: center; /* Center text */
+    padding: 1rem; /* Internal spacing */
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for fact items */
+.fact-item:hover {
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+/* Fact heading styling */
+.fact-item h3 {
+    color: #ffb366; /* Light orange color */
+    margin-bottom: 0.5rem; /* Bottom spacing */
+}
+
+/* Composition chart styling - For displaying sun element composition */
+.composition-chart {
+    display: flex; /* Flexible layout */
+    flex-direction: column; /* Stack vertically */
+    gap: 1rem; /* Gap between items */
+}
+
+/* Chart bar container styling */
+.chart-bar {
+    background: rgba(255, 255, 255, 0.1); /* Light background */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    height: 30px; /* Fixed height */
+}
+
+/* Fill portion of chart bars */
+.bar-fill {
+    height: 100%; /* Full height of parent */
+    display: flex; /* Flexible layout */
+    align-items: center; /* Vertical centering */
+    padding: 0 1rem; /* Horizontal padding */
+    color: #fff; /* White text */
+    transition: width 1s ease-out; /* Animate width change */
+}
+
+/* Hydrogen element bar styling - First element */
+.hydrogen {
+    background: linear-gradient(to right, #ff751a, #ffb366); /* Orange gradient */
+}
+
+/* Helium element bar styling - Second element */
+.helium {
+    background: linear-gradient(to right, #ff9933, #ffcc99); /* Lighter orange gradient */
+}
+
+/* Other elements bar styling */
+.other {
+    background: linear-gradient(to right, #ffcc99, #ffe6cc); /* Very light orange gradient */
+}
+
+/* Sun layers diagram styling - For displaying sun's internal structure */
+.layers-diagram {
+    display: flex; /* Flexible layout */
+    flex-direction: column; /* Stack vertically */
+    gap: 1rem; /* Gap between items */
+}
+
+/* Individual layer styling */
+.layer {
+    padding: 1rem; /* Internal spacing */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for layers */
+.layer:hover {
+    transform: translateX(10px); /* Shift right on hover */
+}
+
+/* Layer heading styling */
+.layer h4 {
+    color: #ffb366; /* Light orange color */
+    margin-bottom: 0.5rem; /* Bottom spacing */
+}
+
+/* Solar activity grid styling - For displaying sun's activity information */
+.activity-grid {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 1rem; /* Gap between items */
+}
+
+/* Individual activity item styling */
+.activity-item {
+    padding: 1rem; /* Internal spacing */
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    border-radius: 10px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for activity items */
+.activity-item:hover {
+    transform: scale(1.05); /* Slight enlargement */
+    background: rgba(255, 119, 0, 0.2); /* Darker background on hover */
+}
+
+/* Navigation portal styling - Links to other pages */
+.navigation-portal {
+    display: flex; /* Flexible layout */
+    justify-content: space-between; /* Space between items */
+    margin-top: 4rem; /* Top margin */
+}
+
+/* Portal link styling */
+.portal-link {
+    padding: 1.5rem; /* Internal spacing */
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
+    border-radius: 15px; /* Rounded corners */
+    text-align: center; /* Center text */
+    color: #fff; /* White text */
+    text-decoration: none; /* No underline */
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflowing content */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Portal link pseudo-element for overlay effect */
+.portal-link::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: rgba(255, 119, 0, 0.1); /* Light orange overlay */
+    transform: translateY(100%); /* Initially hidden below */
+    transition: transform 0.3s ease; /* Smooth transition */
+    z-index: -1; /* Behind text */
+}
+
+/* Hover effect for portal links */
+.portal-link:hover {
+    transform: translateY(-10px); /* Lift up */
+    box-shadow: 0 10px 30px rgba(255, 119, 0, 0.2); /* Orange glow shadow */
+}
+
+/* Hover effect for portal link overlay */
+.portal-link:hover::before {
+    transform: translateY(0); /* Slide up to reveal */
+}
+
+/* Pulsating animation for sun core */
+@keyframes pulse {
+    0% {
+        /* Initial glow state */
+        box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 
+                    0 0 80px rgba(255, 179, 102, 0.4), 
+                    0 0 200px rgba(255, 119, 0, 0.3);
+    }
+    50% {
+        /* Enhanced glow state at midpoint */
+        box-shadow: 0 0 150px rgba(255, 119, 0, 0.8), 
+                    0 0 100px rgba(255, 179, 102, 0.6), 
+                    0 0 250px rgba(255, 119, 0, 0.4);
+    }
+    100% {
+        /* Return to initial state */
+        box-shadow: 0 0 120px rgba(255, 119, 0, 0.6), 
+                    0 0 80px rgba(255, 179, 102, 0.4), 
+                    0 0 200px rgba(255, 119, 0, 0.3);
+    }
+}
+
+/* Rotation animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg); /* Start position */
+    }
+    to {
+        transform: rotate(360deg); /* Full rotation */
+    }
+}
+
+/* Sun rays animation */
+@keyframes rays {
+    0% {
+        opacity: 0.7; /* Initial opacity */
+        transform: scale(1); /* Initial size */
+    }
+    50% {
+        opacity: 1; /* Full opacity at midpoint */
+        transform: scale(1.1); /* Enlarged at midpoint */
+    }
+    100% {
+        opacity: 0.7; /* Return to initial opacity */
+        transform: scale(1); /* Return to initial size */
+    }
+}
+
+/* Introduction section styling */
 .sun-introduction {
-    text-align: center;
-    padding: 0 2rem;
-    margin-bottom: 2rem;
+    max-width: 800px; /* Maximum width */
+    margin: 0 auto 4rem; /* Center horizontally with bottom margin */
 }
 
-.section-title {
-    color: var(--sun-primary);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: var(--sun-primary);
-    margin: 0.8rem auto 0;
-    border-radius: 3px;
-}
-
+/* Introduction text styling */
 .intro-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #e6e6e6;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 1.2rem; /* Larger text */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 1.5rem; /* Bottom spacing */
 }
 
-/* Info cards grid */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--sun-card-gap);
-    padding: 0 2rem;
+/* Element row styling - For displaying chemical elements */
+.element-row {
+    display: flex; /* Flexible layout */
+    align-items: center; /* Vertical centering */
+    margin-bottom: 2rem; /* Bottom spacing */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(20px); /* Initially shifted down */
 }
 
-/* Individual info card */
-.info-card {
-    background: rgba(30, 30, 45, 0.7);
-    border-radius: 12px;
-    padding: 2rem;
-    border: 1px solid rgba(255, 204, 0, 0.2);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+/* Hover effect for element rows */
+.element-row:hover {
+    transform: translateY(0); /* Reset vertical position */
 }
 
-.info-card h2 {
-    color: var(--sun-primary);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    position: relative;
+/* Element icon container styling */
+.element-icon {
+    margin-right: 1.5rem; /* Right margin */
 }
 
-.card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+/* Element icon image styling */
+.element-icon img {
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    border-radius: 50%; /* Circle shape */
+    box-shadow: 0 0 20px rgba(255, 119, 0, 0.3); /* Orange glow */
 }
 
-.card-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #e6e6e6;
-    margin-bottom: 1.5rem;
+/* Element information container styling */
+.element-info {
+    flex: 1; /* Take remaining space */
 }
 
-/* Progress bar styles */
-.progress-container {
-    margin-top: auto;
+/* Element information heading styling */
+.element-info h4 {
+    color: #ffb366; /* Light orange color */
+    font-size: 1.3rem; /* Larger text */
+    margin-bottom: 0.5rem; /* Bottom spacing */
 }
 
-.progress-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: #e6e6e6;
+/* Temperature list styling - For displaying sun temperature zones */
+.temp-list {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 1.5rem; /* Gap between items */
 }
 
-.progress-bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 1rem;
+/* Individual temperature item styling */
+.temp-item {
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1.5rem; /* Internal spacing */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(20px); /* Initially shifted down */
 }
 
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--sun-primary), var(--sun-accent));
-    border-radius: 4px;
-    transition: width 1s ease-out;
+/* Hover effect for temperature items */
+.temp-item:hover {
+    background: rgba(255, 119, 0, 0.2); /* Darker background on hover */
 }
 
-/* Temperature section */
-.temperature-section {
-    margin-top: auto;
+/* Temperature item heading styling */
+.temp-item h4 {
+    color: #ffb366; /* Light orange color */
+    margin-bottom: 0.5rem; /* Bottom spacing */
 }
 
-.temperature-scale {
-    height: 10px;
-    background: linear-gradient(90deg, #3498db, #e74c3c);
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
+/* Temperature value styling */
+.temp-item p {
+    font-size: 1.2rem; /* Larger text */
+    color: #fff; /* White text */
 }
 
-.temperature-markers {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #e6e6e6;
+/* Velocity list styling - For displaying sun's motion data */
+.velocity-list {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 1.5rem; /* Gap between items */
 }
 
-/* Velocity section */
-.velocity-section {
-    margin-top: auto;
+/* Individual velocity item styling */
+.velocity-item {
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1.5rem; /* Internal spacing */
+    opacity: 0; /* Initially invisible */
+    transform: translateY(20px); /* Initially shifted down */
 }
 
-.velocity-indicators {
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
+/* Hover effect for velocity items */
+.velocity-item:hover {
+    background: rgba(255, 119, 0, 0.2); /* Darker background on hover */
 }
 
-.velocity-indicator {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    flex: 1;
+/* Velocity item heading styling */
+.velocity-item h4 {
+    color: #ffb366; /* Light orange color */
+    margin-bottom: 0.5rem; /* Bottom spacing */
 }
 
-.velocity-indicator h3 {
-    font-size: 0.9rem;
-    color: #e6e6e6;
-    margin-bottom: 0.5rem;
+/* Velocity value styling */
+.velocity-item p {
+    font-size: 1.2rem; /* Larger text */
+    color: #fff; /* White text */
 }
 
-.velocity-value {
-    font-size: 1.2rem;
-    color: var(--sun-primary);
-    font-weight: bold;
+/* Location and solar elements section styling */
+.sun-location,
+.solar-elements {
+    margin-bottom: 4rem; /* Bottom spacing */
 }
 
-/* Location section */
-.location-section {
-    margin-top: auto;
+/* Section headings for location and solar elements */
+.sun-location h2,
+.solar-elements h2 {
+    text-align: center; /* Center text */
+    font-size: 2.2rem; /* Large font size */
+    color: #fff; /* White text */
+    margin-bottom: 2rem; /* Bottom spacing */
+    text-shadow: 0 0 15px rgba(255, 119, 0, 0.5); /* Orange glow */
 }
 
-.location-map {
-    width: 100%;
-    height: 150px;
-    background: rgba(40, 40, 55, 0.6);
-    border-radius: 8px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
+/* Content grid for location and elements sections */
+.location-content,
+.elements-content {
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem; /* Gap between columns */
+    align-items: center; /* Vertical centering */
 }
 
-.location-map::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+/* Image container for location and element sections */
+.location-image,
+.element-image {
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
 }
 
-.location-marker {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--sun-primary);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px var(--sun-primary);
+/* Hover effect for image containers */
+.location-image:hover,
+.element-image:hover {
+    transform: scale(1.05); /* Slight enlargement */
 }
 
-/* Neighborhood section */
-.neighborhood-section {
-    margin-top: auto;
+/* Image styling for location and element sections */
+.location-image img,
+.element-image img {
+    width: 100%; /* Full width of container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block display */
+    transition: transform 0.5s ease; /* Smooth transition for hover */
 }
 
-.star-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
+/* Text container for location and element sections */
+.location-text,
+.element-text {
+    padding: 1rem; /* Internal spacing */
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
+    border-radius: 10px; /* Rounded corners */
+    backdrop-filter: blur(5px); /* Glass effect */
 }
 
-.star-card {
-    background: rgba(40, 40, 55, 0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* Element box styling - For periodic table-like display */
+.element-box {
+    display: flex; /* Flexible layout */
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
+    padding: 1rem; /* Internal spacing */
+    background: rgba(255, 119, 0, 0.1); /* Light orange background */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 1rem; /* Bottom spacing */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    text-align: center; /* Center text */
+    height: 150px; /* Fixed height */
 }
 
-.star-name {
-    font-size: 0.9rem;
-    color: #e6e6e6;
-    margin-bottom: 0.5rem;
+/* Hover effect for element boxes */
+.element-box:hover {
+    background: rgba(255, 119, 0, 0.2); /* Darker background on hover */
+    transform: translateY(-5px); /* Lift up slightly */
 }
 
-.star-distance {
-    font-size: 0.8rem;
-    color: var(--sun-primary);
+/* Atomic number styling in element box */
+.element-number {
+    font-size: 0.8rem; /* Small text */
+    color: #ffb366; /* Light orange color */
+    margin-bottom: 0.5rem; /* Bottom spacing */
+    opacity: 0.7; /* Partially transparent */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .sun-nav {
-        padding: 0.8rem 1rem;
-    }
-    
-    .nav-links {
-        gap: 0.5rem;
-    }
-    
-    .nav-link {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.9rem;
-    }
-    
+/* Element symbol styling */
+.element-symbol {
+    font-size: 2.5rem; /* Very large text */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow */
+}
+
+/* Atomic weight styling in element box */
+.element-weight {
+    font-size: 0.8rem; /* Small text */
+    color: #fff; /* White text */
+    opacity: 0.7; /* Partially transparent */
+    margin-top: 0.5rem; /* Top spacing */
+}
+
+/* First element box styling (Hydrogen) */
+.element-row:nth-child(1) .element-box {
+    background: linear-gradient(135deg, rgba(255, 119, 0, 0.2), rgba(255, 119, 0, 0.05)); /* Orange gradient */
+    border: 1px solid rgba(255, 119, 0, 0.1); /* Subtle border */
+}
+
+/* Second element box styling (Helium) */
+.element-row:nth-child(2) .element-box {
+    background: linear-gradient(135deg, rgba(255, 150, 0, 0.2), rgba(255, 150, 0, 0.05)); /* Lighter orange gradient */
+    border: 1px solid rgba(255, 150, 0, 0.1); /* Subtle border */
+}
+
+/* Third element box styling (Oxygen) */
+.element-row:nth-child(3) .element-box {
+    background: linear-gradient(135deg, rgba(255, 200, 0, 0.2), rgba(255, 200, 0, 0.05)); /* Even lighter gradient */
+    border: 1px solid rgba(255, 200, 0, 0.1); /* Subtle border */
+}
+
+/* Responsive design for large screens and tablets */
+@media (max-width: 1200px) {
     .sun-hero {
-        height: 70vh;
+        flex-direction: column; /* Stack vertically */
+        justify-content: center; /* Center vertically */
+        text-align: center; /* Center text */
+        padding: 2rem; /* Equal padding */
     }
     
     .sun-animation {
-        width: 200px;
-        height: 200px;
+        margin: 2rem auto; /* Center horizontally with vertical spacing */
+        width: 400px; /* Smaller width */
+        height: 400px; /* Smaller height */
     }
     
-    .sun-core {
-        width: 140px;
-        height: 140px;
+    .sun-title {
+        text-align: center; /* Center text */
+        margin: 0 auto; /* Center horizontally */
+    }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .sun-title {
+        font-size: 3rem; /* Smaller font size */
     }
     
-    .sun-ray {
-        width: 80px;
+    .sun-animation {
+        width: 300px; /* Even smaller width */
+        height: 300px; /* Even smaller height */
     }
     
-    .sun-content {
-        padding: 3rem 0;
-        gap: 3rem;
+    .sun-info-grid {
+        grid-template-columns: 1fr; /* Single column */
     }
     
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+    .fact-list,
+    .layer {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    .navigation-portal {
+        flex-direction: column; /* Stack vertically */
+        gap: 1rem; /* Gap between items */
     }
     
     .intro-text {
-        font-size: 1rem;
+        padding: 0 1rem; /* Horizontal padding */
     }
     
-    .info-cards {
-        gap: 1.5rem;
-        padding: 0 1.5rem;
+    .temp-list {
+        grid-template-columns: 1fr; /* Single column */
     }
     
-    .info-card {
-        padding: 1.5rem;
+    .location-content,
+    .elements-content {
+        grid-template-columns: 1fr; /* Single column */
     }
     
-    .info-card h2 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+    .location-text,
+    .element-text {
+        order: -1; /* Display text before image */
     }
     
-    .velocity-indicators {
-        flex-direction: column;
-        gap: 0.8rem;
+    .sun-nav .nav-content {
+        width: 100%; /* Full width on mobile */
+    }
+    
+    .sun-nav .nav-links {
+        gap: 1rem; /* Reduced spacing on mobile */
+    }
+    
+    .sun-nav .nav-links a {
+        font-size: 0.8rem; /* Smaller font on mobile */
     }
 } 
