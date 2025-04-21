@@ -1,689 +1,1354 @@
-/* Moon page specific styles - Version 4 */
+/* Moon page specific styles - defining all visual effects and animations for the moon page */
 
-/* Moon page specific variables */
+/* Define global CSS variables for the color scheme used throughout the moon page */
 :root {
-    --moon-primary: #c2c2c2;      /* 月球主色调 - 银灰色 */
-    --moon-secondary: #617ca3;    /* 月球次要色调 - 淡蓝灰色 */
-    --moon-accent: #8fabd9;       /* 月球强调色 - 亮蓝色 */
-    --moon-background: #1a1a2e;   /* 月球背景色 - 深蓝黑色 */
-    --moon-text: #ffffff;         /* 月球文本色 - 白色 */
-    --moon-card-gap: 2rem;        /* 月球卡片间距变量 */
-    --moon-content-width: 1200px; /* 月球内容最大宽度变量 */
+    --moon-primary: #c2c5cc;    /* Primary color - soft silver-gray, simulating the moon's surface */
+    --moon-secondary: #9198a3;  /* Secondary color - deeper gray, for adding depth */
+    --moon-accent: #8fb8ff;     /* Accent color - light blue, simulating the cool tone of moonlight */
+    --moon-dark: #1a1a2e;       /* Dark background color - deep blue, simulating night sky */
+    --moon-light: #e6e6fa;      /* Light text color - light purple, providing soft contrast */
 }
 
-/* Moon page base styles */
-.moon-page {
-    background-color: var(--moon-background);
-    color: var(--moon-text);
+/* ===== Navigation Bar Styles ===== */
+/* Add gradient background to moon page navigation bar, darker at top and transparent at bottom, creating floating feel */
+.moon-nav {
+    background: linear-gradient(to bottom, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.7));
 }
 
-/* Moon hero section - main visual banner */
+/* Simplified moon link styling without animations */
+.nav-links a.moon-link {
+    color: var(--moon-primary); /* Moon color for consistent styling */
+}
+
+/* Remove moon icon and animation effects */
+.nav-links a.moon-link::before {
+    display: none; /* Hide the moon icon completely */
+}
+
+/* Simplified active state - just keep it bold with moon color */
+.nav-links a.moon-link:hover,
+.nav-links a.moon-link.active {
+    color: var(--moon-primary); /* Change text color to moon color */
+    font-weight: bold; /* Bold for active state */
+}
+
+/* Remove icon animation completely */
+.nav-links a.moon-link:hover::before,
+.nav-links a.moon-link.active::before {
+    display: none;
+}
+
+/* Add responsive styles for moon nav */
+@media (max-width: 768px) {
+    .moon-nav .nav-content {
+        width: 100%; /* Full width on mobile */
+    }
+    
+    .moon-nav .nav-links {
+        gap: 1rem; /* Reduced spacing on mobile */
+    }
+    
+    .moon-nav .nav-links a {
+        font-size: 0.8rem; /* Smaller font on mobile */
+    }
+}
+
+/* ===== Hero Area Styles - Main visual area at top of page ===== */
 .moon-hero {
+    height: 100vh; /* Full screen height */
+    width: 100%; /* Full width */
+    position: relative; /* Relative positioning as reference for children */
+    overflow: hidden; /* Hide overflow content */
+    display: flex; /* Use flex layout */
+    align-items: center; /* Vertically center content */
+}
+
+/* Moon page parallax effect container - simplified to static layout */
+.moon-parallax {
     position: relative;
-    height: 80vh;
-    background: url('images/moon/f3de9a48aa76cc6.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
-/* Moon hero title */
+/* Background star layer - animation removed */
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/stars-bg.jpg') repeat;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Moon image layer - simplified positioning */
+.moon-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: url('images/moon/f3de9a48aa76cc6.jpg') no-repeat center center;
+    background-size: cover;
+    transform: translateY(-50%); /* Vertical centering correction */
+    box-shadow: 0 0 50px rgba(143, 184, 255, 0.3); /* Simplified halo effect */
+    z-index: 3;
+}
+
+/* Cloud effect layer - downgraded to static effect */
+.clouds-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 70%);
+    opacity: 0.6;
+    z-index: 2;
+}
+
+/* Moon glow effect animation - simplified */
+@keyframes moonGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(143, 184, 255, 0.3);
+    }
+}
+
+/* Cloud drift animation - slow movement from left to right */
+@keyframes cloudsDrift {
+    0% {
+        background-position: 0 0; /* Starting position */
+    }
+    100% {
+        background-position: 2000px 0; /* End position, creating continuous movement */
+    }
+}
+
+/* Page title style */
 .moon-title {
-    font-size: 4rem;
-    color: var(--moon-text);
-    text-align: center;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    z-index: 5;
-    position: relative;
-    max-width: 800px;
-    padding: 0 2rem;
+    font-size: 9vw; /* Responsive font size, based on viewport width */
+    font-weight: bold; /* Bold */
+    color: var(--moon-light); /* Text color */
+    text-shadow: 0 0 30px rgba(194, 197, 204, 0.7); /* Text shadow, simulating glow effect */
+    position: absolute; /* Absolute positioning */
+    left: 8%; /* Positioned on the left */
+    z-index: 4; /* Placed on top */
+    letter-spacing: -0.02em; /* Slightly tightened letter spacing */
+    line-height: 0.9; /* Tightened line height, making multi-line text more compact */
+    animation: fadeInFromLeft 1.5s ease-out; /* Fade in from left animation */
 }
 
-/* Moon navigation adjustments - only specific customization */
-.moon-nav {
-    background: rgba(25, 25, 40, 0.85);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Title fade in from left animation */
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0; /* Initially transparent */
+        transform: translateX(-50px); /* Initially offset to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Back to original position */
+    }
 }
 
-.moon-nav .nav-logo {
-    color: var(--moon-accent);
-}
-
-.moon-nav .nav-link.active {
-    color: var(--moon-accent);
-    font-weight: bold;
-}
-
-/* Moon content area */
+/* ===== Content Area Styles - Main body content ===== */
 .moon-content {
-    padding: 4rem 0;
+    position: relative; /* Relative positioning */
+    background: var(--moon-dark); /* Dark background */
+    color: var(--moon-light); /* Light text */
+    padding: 60px 0; /* Top and bottom padding */
 }
 
-/* Moon container - maintains consistent width and centering */
-.moon-content .container {
-    max-width: var(--moon-content-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Moon introduction section */
+/* Moon introduction text area */
 .moon-introduction {
-    text-align: center;
-    margin-bottom: 5rem;
+    max-width: 800px; /* Maximum width limit */
+    margin: 0 auto 60px; /* Center and set bottom margin */
+    text-align: center; /* Center text */
 }
 
-.moon-introduction .section-title {
-    color: var(--moon-accent);
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
+/* Introduction text paragraph style */
+.intro-text {
+    font-size: 1.2rem; /* Font size */
+    line-height: 1.8; /* Line height, improving readability */
+    margin-bottom: 20px; /* Paragraph spacing */
+    opacity: 0; /* Initially transparent */
+    transform: translateY(20px); /* Initially offset downward */
+    animation: fadeInUp 0.8s forwards; /* Fade in upward animation, forwards keeps final animation state */
+    animation-delay: 0.2s; /* Delay animation execution */
 }
 
-.moon-introduction .intro-text {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #e6e6e6;
+/* Last paragraph with longer delay, creating staggered effect */
+.intro-text:last-child {
+    animation-delay: 0.4s;
 }
 
-/* Moon phases section */
+/* Fade in upward animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Finally fully opaque */
+        transform: translateY(0); /* Final position reset to zero */
+    }
+}
+
+/* ===== Moon Phases Section Styles - Displaying different lunar phases ===== */
 .moon-phases-section {
-    margin-bottom: 5rem;
+    margin-bottom: 80px; /* Bottom spacing */
 }
 
-.moon-phases-section .section-title {
-    color: var(--moon-accent);
-    margin-bottom: 3rem;
-    text-align: center;
+/* Section title style */
+.section-title {
+    text-align: center; /* Center text */
+    font-size: 2.5rem; /* Font size */
+    font-weight: bold; /* Bold */
+    color: var(--moon-primary); /* Text color matching moon theme */
+    margin-bottom: 40px; /* Bottom margin */
+    position: relative; /* Relative positioning for pseudo-elements */
 }
 
-/* Phases container grid */
+/* Section title underline effect */
+.section-title::after {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    bottom: -15px; /* Position below text */
+    left: 50%; /* Center horizontally */
+    width: 0; /* Initial width zero */
+    height: 2px; /* Line height */
+    background-color: var(--moon-accent); /* Line color */
+    transform: translateX(-50%); /* Center correction */
+    animation: expandWidth 1s forwards ease-out; /* Width expansion animation */
+    animation-delay: 0.5s; /* Delay animation start */
+}
+
+/* Width expansion animation */
+@keyframes expandWidth {
+    to {
+        width: 100px; /* Final width */
+    }
+}
+
+/* Phases container for displaying moon phases */
 .phases-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--moon-card-gap);
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 30px; /* Gap between items */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center horizontally */
 }
 
 /* Individual phase item */
 .phase-item {
-    background: rgba(35, 35, 50, 0.7);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    border: 1px solid rgba(143, 171, 217, 0.2);
-    transition: transform 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    padding: 20px; /* Padding */
+    border-radius: 15px; /* Rounded corners */
+    opacity: 0; /* Initially transparent */
+    transform: translateY(20px); /* Initially offset downward */
+    animation: fadeInPhases 0.8s forwards ease-out; /* Fade in animation */
 }
 
+/* Staggered animations for phase items */
+.phase-item:nth-child(1) { animation-delay: 0.1s; }
+.phase-item:nth-child(2) { animation-delay: 0.2s; }
+.phase-item:nth-child(3) { animation-delay: 0.3s; }
+.phase-item:nth-child(4) { animation-delay: 0.4s; }
+.phase-item:nth-child(5) { animation-delay: 0.5s; }
+.phase-item:nth-child(6) { animation-delay: 0.6s; }
+.phase-item:nth-child(7) { animation-delay: 0.7s; }
+.phase-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Phase items fade in animation */
+@keyframes fadeInPhases {
+    to {
+        opacity: 1; /* Final fully visible */
+        transform: translateY(0); /* Final position without offset */
+    }
+}
+
+/* Phase item hover effect */
 .phase-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(26, 26, 46, 0.8); /* Darker background on hover */
+    transform: translateY(-5px); /* Slight upward movement */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
-/* Phase image container */
+/* Phase animation container */
 .phase-animation {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 120px; /* Width */
+    height: 120px; /* Height */
+    background: rgba(0, 0, 0, 0.3); /* Dark background */
+    border-radius: 50%; /* Circular shape */
+    display: flex; /* Flex layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 15px; /* Bottom margin */
+    position: relative; /* Relative positioning for image */
+    box-shadow: 0 0 10px rgba(143, 184, 255, 0.2); /* Subtle glow */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
-.phase-animation img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Phase animation hover effect */
+.phase-item:hover .phase-animation {
+    box-shadow: 0 0 20px rgba(143, 184, 255, 0.5); /* Enhanced glow on hover */
+    transform: scale(1.05); /* Slight enlargement */
 }
 
-/* Phase title and description */
+/* Phase image */
+.phase-img {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    border-radius: 50%; /* Circular shape */
+    background-size: cover; /* Cover sizing */
+    background-position: center; /* Center background */
+    transition: all 0.5s ease; /* Smooth transition */
+}
+
+/* Phase image hover effect */
+.phase-item:hover .phase-img {
+    transform: rotate(10deg); /* Slight rotation on hover */
+}
+
+/* Full moon image special overlay and glow */
+.phase-item:nth-child(5) .phase-animation {
+    box-shadow: 0 0 15px rgba(194, 197, 204, 0.4); /* Enhanced glow for full moon */
+    background: radial-gradient(circle at center, rgba(194, 197, 204, 0.1), transparent); /* Radial gradient */
+}
+
+/* Full moon image hover effect */
+.phase-item:nth-child(5) .phase-animation {
+    animation: moonGlow 4s infinite ease-in-out; /* Continuous glow animation */
+}
+
+/* Phase item title */
 .phase-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--moon-accent);
+    color: var(--moon-primary); /* Moon-themed color */
+    font-size: 1.3rem; /* Font size */
+    margin-bottom: 10px; /* Bottom margin */
+    transition: color 0.3s ease; /* Color transition */
 }
 
+/* Phase item description */
 .phase-item p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #cccccc;
-    margin-top: auto;
+    color: var(--moon-light); /* Light text color */
+    font-size: 0.9rem; /* Smaller font size */
+    opacity: 0.8; /* Slightly transparent */
 }
 
-/* Moon info grid - layout for moon information cards */
+/* Special hover effects for full moon and others */
+.phase-item:hover:nth-child(5) .phase-img,
+.phase-item:hover:nth-child(1) .phase-img {
+    animation: rotateFullMoon 10s linear infinite; /* Rotation animation */
+}
+
+/* Full moon rotation animation */
+@keyframes rotateFullMoon {
+    to {
+        transform: rotate(360deg); /* Full rotation */
+    }
+}
+
+/* First and last quarter moon transition effects */
+.phase-item:nth-child(4) .phase-img,
+.phase-item:nth-child(6) .phase-img {
+    transition: transform 0.8s ease; /* Slower transition */
+}
+
+/* First quarter moon hover effect */
+.phase-item:hover:nth-child(4) .phase-img {
+    transform: rotate(-15deg) scale(1.1); /* Rotation and scale */
+}
+
+/* Last quarter moon hover effect */
+.phase-item:hover:nth-child(6) .phase-img {
+    transform: rotate(15deg) scale(1.1); /* Opposite rotation and scale */
+}
+
+/* New moon specific styles */
+.new-moon {
+    background-color: #000; /* Black background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Dark shadow */
+    opacity: 0.9; /* Slightly transparent */
+}
+
+/* Waxing crescent specific styles */
+.waxing-crescent {
+    background: url('images/moon/waxing-crescent.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Waxing crescent animation */
+@keyframes waxCrescent {
+    0% {
+        box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.9); /* Initial shadow */
+    }
+    50% {
+        box-shadow: inset -8px 0 15px rgba(0, 0, 0, 0.9); /* Mid animation shadow */
+    }
+    100% {
+        box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.9); /* Return to initial */
+    }
+}
+
+/* First quarter specific styles */
+.first-quarter {
+    background: url('images/moon/first-quarter.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Waxing gibbous specific styles */
+.waxing-gibbous {
+    background: url('images/moon/waxing-gibbous.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Full moon specific styles */
+.full-moon {
+    background: url('images/moon/full-moon.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Light glow */
+}
+
+/* Full moon pulsating animation */
+@keyframes pulsating {
+    0% {
+        opacity: 0.8; /* Initial opacity */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Initial glow */
+    }
+    50% {
+        opacity: 1; /* Mid animation opacity */
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Enhanced glow */
+    }
+    100% {
+        opacity: 0.8; /* Return to initial */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Return to initial glow */
+    }
+}
+
+/* Waning gibbous specific styles */
+.waning-gibbous {
+    background: url('images/moon/waning-gibbous.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Last quarter specific styles */
+.last-quarter {
+    background: url('images/moon/last-quarter.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Waning crescent specific styles */
+.waning-crescent {
+    background: url('images/moon/waning-crescent.jpg') no-repeat center center; /* Background image */
+    background-size: cover; /* Cover sizing */
+}
+
+/* Waning crescent animation */
+@keyframes waneCrescent {
+    0% {
+        box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.9); /* Initial shadow */
+    }
+    50% {
+        box-shadow: inset 8px 0 15px rgba(0, 0, 0, 0.9); /* Mid animation shadow */
+    }
+    100% {
+        box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.9); /* Return to initial */
+    }
+}
+
+/* Moon info grid for displaying facts */
 .moon-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--moon-card-gap);
-    margin-bottom: 5rem;
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 30px; /* Gap between items */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto 60px; /* Center horizontally with bottom margin */
 }
 
 /* Moon information card */
 .moon-card {
-    background: rgba(33, 35, 45, 0.7);
-    border-radius: 12px;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(143, 171, 217, 0.2);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    position: relative; /* Relative positioning */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Padding */
+    overflow: hidden; /* Hide overflow */
+    transform-style: preserve-3d; /* 3D effect */
+    perspective: 1000px; /* 3D perspective */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transitions */
+}
+
+/* Card backdrop for depth effect */
+.card-backdrop {
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: linear-gradient(135deg, rgba(143, 184, 255, 0.1) 0%, transparent 100%); /* Gradient */
+    opacity: 0.2; /* Low opacity */
+    z-index: -1; /* Behind content */
+    transform: translateZ(-10px); /* 3D depth effect */
+    transition: all 0.5s ease; /* Smooth transition */
+    filter: blur(2px); /* Slight blur */
+}
+
+/* Card hover effect */
+.moon-card:hover {
+    transform: translateY(-10px) translateZ(0); /* Upward movement */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
+                0 0 30px rgba(143, 184, 255, 0.1); /* Enhanced shadow */
+}
+
+/* Card backdrop hover effect */
+.moon-card:hover .card-backdrop {
+    opacity: 0.4; /* Increased opacity */
+    filter: blur(0); /* Remove blur */
 }
 
 /* Card title */
 .moon-card h2 {
-    color: var(--moon-accent);
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    position: relative;
-    text-align: center;
+    color: var(--moon-primary); /* Moon-themed color */
+    font-size: 1.8rem; /* Font size */
+    margin-bottom: 25px; /* Bottom margin */
+    position: relative; /* Relative positioning for underline */
+    display: inline-block; /* Inline block for width control */
 }
 
-/* Fact list grid */
+/* Card title underline */
+.moon-card h2::after {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    bottom: -10px; /* Position below text */
+    left: 0; /* Align to left */
+    width: 0; /* Initial width zero */
+    height: 2px; /* Line height */
+    background: var(--moon-accent); /* Line color */
+    transition: width 0.5s ease; /* Width transition */
+}
+
+/* Card title underline hover effect */
+.moon-card:hover h2::after {
+    width: 100%; /* Full width on hover */
+}
+
+/* Fact list inside cards */
 .fact-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr; /* Single column */
+    gap: 15px; /* Gap between items */
 }
 
 /* Individual fact item */
 .fact-item {
-    background: rgba(45, 45, 60, 0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid rgba(143, 171, 217, 0.1);
+    background: rgba(26, 26, 46, 0.8); /* Darker background */
+    padding: 15px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
 }
 
+/* Fact item hover effect */
+.fact-item:hover {
+    transform: translateX(5px); /* Slight rightward movement */
+    background: rgba(143, 184, 255, 0.1); /* Accent-colored background */
+}
+
+/* Fact item title */
 .fact-item h3 {
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    margin-bottom: 0.5rem;
+    color: var(--moon-accent); /* Accent color */
+    font-size: 1.2rem; /* Font size */
+    margin-bottom: 5px; /* Bottom margin */
 }
 
+/* Fact item content */
 .fact-item p {
-    font-size: 1.1rem;
-    color: var(--moon-accent);
+    color: var(--moon-light); /* Light text */
+    font-size: 1rem; /* Font size */
 }
 
-/* Feature items container */
+/* ===== Feature Card Styles - Displaying moon surface features ===== */
 .impact-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid; /* Grid layout */
+    gap: 20px; /* Grid spacing */
 }
 
-/* Individual feature item */
+/* Single feature item style */
 .feature-item {
-    display: flex;
-    align-items: flex-start;
-    background: rgba(45, 45, 60, 0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(143, 171, 217, 0.1);
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    padding: 15px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
-/* Feature icon */
+/* Feature item hover effect */
+.feature-item:hover {
+    background: rgba(143, 184, 255, 0.1); /* Change to light blue background */
+    transform: translateX(10px); /* Rightward movement */
+}
+
+/* Feature icon container style */
 .feature-icon {
-    background: rgba(143, 171, 217, 0.2);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    flex-shrink: 0;
+    width: 50px; /* Width */
+    height: 50px; /* Height */
+    border-radius: 50%; /* Circular */
+    background: var(--moon-dark); /* Background color */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    margin-right: 15px; /* Right spacing */
+    flex-shrink: 0; /* Prevent shrinking */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
+/* Feature icon style */
 .feature-icon i {
-    color: var(--moon-accent);
-    font-size: 1.2rem;
+    font-size: 20px; /* Icon size */
+    color: var(--moon-accent); /* Accent color */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
-/* Feature info text */
-.feature-info {
-    flex: 1;
+/* Feature item hover icon container effect */
+.feature-item:hover .feature-icon {
+    background: var(--moon-accent); /* Background change to accent color */
+    transform: rotate(360deg); /* Rotate one full circle */
 }
 
+/* Feature item hover icon effect */
+.feature-item:hover .feature-icon i {
+    color: var(--moon-dark); /* Icon color change to dark color */
+}
+
+/* Feature info title style */
 .feature-info h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--moon-text);
+    color: var(--moon-primary); /* Primary color */
+    margin-bottom: 5px; /* Bottom spacing */
+    font-size: 1.2rem; /* Font size */
 }
 
+/* Feature info description style */
 .feature-info p {
-    font-size: 0.9rem;
-    color: #cccccc;
-    line-height: 1.5;
+    color: var(--moon-light); /* Text color */
+    font-size: 0.9rem; /* Font size */
+    line-height: 1.4; /* Line height */
 }
 
-/* Timeline container */
+/* ===== Exploration Card Styles - Displaying moon exploration history ===== */
 .mission-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    position: relative; /* Relative positioning */
+    padding-left: 30px; /* Left padding, leaving space for timeline */
 }
 
-/* Individual timeline item */
+/* Timeline vertical line */
+.mission-timeline::before {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 2px; /* Width */
+    height: 100%; /* Full height */
+    background: var(--moon-accent); /* Accent color */
+    opacity: 0.5; /* Semi-transparent */
+}
+
+/* Timeline item style */
 .timeline-item {
-    display: flex;
-    background: rgba(45, 45, 60, 0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    position: relative;
-    border: 1px solid rgba(143, 171, 217, 0.1);
+    position: relative; /* Relative positioning */
+    margin-bottom: 25px; /* Bottom spacing */
+    padding-bottom: 15px; /* Bottom padding */
+    animation: timelineEntry 0.5s ease-out forwards; /* Entry animation */
+    opacity: 0; /* Initially transparent */
+    transform: translateX(-20px); /* Initially leftward offset */
 }
 
-/* Timeline date */
+/* Timeline item staggered animation delay */
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Timeline entry animation */
+@keyframes timelineEntry {
+    to {
+        opacity: 1; /* Final opaque */
+        transform: translateX(0); /* Final position zero */
+    }
+}
+
+/* Timeline item marker point */
+.timeline-item::before {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 5px; /* Top offset */
+    left: -34px; /* Left offset, ensuring on timeline */
+    width: 10px; /* Width */
+    height: 10px; /* Height */
+    background: var(--moon-accent); /* Accent color */
+    border-radius: 50%; /* Circular */
+    box-shadow: 0 0 10px var(--moon-accent); /* Glow effect */
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+/* Hover marker point enlargement effect */
+.timeline-item:hover::before {
+    transform: scale(1.5); /* Scale up 1.5x */
+}
+
+/* Timeline date style */
 .timeline-date {
-    background: rgba(143, 171, 217, 0.2);
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-weight: bold;
-    color: var(--moon-accent);
-    margin-right: 1rem;
-    min-width: 60px;
-    text-align: center;
-    font-size: 0.9rem;
-    align-self: flex-start;
+    font-size: 1.2rem; /* Font size */
+    font-weight: bold; /* Bold */
+    color: var(--moon-primary); /* Text color */
+    margin-bottom: 5px; /* Bottom spacing */
 }
 
-/* Timeline content */
-.timeline-content {
-    flex: 1;
-}
-
+/* Timeline content title style */
 .timeline-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--moon-text);
+    color: var(--moon-accent); /* Accent color */
+    margin-bottom: 5px; /* Bottom spacing */
+    font-size: 1.1rem; /* Font size */
 }
 
+/* Timeline content description style */
 .timeline-content p {
-    font-size: 0.9rem;
-    color: #cccccc;
-    line-height: 1.5;
+    color: var(--moon-light); /* Text color */
+    font-size: 0.9rem; /* Font size */
+    line-height: 1.4; /* Line height */
 }
 
-/* Future timeline item styling */
+/* Future task style - slightly transparent to distinguish */
 .timeline-item.future {
-    border: 1px dashed rgba(143, 171, 217, 0.3);
-    background: rgba(45, 45, 60, 0.4);
+    opacity: 0.7; /* Partial transparency */
 }
 
-/* Influence content container */
+/* Future task date color */
+.timeline-item.future .timeline-date {
+    color: var(--moon-accent); /* Use accent color */
+}
+
+/* ===== Influence Card Styles - Displaying moon's influence on Earth ===== */
 .influence-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    display: grid; /* Grid layout */
+    gap: 20px; /* Grid spacing */
 }
 
-/* Individual influence item */
+/* Influence item style */
 .influence-item {
-    background: rgba(45, 45, 60, 0.6);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid rgba(143, 171, 217, 0.1);
+    text-align: center; /* Center content */
+    padding: 20px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
-/* Influence icon */
+/* Influence item hover effect */
+.influence-item:hover {
+    background: rgba(143, 184, 255, 0.1); /* Change to light blue background */
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+/* Influence icon container style */
 .influence-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(143, 171, 217, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
+    width: 60px; /* Width */
+    height: 60px; /* Height */
+    border-radius: 50%; /* Circular */
+    background: var(--moon-dark); /* Background color */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    margin: 0 auto 15px; /* Center and set bottom spacing */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
+/* Influence icon style */
 .influence-icon i {
-    color: var(--moon-accent);
-    font-size: 1.2rem;
+    font-size: 25px; /* Icon size */
+    color: var(--moon-accent); /* Accent color */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
-/* Influence title and description */
+/* Influence item hover icon container effect */
+.influence-item:hover .influence-icon {
+    background: var(--moon-accent); /* Background change to accent color */
+}
+
+/* Influence item hover icon effect */
+.influence-item:hover .influence-icon i {
+    color: var(--moon-dark); /* Icon color change to dark color */
+    transform: scale(1.2); /* Enlarge icon */
+}
+
+/* Influence item title style */
 .influence-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    color: var(--moon-text);
+    color: var(--moon-primary); /* Primary color */
+    margin-bottom: 10px; /* Bottom spacing */
+    font-size: 1.2rem; /* Font size */
 }
 
+/* Influence item description style */
 .influence-item p {
-    font-size: 0.9rem;
-    color: #cccccc;
-    line-height: 1.5;
+    color: var(--moon-light); /* Text color */
+    font-size: 0.9rem; /* Font size */
+    line-height: 1.4; /* Line height */
 }
 
-/* Moon resources section */
-.moon-resources-section {
-    margin-bottom: 5rem;
-}
-
-.moon-resources-section .section-title {
-    color: var(--moon-accent);
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-/* Resources grid container */
-.resources-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--moon-card-gap);
-}
-
-/* Individual resource card */
-.resource-card {
-    background: rgba(33, 35, 45, 0.7);
-    border-radius: 12px;
-    padding: 2rem;
-    border: 1px solid rgba(143, 171, 217, 0.2);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Resource card title */
-.resource-card h3 {
-    color: var(--moon-accent);
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    text-align: center;
-}
-
-/* Terrain image container */
-.terrain-image {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-}
-
-.terrain-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Resource description */
-.resource-description {
-    margin-bottom: 1.5rem;
-}
-
-.resource-description p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #e6e6e6;
-    margin-bottom: 1.5rem;
-}
-
-/* Terrain statistics */
-.terrain-stats {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-}
-
-.terrain-stat {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(143, 171, 217, 0.2);
-}
-
-.terrain-stat .stat-name {
-    color: #aaaaaa;
-}
-
-.terrain-stat .stat-value {
-    color: var(--moon-accent);
-}
-
-/* Reading links list */
-.reading-links {
-    list-style: none;
-    padding: 0;
-}
-
-.reading-links li {
-    margin-bottom: 1rem;
-}
-
-.reading-links a {
-    display: flex;
-    align-items: center;
-    color: var(--moon-accent);
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding: 0.8rem;
-    border-radius: 6px;
-    background: rgba(45, 45, 60, 0.6);
-    transition: background 0.3s ease;
-}
-
-.reading-links a:hover {
-    background: rgba(143, 171, 217, 0.2);
-}
-
-.reading-links i {
-    margin-right: 0.5rem;
-}
-
-/* Panorama viewer */
-.panorama-viewer {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-}
-
-.panorama-viewer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.panorama-caption {
-    font-size: 0.85rem;
-    color: #aaaaaa;
-    text-align: center;
-    font-style: italic;
-}
-
-/* Fact carousel */
-.fact-carousel {
-    position: relative;
-    padding: 1rem;
-    background: rgba(45, 45, 60, 0.6);
-    border-radius: 8px;
-    border: 1px solid rgba(143, 171, 217, 0.1);
-}
-
-.fact-slide {
-    display: none;
-}
-
-.fact-slide.active {
-    display: block;
-}
-
-.fact-slide p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #e6e6e6;
-    text-align: center;
-    padding: 0.5rem 0;
-}
-
-.fact-slide p i {
-    color: var(--moon-accent);
-    margin-right: 0.5rem;
-}
-
-/* Moon and Earth section */
+/* ===== Moon-Earth System Styles - Displaying Earth and moon relationship ===== */
 .moon-earth-section {
-    margin-bottom: 5rem;
+    padding: 4rem 0;
+    margin: 3rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    border-radius: 20px;
     text-align: center;
 }
 
 .moon-earth-section h2 {
     font-size: 2rem;
-    color: var(--moon-accent);
     margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Earth-Moon system info text */
+.earth-moon-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 30px 0;
+}
+
+.earth {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url('images/Earth.jpg') no-repeat center center;
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    z-index: 3;
+}
+
+.orbit-path {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.moon-orbital {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #c2c5cc;
+    box-shadow: 0 0 10px rgba(194, 197, 204, 0.5);
+    transform: translate(-50%, -50%) translateX(200px); /* Static position */
+    z-index: 2;
+}
+
+/* Earth-moon information area */
 .earth-moon-info {
-    max-width: 800px;
-    margin: 3rem auto 0;
-    text-align: left;
-    padding: 2rem;
-    background: rgba(33, 35, 45, 0.7);
-    border-radius: 12px;
-    border: 1px solid rgba(143, 171, 217, 0.2);
+    text-align: center; /* Center content */
+    max-width: 800px; /* Maximum width */
+    margin: 0 auto; /* Center */
 }
 
+/* Earth-moon information text */
 .earth-moon-info p {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #e6e6e6;
+    margin-bottom: 20px; /* Bottom spacing */
+    line-height: 1.7; /* Line height */
+    font-size: 1.1rem; /* Font size */
 }
 
-.earth-moon-info p:last-child {
-    margin-bottom: 0;
-}
-
-/* Footer navigation */
+/* ===== Footer Navigation Styles - Other page links ===== */
 .footer-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 4rem;
+    display: flex; /* Flex layout */
+    justify-content: center; /* Horizontally center */
+    gap: 40px; /* Item spacing */
+    margin-top: 60px; /* Top spacing */
 }
 
+/* Navigation button container */
 .nav-button a {
-    display: flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(45, 45, 60, 0.6);
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--moon-text);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(143, 171, 217, 0.2);
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    gap: 15px; /* Internal element spacing */
+    padding: 15px 25px; /* Padding */
+    border-radius: 50px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: var(--moon-light); /* Text color */
+    transition: all 0.3s ease; /* Transition effect */
+    position: relative; /* Relative positioning */
+    overflow: hidden; /* Hide overflow content */
+    z-index: 1; /* Level */
 }
 
+/* Navigation button background */
+.nav-button a::before {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--moon-dark), var(--moon-secondary)); /* Gradient background */
+    border-radius: 50px; /* Rounded corners */
+    z-index: -1; /* Below content */
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+/* Navigation button hover effect */
 .nav-button a:hover {
-    background: rgba(143, 171, 217, 0.2);
-    transform: translateY(-3px);
+    transform: translateY(-5px); /* Upward movement */
 }
 
+/* Navigation button background hover effect */
+.nav-button a:hover::before {
+    filter: brightness(1.2); /* Increase brightness */
+}
+
+/* Navigation icon container */
 .nav-button .icon {
-    margin-right: 0.8rem;
-    font-size: 1.2rem;
+    width: 40px; /* Width */
+    height: 40px; /* Height */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    border-radius: 50%; /* Circular */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    transition: all 0.3s ease; /* Transition effect */
 }
 
-.planet-button .icon {
-    color: #66ccff;
+/* Navigation button icon hover rotation effect */
+.nav-button a:hover .icon {
+    transform: rotate(360deg); /* Rotate one full circle */
 }
 
-.sun-button .icon {
-    color: #ffcc00;
+/* Navigation button text style */
+.nav-button .text {
+    font-size: 1.1rem; /* Font size */
+    font-weight: bold; /* Bold */
+    letter-spacing: 1px; /* Letter spacing */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    /* Adjustments for smaller screens */
-    .moon-title {
-        font-size: 2.8rem;
-        padding: 0 1rem;
-    }
-    
-    .moon-content .container {
-        padding: 0 1.5rem;
-    }
-    
-    .moon-introduction {
-        margin-bottom: 3rem;
-    }
-    
-    .moon-introduction .section-title {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .moon-introduction .intro-text {
-        font-size: 1rem;
-    }
-    
-    .moon-phases-section {
-        margin-bottom: 3rem;
-    }
-    
-    .phases-container {
-        gap: 1.5rem;
-    }
-    
-    .phase-item {
-        padding: 1.5rem;
-    }
-    
-    .phase-animation {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 1rem;
+/* Planet button hover color effect */
+.planet-button:hover {
+    color: #66ccff; /* Blue, representing planet */
+}
+
+/* Planet button icon hover effect */
+.planet-button:hover .icon {
+    background: #66ccff; /* Blue background */
+    color: var(--moon-dark); /* Dark text color */
+}
+
+/* Sun button hover color effect */
+.sun-button:hover {
+    color: #ff751a; /* Orange, representing sun */
+}
+
+/* Sun button icon hover effect */
+.sun-button:hover .icon {
+    background: #ff751a; /* Orange background */
+    color: var(--moon-dark); /* Dark text color */
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    /* Adaptation for large screens (less than 1200px) */
+    .moon-image {
+        width: 300px; /* Reduce moon image size */
+        height: 300px; /* Maintain square aspect ratio */
     }
     
     .moon-info-grid {
-        gap: 1.5rem;
-        margin-bottom: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Reduce minimum width of information cards, ensuring better adaptation on smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    /* Adaptation for tablets (less than 992px) */
+    .moon-title {
+        font-size: 12vw; /* Increase title font size, using viewport width unit to ensure responsive scaling */
     }
     
-    .moon-card {
-        padding: 1.5rem;
+    .moon-image {
+        width: 250px; /* Further reduce moon image size */
+        height: 250px; /* Maintain square aspect ratio */
+    }
+    
+    .phases-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust moon phase grid column count, adapting to narrower screens */
+    }
+    
+    .moon-info-grid {
+        grid-template-columns: 1fr; /* Information cards change to single column layout */
     }
     
     .fact-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Fact list adaptability change, ensuring project has enough width */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adaptation for phones (less than 768px) */
+    .moon-hero {
+        height: 80vh; /* Reduce hero area height, no longer taking full screen on smaller screens */
     }
     
-    .influence-content {
-        grid-template-columns: 1fr;
+    .moon-image {
+        right: 5%; /* Adjust moon image position, closer to right edge */
+        width: 200px; /* Continue reducing moon image size */
+        height: 200px; /* Maintain square aspect ratio */
     }
     
-    .resources-container {
-        gap: 1.5rem;
+    .moon-title {
+        font-size: 14vw; /* Increase title size on smaller screens, maintaining visibility */
+        left: 5%; /* Adjust position, closer to left edge */
     }
     
-    .resource-card {
-        padding: 1.5rem;
+    .earth-moon-container {
+        width: 300px; /* Reduce earth-moon container width */
     }
     
-    .earth-moon-info {
-        padding: 1.5rem;
+    .orbit-path {
+        width: 250px; /* Reduce orbit path width */
+    }
+    
+    /* Update moon's animation around Earth, adapting to smaller orbit */
+    @keyframes orbitEarth {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(125px) rotate(0deg); /* Reduce orbit radius */
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(125px) rotate(-360deg); /* Reduce orbit radius */
+        }
     }
     
     .footer-navigation {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column; /* Footer navigation change to vertical arrangement */
+        align-items: center; /* Horizontally center alignment */
+        gap: 20px; /* Reduce spacing */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Adaptation for small phones (less than 576px) */
+    .moon-title {
+        font-size: 16vw; /* Further increase title font size, ensuring visibility on very small screens */
     }
     
-    .nav-button a {
-        width: 100%;
-        justify-content: center;
+    .moon-image {
+        width: 150px; /* Minimum size moon image */
+        height: 150px; /* Maintain square aspect ratio */
+    }
+    
+    .section-title {
+        font-size: 2rem; /* Reduce section title font size */
+    }
+    
+    .phase-item {
+        padding: 15px; /* Reduce moon phase item padding */
+    }
+    
+    .phase-animation {
+        width: 80px; /* Reduce moon phase animation container size */
+        height: 80px; /* Maintain square aspect ratio */
+    }
+    
+    .moon-card {
+        padding: 20px; /* Reduce card padding */
+    }
+    
+    .fact-list {
+        grid-template-columns: 1fr; /* Fact list forced to single column layout */
+    }
+}
+
+/* Page load animation - Fade in effect for entire page */
+.moon-page {
+    animation: fadeIn 1s ease-in; /* 1 second fade in animation, slow in effect */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* Initially fully transparent */
+    to { opacity: 1; } /* Final fully opaque */
+}
+
+/* ===== Moon Resources Styles - Displaying moon resources and detailed information ===== */
+.moon-resources-section {
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto 80px; /* Center and set bottom spacing */
+}
+
+.resources-container {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal width columns */
+    gap: 30px; /* Grid spacing */
+}
+
+.resource-card {
+    background: rgba(26, 26, 46, 0.7); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 25px; /* Padding */
+    border: 1px solid rgba(194, 197, 204, 0.1); /* Light border */
+    transition: all 0.3s ease; /* Transition effect */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.resource-card:hover {
+    transform: translateY(-5px); /* Upward movement when hovered */
+    border-color: var(--moon-accent); /* Border change to accent color */
+    box-shadow: 0 10px 20px rgba(143, 184, 255, 0.1); /* Add shadow effect */
+}
+
+.resource-card h3 {
+    color: var(--moon-primary); /* Title color */
+    margin-bottom: 20px; /* Bottom spacing */
+    font-size: 1.6rem; /* Font size */
+    position: relative; /* Relative positioning for after pseudo-element */
+    display: inline-block; /* Inline block for display */
+}
+
+.resource-card h3::after {
+    content: ''; /* Create pseudo-element */
+    position: absolute; /* Absolute positioning */
+    bottom: -5px; /* Position below title */
+    left: 0; /* Left alignment */
+    width: 30px; /* Initial width */
+    height: 2px; /* Height */
+    background: var(--moon-accent); /* Accent color */
+    transition: width 0.3s ease; /* Width transition animation */
+}
+
+.resource-card:hover h3::after {
+    width: 100%; /* Expand to full width on hover */
+}
+
+/* ===== Terrain Card Styles - Displaying moon surface terrain ===== */
+.terrain-image {
+    width: 100%; /* Fill container width */
+    height: 200px; /* Fixed height */
+    overflow: hidden; /* Hide overflow content */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Bottom spacing */
+}
+
+.terrain-image img {
+    width: 100%; /* Fill container */
+    height: 100%; /* Fill container */
+    object-fit: cover; /* Cover fill, maintaining aspect ratio */
+    transition: transform 2s ease; /* Transformation transition effect */
+}
+
+.resource-card:hover .terrain-image img {
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.resource-description p {
+    margin-bottom: 15px; /* Paragraph bottom spacing */
+    line-height: 1.6; /* Line height */
+    font-size: 1rem; /* Font size */
+}
+
+.terrain-stats {
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal width columns */
+    gap: 15px; /* Grid spacing */
+    margin-top: 15px; /* Top spacing */
+}
+
+.terrain-stat {
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    padding: 10px; /* Padding */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Text center alignment */
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+.terrain-stat:hover {
+    background: rgba(143, 184, 255, 0.1); /* Change to light blue background on hover */
+}
+
+.stat-name {
+    display: block; /* Block level display */
+    color: var(--moon-accent); /* Accent color */
+    font-size: 0.9rem; /* Font size */
+    margin-bottom: 5px; /* Bottom spacing */
+}
+
+.stat-value {
+    color: var(--moon-light); /* Text color */
+    font-size: 1.1rem; /* Font size */
+    font-weight: bold; /* Bold */
+}
+
+/* ===== Reading Links Card Styles - Related resource links ===== */
+.reading-links {
+    list-style: none; /* Remove list style */
+    padding: 0; /* Remove padding */
+}
+
+.reading-links li {
+    margin-bottom: 15px; /* List item spacing */
+}
+
+.reading-links a {
+    display: block; /* Block level display */
+    padding: 15px; /* Padding */
+    border-radius: 8px; /* Rounded corners */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    color: var(--moon-light); /* Text color */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+.reading-links a:hover {
+    background: rgba(143, 184, 255, 0.1); /* Change to light blue background on hover */
+    transform: translateX(5px); /* Rightward movement */
+}
+
+.reading-links i {
+    color: var(--moon-accent); /* Icon color as accent color */
+    margin-right: 10px; /* Right spacing */
+    transition: transform 0.3s ease; /* Transformation transition effect */
+}
+
+.reading-links a:hover i {
+    transform: rotate(45deg); /* Icon rotation on hover */
+}
+
+/* ===== Panorama Card Styles - Moon surface 360° view ===== */
+.panorama-viewer {
+    position: relative; /* Relative positioning */
+    width: 100%; /* Fill container width */
+    height: 220px; /* Fixed height */
+    overflow: hidden; /* Hide overflow content */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Bottom spacing */
+}
+
+.panorama-viewer img {
+    width: 100%; /* Fill container */
+    height: 100%; /* Fill container */
+    object-fit: cover; /* Cover fill */
+    transition: transform 5s ease; /* Slow transformation effect */
+}
+
+.resource-card:hover .panorama-viewer img {
+    transform: scale(1.05) translateX(3%); /* Slight enlargement and horizontal movement, simulating panorama effect */
+}
+
+.panorama-overlay {
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Center correction */
+    background: rgba(26, 26, 46, 0.7); /* Semi-transparent background */
+    padding: 15px; /* Padding */
+    border-radius: 50px; /* Circular button effect */
+    opacity: 0; /* Initially transparent */
+    transition: all 0.3s ease; /* Transition effect */
+    cursor: pointer; /* Pointer style */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+}
+
+.panorama-overlay i {
+    margin-right: 10px; /* Right spacing */
+    color: var(--moon-accent); /* Icon color as accent color */
+}
+
+.panorama-viewer:hover .panorama-overlay {
+    opacity: 1; /* Display overlay on hover */
+}
+
+.panorama-caption {
+    font-size: 0.9rem; /* Font size */
+    color: var(--moon-light); /* Text color */
+    font-style: italic; /* Italic */
+    text-align: center; /* Text center alignment */
+}
+
+/* ===== Fun Fact Card Styles - Carousel display of fun facts ===== */
+.fact-carousel {
+    position: relative; /* Relative positioning */
+    padding: 20px; /* Padding */
+    background: rgba(26, 26, 46, 0.5); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    height: 150px; /* Fixed height */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.fact-slide {
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px; /* Padding */
+    opacity: 0; /* Initially transparent */
+    transform: translateY(20px); /* Initially downward offset */
+    transition: all 0.5s ease; /* Transition effect */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+}
+
+.fact-slide.active {
+    opacity: 1; /* Fully opaque when active */
+    transform: translateY(0); /* Active position zero */
+}
+
+.fact-slide p {
+    font-size: 1.1rem; /* Font size */
+    line-height: 1.5; /* Line height */
+    text-align: center; /* Text center alignment */
+}
+
+.fact-slide i {
+    color: var(--moon-accent); /* Icon color as accent color */
+    margin-right: 8px; /* Right spacing */
+}
+
+.fact-navigation {
+    position: absolute; /* Absolute positioning */
+    bottom: 15px; /* Bottom position */
+    left: 50%; /* Horizontally center */
+    transform: translateX(-50%); /* Center correction */
+    display: flex; /* Flex layout */
+    gap: 8px; /* Spacing */
+}
+
+.fact-dot {
+    width: 8px; /* Width */
+    height: 8px; /* Height */
+    background: rgba(194, 197, 204, 0.3); /* Light background */
+    border-radius: 50%; /* Circular */
+    cursor: pointer; /* Pointer style */
+    transition: all 0.3s ease; /* Transition effect */
+}
+
+.fact-dot.active {
+    background: var(--moon-accent); /* Use accent color when active */
+    transform: scale(1.3); /* Enlarge when active */
+}
+
+/* Resource section responsive adjustments */
+@media (max-width: 992px) {
+    .resources-container {
+        grid-template-columns: 1fr; /* Change to single column layout on tablets and below */
     }
 } 
