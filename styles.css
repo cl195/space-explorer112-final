@@ -1,552 +1,946 @@
-/* Main styles for Solar System website - Version 4 simplified */
-/* This is the central stylesheet that controls the appearance of the entire solar system explorer website */
-
-/* Root variables for consistent theming - Using CSS variables for easy global color updates */
-:root {
-    --primary-color: #ff6b00;    /* Primary color - orange used for highlights and active elements */
-    --secondary-color: #ffd700;  /* Secondary color - gold used for accents and secondary highlights */
-    --background-dark: #1a1a2e;  /* Dark background color - deep blue for space-like ambiance */
-    --text-light: #ffffff;       /* Light text color - white for maximum readability on dark backgrounds */
-    --text-dark: #000000;        /* Dark text color - black for maximum readability on light backgrounds */
-    --content-max-width: 1200px; /* Maximum content width variable */
-    --content-padding: 2rem;     /* Content Margin Variables */
-    --card-gap: 2rem;            /* Card spacing variables */
-}
-
-/* Global styles - Reset browser defaults for consistent cross-browser rendering */
+/* Global styles - Basic reset and default settings for the entire website */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Include padding and border in element width calculations */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-/* Base body styles - Set foundational styles for the entire document */
+/* Body styling - Sets the main document appearance and behavior */
 body {
-    font-family: 'Arial', sans-serif; /* Web-safe font stack for good readability */
-    background: var(--background-dark); /* Dark background mimicking space */
-    color: var(--text-light); /* Light text for contrast against dark background */
-    line-height: 1.6; /* Improved readability with increased line height */
-    min-height: 100vh; /* Ensure body fills at least the viewport height */
-    overflow-x: hidden; /* Prevents horizontal scrolling and content overflow */
-    background-color: #000; /* Fallback color if CSS variables aren't supported */
-    position: relative; /* Create positioning context for absolute elements */
+    font-family: 'Arial', sans-serif; /* Sets primary font to Arial, falls back to generic sans-serif */
+    background: #000000; /* Black background for space theme */
+    color: #ffffff; /* White text for readability against dark background */
+    line-height: 1.6; /* Increases line spacing for better readability */
+    min-height: 100vh; /* Ensures body is at least full viewport height */
+    overflow-x: hidden; /* Prevents horizontal scrolling while allowing vertical scrolling */
+    background-color: #000; /* Redundant black background as fallback */
+    position: relative; /* Creates positioning context for absolute positioned children */
 }
 
-/* Navigation bar styles - Fixed position navigation that stays at the top of the viewport */
-.navbar, .top-nav, .sun-nav, .moon-nav {
-    position: fixed; /* Keep navbar at top of screen during scrolling */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Increase opacity to improve contrast */
-    padding: 1rem var(--content-padding); /* Using variables to set fill */
-    z-index: 1000; /* Ensure navbar appears above other content */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add shadows to enhance separation */
+/* Navigation bar styles - Fixed top navigation that remains visible while scrolling */
+.top-nav {
+    position: fixed; /* Fixes the navigation to top of viewport */
+    top: 0; /* Aligns to top edge */
+    left: 0; /* Aligns to left edge */
+    width: 100%; /* Full width of viewport */
+    z-index: 1000; /* High z-index ensures it stays above other content */
+    padding: 1rem; /* Reduced padding for more compact nav */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better visibility */
 }
 
-.nav-container {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between; /* Push logo to left, links to right */
-    align-items: center; /* Vertically center items */
+/* Container for navigation content with size constraints */
+.nav-content {
+    max-width: 1400px; /* Limits maximum width for larger screens */
+    margin: 0 auto; /* Centers the navigation horizontally */
+    display: flex; /* Uses flexbox layout */
+    flex-direction: column; /* Stack logo and links vertically */
+    align-items: flex-start; /* Align items to the left */
 }
 
-/* Navigation logo styles - Site title/logo styling */
-.nav-logo {
-    color: var(--secondary-color); /* Gold color for logo visibility */
-    font-size: 1.5rem; /* Larger text size for importance */
-    text-decoration: none; /* Remove underline from link */
-    font-weight: bold; /* Heavier font weight for emphasis */
+/* Logo styling in the navigation */
+.logo {
+    font-size: 1.2rem; /* Sets logo text size */
+    font-weight: bold; /* Makes logo text bold */
+    letter-spacing: 1px; /* Adds slight spacing between logo letters */
+    margin-bottom: 0.5rem; /* Add space between logo and links */
 }
 
-/* Navigation links container - Holds the navigation menu items */
+/* Container for navigation links */
 .nav-links {
-    display: flex; /* Horizontal alignment of links */
-    gap: 2rem; /* Even spacing between navigation items */
+    display: flex; /* Uses flexbox layout for link arrangement */
+    gap: 1.5rem; /* Reduced gap between navigation links */
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
 }
 
-/* Navigation link styles - Individual navigation links */
-.nav-link {
-    color: var(--text-light); /* White text for readability */
-    text-decoration: none; /* Remove underline from links */
-    font-size: 1rem; /* Standard text size */
-    transition: color 0.3s ease; /* Smooth color change on hover */
-    padding: 0.5rem 1rem; /* Add inner margins to increase clickable area */
-    border-radius: 4px; /* Add rounded corners */
+/* Unified simplified navigation link styles - Base styling for all navigation links */
+.nav-links a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 0.9rem; /* Slightly smaller text size */
+    letter-spacing: 2px; /* Wider letter spacing for modern appearance */
+    position: relative; /* Creates positioning context for pseudo-elements */
+    padding: 5px 0; /* Adds vertical padding to increase clickable area */
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--secondary-color); /* Gold color on hover for interactive feedback */
-    background-color: rgba(255, 255, 255, 0.1); /* Add background color to enhance interaction */
+/* Remove hover transition effect */
+.nav-links a::after {
+    display: none; /* Hide the animated underline completely */
 }
 
-/* Hero section styles - Large banner/introductory area at the top of pages */
-.hero {
-    height: 100vh; /* Full viewport height for dramatic impact */
-    display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    text-align: center;
-    background: linear-gradient(to bottom, #000000, var(--background-dark)); /* Gradient background for depth */
-    position: relative;
-    overflow: hidden; /* Prevents content from spilling outside */
-    padding: 0 var(--content-padding); /* Add horizontal inner margins */
+/* Simplified color changes for each page link - Structure page specific styling */
+.nav-links a.structure-link.active {
+    color: #fff; /* White color for structure page links */
+    font-weight: bold; /* Bold for active link */
 }
 
-/* Hero title styles - Main page heading in hero section */
-.hero-title {
-    font-size: 4rem; /* Very large text for impact */
-    color: var(--text-light); /* White text for readability */
-    margin-bottom: 1.5rem; /* Increase spacing */
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Shadow for improved readability over varying backgrounds */
-    max-width: 800px; /* Limit maximum width to improve readability */
+/* Planet page specific link styling */
+.nav-links a.planet-link.active {
+    color: #66ccff; /* Light blue color for planet page links */
+    font-weight: bold; /* Bold for active link */
 }
 
-/* Hero subtitle styles - Secondary text in hero section */
-.hero-subtitle {
-    font-size: 1.5rem; /* Larger than body text but smaller than title */
-    color: var(--secondary-color); /* Gold color for visual distinction */
-    margin-bottom: 2rem; /* Space below the subtitle */
-    max-width: 600px; /* Limit maximum width to improve readability */
+/* Sun page specific link styling */
+.nav-links a.sun-link.active {
+    color: #ff751a; /* Orange color for sun page links */
+    font-weight: bold; /* Bold for active link */
 }
 
-/* Content section styles - Main content area container */
-.content {
-    padding: 6rem var(--content-padding) 4rem; /* Increase the top inner margin to make room for a fixed navigation bar */
-    max-width: var(--content-max-width); /* Use variables to set the maximum width */
-    margin: 0 auto; /* Center content horizontally */
-    display: flex;
-    flex-direction: column;
-    gap: 5rem; /* Increase spacing between sections */
+/* Moon page specific link styling */
+.nav-links a.moon-link.active {
+    color: #c2c5cc; /* Light gray color for moon page links */
+    font-weight: bold; /* Bold for active link */
 }
 
-/* Section title styles - Headings for major content sections */
-.section-title {
-    font-size: 2.5rem; /* Large text for hierarchy */
-    color: var(--secondary-color); /* Gold color for importance */
-    margin-bottom: 2.5rem; /* Increase spacing */
-    text-align: center; /* Center align for symmetry */
-    position: relative; /* Provide positioning context for decorated elements */
+/* Hero section styles - Full-screen introductory section with background image */
+.hero-section {
+    height: 100vh; /* Full viewport height */
+    background: url('images/galaxy-bg.jpg') no-repeat center center; /* Galaxy background image */
+    background-size: cover; /* Scales image to cover entire section */
+    display: flex; /* Uses flexbox layout */
+    align-items: center; /* Vertically centers content */
+    position: relative; /* Creates positioning context for absolute elements */
+    overflow: hidden; /* Hides overflowing content */
+    z-index: 1; /* Lower z-index to ensure stars are on top */
 }
 
-/* Adding decorative underlines to headings */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 0.8rem auto 0;
-    border-radius: 3px;
-}
-
-/* Structure grid - Layout for displaying structural components */
-.structure-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjustment of the minimum width */
-    gap: var(--card-gap); /* Using variables to set spacing */
-    padding: 1rem 0; /* Reduce vertical inside margins to maintain horizontal alignment */
-    width: 100%; /* Make sure the grid occupies the entire width of the container */
-}
-
-/* Structure item - Individual component in the structure grid */
-.structure-item {
-    background: rgba(255, 255, 255, 0.05); /* Very subtle light background */
-    border-radius: 12px; /* Reduced rounding */
-    padding: 2rem; /* Generous internal spacing */
-    text-align: center; /* Center-aligned content */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover effects */
-    backdrop-filter: blur(10px); /* Frosted glass effect for depth */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Add thin borders to enhance the sense of boundaries */
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Ensure that all cards are of the same height */
-}
-
-/* Hover effect for structure items */
-.structure-item:hover {
-    transform: translateY(-5px); /* 减小上移效果 */
-    background: rgba(255, 255, 255, 0.1); /* Slightly brighter background on hover */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadows to enhance three-dimensionality */
-}
-
-/* Icon container in structure items */
-.item-icon {
-    display: flex;
-    justify-content: center; /* Horizontally center icon */
-    align-items: center; /* Vertically center icon */
-    margin-bottom: 1.5rem; /* Increase spacing */
-}
-
-/* Heading within structure items */
-.structure-item h3 {
-    font-size: 1.5rem; /* Resize header */
-    margin-bottom: 1rem; /* Space below heading */
-    color: #fff; /* White for maximum contrast */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
-}
-
-/* Paragraph text within structure items */
-.structure-item p {
-    font-size: 1rem; /* Standard text size */
-    line-height: 1.6; /* Increased line height for readability */
-    color: #ccc; /* Light gray for less visual weight than headings */
-    margin-top: auto; /* Push paragraphs to the bottom to achieve vertical alignment of card content */
-}
-
-/* Add structure icon style */
-.structure-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
-    color: var(--secondary-color);
-}
-
-/* Distance information container - Used for astronomical unit explanations */
-.distance-info {
-    text-align: center;
-    margin-top: 4rem; /* Generous space above container */
-    padding: 2rem; /* Generous internal padding */
-    background: rgba(255, 255, 255, 0.05); /* Subtle background */
-    border-radius: 10px; /* Rounded corners */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Add a thin border */
-}
-
-/* Astronomical unit explanation text */
-.au-info {
-    font-size: 1.2rem; /* Larger text for readability */
-    color: #fff; /* White for contrast */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
-    max-width: 800px; /* Limit maximum width */
-    margin: 0 auto; /* horizontal centering */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    /* Smaller section title on mobile */
-    .section-title {
-        font-size: 1.8rem; /* Reduced size for proportion */
-        padding: 0 1rem; /* Horizontal padding */
-        margin-bottom: 2rem; /* Reduced spacing */
-    }
-
-    /* Hero title adjustments for mobile */
-    .hero-title {
-        font-size: 2.5rem; /* Reduce font size */
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem; /* Reduce font size */
-    }
-
-    /* Navigation bar mobile optimization */
-    .navbar {
-        padding: 0.8rem 1rem; /* Reduced inner margins */
-    }
-    
-    .nav-links {
-        gap: 0.5rem; /* Reduced spacing */
-    }
-    
-    .nav-link {
-        padding: 0.4rem 0.6rem; /* Reduced inner margins */
-        font-size: 0.9rem; /* Reduce font size */
-    }
-
-    /* Single column structure grid on mobile */
-    .structure-grid {
-        grid-template-columns: 1fr; /* Stack items vertically */
-        gap: 1.5rem; /* Reduced spacing */
-        padding: 0; /* Remove inner margins */
-    }
-
-    /* Smaller structure item padding on mobile */
-    .structure-item {
-        padding: 1.5rem; /* Reduced internal spacing */
-    }
-
-    /* Fixed size for item icons on mobile */
-    .item-icon {
-        width: 60px; /* downsize */
-        height: 60px; /* downsize */
-        margin-bottom: 1rem; /* Reduced spacing */
-    }
-
-    /* Smaller structure item headings on mobile */
-    .structure-item h3 {
-        font-size: 1.3rem; /* Reduced size for proportion */
-        margin-bottom: 0.8rem; /* Reduced spacing */
-    }
-    
-    /* Content area mobile optimization */
-    .content {
-        padding: 5rem 1rem 3rem; /* Reduced inner margins */
-        gap: 3rem; /* Reduced spacing */
-    }
-    
-    /* Structure Icon Mobile Optimization */
-    .structure-icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-}
-
-/* Smooth scrolling behavior for the entire page */
-html {
-    scroll-behavior: smooth; /* Enables smooth scrolling to anchor links */
-    scroll-padding-top: 60px; /* Add a scroll offset to prevent content from being obscured by the fixed navigation bar */
-}
-
-/* Planet page specific styles - Visual elements unique to planet pages */
-.planet-hero {
-    background: url('images/backwards.jpg') no-repeat center center; /* Space background image */
-    background-size: cover; /* Ensure image covers entire area */
-    background-attachment: fixed; /* Parallax effect when scrolling */
-}
-
-/* Container for planet categories */
-.planet-categories {
-    padding: 4rem 0; /* Vertical padding */
-    max-width: var(--content-max-width); /* Use variables to set the maximum width */
-    margin: 0 auto; /* horizontal centering */
-    width: 100%; /* Ensure that it occupies the entire width of the container */
-}
-
-/* Individual category section */
-.category {
-    margin-bottom: 5rem; /* Reduced spacing */
-    padding: 0 var(--content-padding); /* Using variables to set inner margins */
-}
-
-/* Decorative lines around category titles */
-.category-title::before,
-.category-title::after {
+/* Overlay for hero section - Adds darkening filter over the background image */
+.hero-section::before {
     content: ''; /* Required for pseudo-elements */
-    position: absolute;
-    top: 50%; /* Center vertically */
-    width: 50px; /* Line length */
-    height: 1px; /* Line thickness */
-    background: linear-gradient(90deg, transparent, #fff, transparent); /* Fading gradient line */
+    position: absolute; /* Positions outside normal flow */
+    top: 0; /* Aligns to top edge */
+    left: 0; /* Aligns to left edge */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 2; /* Ensures it's above the background image but below the stars */
 }
 
-/* Position left decorative line */
-.category-title::before {
-    left: -60px; /* Position to left of title */
+/* Container for hero content with gradient background */
+.hero-content {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex; /* Uses flexbox layout */
+    align-items: center; /* Vertically centers content */
+    position: relative; /* Creates positioning context */
+    /* Horizontal gradient for dramatic effect, fading from dark to transparent */
+    background: linear-gradient(to right, 
+        rgba(0,0,0,0.95) 0%, 
+        rgba(0,0,0,0.8) 30%, 
+        rgba(0,0,0,0.4) 60%, 
+        transparent 80%
+    );
 }
 
-/* Position right decorative line */
-.category-title::after {
-    right: -60px; /* Position to right of title */
+/* Main hero title styling */
+.hero-title {
+    font-size: 11vw; /* Responsive font size based on viewport width */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text */
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* Glowing text effect */
+    position: absolute; /* Positions outside normal flow */
+    left: 8%; /* Positions from left edge */
+    z-index: 2; /* Ensures text appears above overlays */
+    letter-spacing: -0.02em; /* Slightly tightens letter spacing */
+    animation: fadeInLeft 1s ease-out; /* Entrance animation sliding in from left */
+    mix-blend-mode: difference; /* Creates interesting color interaction with background */
+    line-height: 0.9; /* Tighter line height for dramatic effect */
 }
 
-/* Added Optimizations - Planetary Page Responsive Layout Optimization */
-.category-description {
-    max-width: 800px; /* Limit maximum width to improve readability */
-    margin: 0 auto 2.5rem; /* Center and increase spacing below */
-    line-height: 1.8; /* Increase line height to improve readability */
+/* Animation for hero title entrance */
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0; /* Fully transparent at start */
+        transform: translateX(-50px); /* Shifted left initially */
+    }
+    100% {
+        opacity: 1; /* Fully visible at end */
+        transform: translateX(0); /* No shift at end position */
+    }
 }
 
-.planets-grid {
+/* Responsive design for planet sections - Adjustments for smaller screens and mobile devices */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Stack hero content vertically on mobile */
+        padding: 2rem; /* Reduced padding on small screens */
+        justify-content: center; /* Center content vertically */
+    }
+
+    .planet-title {
+        font-size: 4rem; /* Smaller font size for planet title on mobile */
+        text-align: center; /* Center-align title on small screens */
+    }
+
+    .planet-image {
+        height: 50vh; /* Half viewport height for planet image on mobile */
+    }
+
+    .nav-content {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .nav-links {
+        gap: 1rem; /* Further reduced spacing on mobile */
+    }
+
+    .nav-links a {
+        font-size: 0.8rem; /* Even smaller font on mobile */
+    }
+
+    .planet-content {
+        grid-template-columns: 1fr; /* Single column layout on mobile */
+    }
+
+    .container {
+        padding: 1rem; /* Reduced padding on small screens */
+    }
+
+    header h1 {
+        font-size: 2rem; /* Smaller header font size on mobile */
+    }
+
+    .planet-info h2 {
+        font-size: 2rem; /* Smaller heading font size on mobile */
+    }
+}
+
+/* Main content area - Container for page content after hero section */
+.main-content {
+    position: relative; /* Creates positioning context */
+    z-index: 2; /* Ensures content appears above background elements */
+    background: #000; /* Black background */
+    padding-top: 5rem; /* Adds space at top, important for fixed navigation */
+}
+
+/* Standard content container - Controls width and spacing of content */
+.container {
+    max-width: 1200px; /* Maximum width constraint */
+    margin: 0 auto; /* Centers container horizontally */
+    padding: 2rem; /* Adds space inside container */
+}
+
+/* Header styles - For section headers throughout the site */
+header {
+    text-align: center; /* Centers header text */
+    margin-bottom: 3rem; /* Adds space below headers */
+}
+
+/* Main heading style */
+header h1 {
+    font-size: 3rem; /* Large font size for headings */
+    color: #fff; /* White text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glowing text effect */
+    letter-spacing: 2px; /* Adds spacing between letters for visual impact */
+}
+
+/* Planet content layout - Two-column grid for planet information */
+.planet-content {
+    display: grid; /* Uses CSS grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 4rem; /* Space between columns */
+    align-items: start; /* Aligns items to top of their grid area */
+}
+
+/* Planet visual section - Container for planet images or 3D models */
+.planet-visual {
+    position: relative; /* Creates positioning context */
+    width: 100%; /* Full width of its grid area */
+    aspect-ratio: 1; /* Maintains square aspect ratio */
+}
+
+/* Canvas for 3D planet rendering */
+#planet-canvas {
+    width: 100%; /* Full width of parent */
+    height: 100%; /* Full height of parent */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Hides content outside rounded corners */
+    background: transparent; /* Transparent background */
+}
+
+/* Styling for canvas element within planet canvas container */
+#planet-canvas canvas {
+    width: 100% !important; /* Forces full width, overriding any inline styles */
+    height: 100% !important; /* Forces full height, overriding any inline styles */
+    outline: none; /* Removes focus outline */
+}
+
+/* Planet information section - Container for text and data about planets */
+.planet-info {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 2rem; /* Space inside container */
+    backdrop-filter: blur(10px); /* Modern glass-like blur effect */
+}
+
+/* Planet section heading */
+.planet-info h2 {
+    font-size: 2.5rem; /* Large heading size */
+    margin-bottom: 1rem; /* Space below heading */
+    color: #fff; /* White text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+}
+
+/* Planet description text */
+.planet-description {
+    font-size: 1.1rem; /* Slightly larger body text for readability */
+    margin-bottom: 2rem; /* Space below description */
+    line-height: 1.8; /* Increased line height for readability */
+}
+
+/* Composition grid - For displaying planet atmospheric composition */
+.composition-grid {
+    display: grid; /* Uses CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid columns */
+    gap: 1rem; /* Space between grid items */
+    margin: 1rem 0 2rem; /* Vertical spacing above and below */
+}
+
+/* Individual composition item - For individual atmospheric elements */
+.composition-item {
+    background: rgba(255, 255, 255, 0.05); /* Very light white background */
+    padding: 1rem; /* Space inside item */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Centers text */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for composition items */
+.composition-item:hover {
+    transform: translateY(-5px); /* Slightly lifts item on hover */
+    background: rgba(255, 255, 255, 0.1); /* Slightly lighter background on hover */
+}
+
+/* Planet statistics section - Grid layout for planetary data */
+.planet-stats {
+    display: grid; /* Uses CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid columns */
+    gap: 1rem; /* Space between grid items */
+    margin: 2rem 0; /* Vertical spacing */
+}
+
+/* Individual statistic item */
+.stat-item {
+    background: rgba(255, 255, 255, 0.05); /* Very light white background */
+    padding: 1rem; /* Space inside item */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Centers text */
+}
+
+/* Statistic item heading */
+.stat-item h4 {
+    color: #ccc; /* Light gray text for subtle heading */
+    margin-bottom: 0.5rem; /* Space below heading */
+}
+
+/* Statistic value */
+.stat-item p {
+    font-size: 1.1rem; /* Slightly larger text for data values */
+    color: #fff; /* White text for emphasis */
+}
+
+/* Moons section - For displaying information about planetary moons */
+.moons-section {
+    margin-top: 2rem; /* Space above section */
+    padding: 1rem; /* Space inside section */
+    background: rgba(255, 255, 255, 0.05); /* Very light white background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Moons section heading */
+.moons-section h3 {
+    margin-bottom: 1rem; /* Space below heading */
+    color: #fff; /* White text */
+}
+
+/* 主要内容布局 */
+.planet-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjustment of the minimum width */
-    gap: var(--card-gap);
-    width: 100%;
-}
-
-.planet-card {
-    background: rgba(20, 20, 30, 0.7); /* Adjusting the background color */
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Add a thin border */
-    height: 100%; /* Ensure card height consistency */
-    display: flex;
-    flex-direction: column;
-}
-
-.planet-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    background: rgba(30, 30, 45, 0.8);
-}
-
-.planet-image {
-    width: 100%;
-    height: 180px; /* Fixed height ensures consistency */
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-}
-
-.planet-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Fill the container while keeping the image proportional */
-    transition: transform 0.3s ease;
-}
-
-.planet-card:hover .planet-image img {
-    transform: scale(1.05);
-}
-
-.planet-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-    color: var(--secondary-color);
-}
-
-.planet-card p {
-    font-size: 0.95rem;
-    color: #ccc;
-    line-height: 1.6;
-    margin-top: auto; /* Push the description to the bottom */
-}
-
-/* Planet details section optimization */
-.planet-details {
-    padding: 2rem var(--content-padding);
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-    width: 100%;
-}
-
-.planet-detail-section {
-    margin-bottom: 4rem;
-    padding: 2rem;
-    background: rgba(15, 15, 25, 0.6);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-}
-
-.planet-detail-title {
-    font-size: 2.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.planet-detail-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Change to a two-column grid layout */
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: start;
 }
 
-.planet-detail-image {
+/* 行星图片部分 */
+.planet-visual {
+    position: relative;
     width: 100%;
-    border-radius: 8px;
+    aspect-ratio: 1;
+}
+
+#planet-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: transparent;
 }
 
-.planet-detail-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+#planet-canvas canvas {
+    width: 100% !important;
+    height: 100% !important;
+    outline: none;
 }
 
-.planet-detail-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+/* 行星信息部分 */
+.planet-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
 }
 
-.planet-detail-description {
-    font-size: 1.05rem;
+.planet-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.planet-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
-    color: #eee;
 }
 
-.planet-detail-stats {
+/* 大气成分网格 */
+.composition-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
 }
 
-.planet-detail-stats .stat-item {
-    background: rgba(40, 40, 60, 0.6);
-    padding: 1.2rem;
-    border-radius: 8px;
+.composition-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
 }
 
-.planet-detail-stats .stat-item h4 {
-    font-size: 0.9rem;
+.composition-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 行星统计数据 */
+.planet-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-item h4 {
     color: #ccc;
     margin-bottom: 0.5rem;
 }
 
-.planet-detail-stats .stat-item p {
+.stat-item p {
     font-size: 1.1rem;
-    color: var(--secondary-color);
+    color: #fff;
 }
 
-/* Responsive Adjustment */
+/* 卫星部分 */
+.moons-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.moons-section h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: center;
+    }
+
+    .planet-title {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .planet-image {
+        height: 50vh;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .planet-content {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .planet-info h2 {
+        font-size: 2rem;
+    }
+}
+
+/* 内容区域样式 */
+.content-section {
+    position: relative;
+    background: #000;
+    padding: 6rem 0;
+    min-height: 100vh;
+    z-index: 1;
+    animation: pageLoad 1s ease-out;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.structure-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.structure-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.item-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.structure-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.structure-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.distance-info {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.au-info {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+
+    .structure-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .structure-item {
+        padding: 1.5rem;
+    }
+
+    .item-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .structure-item h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* 滚动行为 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Planet页面特定样式 */
+.planet-hero {
+    background: url('images/backwards.jpg') no-repeat center center; /* Space background image */
+    background-size: cover; /* Scales image to cover entire section */
+    background-attachment: fixed; /* Creates parallax scrolling effect */
+}
+
+/* Planet categories section - Container for different planet type categories */
+.planet-categories {
+    padding: 4rem 0; /* Generous vertical padding */
+}
+
+/* Individual category section - For groups of similar planets */
+.category {
+    margin-bottom: 6rem; /* Large margin below each category */
+}
+
+/* Category title styling - For headings like "Terrestrial Planets", "Gas Giants", etc */
+.category-title {
+    font-size: 2.5rem; /* Large font size for impact */
+    margin-bottom: 1.5rem; /* Space below title */
+    color: #fff; /* White text */
+    text-align: center; /* Center alignment */
+    text-transform: uppercase; /* Convert to all caps for visual impact */
+    letter-spacing: 2px; /* Add letter spacing for elegance */
+    position: relative; /* Create positioning context for pseudo-elements */
+    display: inline-block; /* Allow width to be determined by content */
+    padding: 0 10px; /* Horizontal padding */
+}
+
+/* Decorative lines before and after category titles */
+.category-title::before,
+.category-title::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to title */
+    top: 50%; /* Center vertically */
+    width: 50px; /* Width of decorative line */
+    height: 1px; /* Height of decorative line (thin) */
+    background: linear-gradient(90deg, transparent, #fff, transparent); /* Fading gradient line */
+}
+
+/* Left decorative line position */
+.category-title::before {
+    left: -60px; /* Position to the left of the title */
+}
+
+/* Right decorative line position */
+.category-title::after {
+    right: -60px; /* Position to the right of the title */
+}
+
+/* Category description styling - Introduction text for planet categories */
+.category-description {
+    text-align: center; /* Center alignment */
+    max-width: 800px; /* Limit width for readability */
+    margin: 0 auto 3rem; /* Center horizontally with bottom margin */
+    color: #ccc; /* Light gray text for better readability */
+    line-height: 1.8; /* Increased line height for readability */
+    font-size: 1.1rem; /* Slightly larger than normal text */
+}
+
+/* Grid layout for displaying planets */
+.planets-grid {
+    display: grid; /* CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 2rem; /* Space between planet cards */
+    padding: 2rem 0; /* Vertical padding only */
+}
+
+/* Planet card styling - Individual cards for each planet */
+.planet-card {
+    background: rgba(255, 255, 255, 0.05); /* Very light white background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 1.5rem; /* Internal spacing */
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    cursor: pointer; /* Hand cursor on hover */
+    overflow: hidden; /* Hide overflowing content */
+    position: relative; /* Create positioning context */
+    backdrop-filter: blur(10px); /* Glass-like blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Hover effects for planet cards */
+.planet-card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+    background: rgba(255, 255, 255, 0.1); /* Slightly lighter background on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+/* Planet image container */
+.planet-image {
+    width: 100%; /* Full width of parent */
+    aspect-ratio: 1; /* Square aspect ratio */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    margin-bottom: 1.5rem; /* Space below image */
+}
+
+/* Planet image styling */
+.planet-image img {
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    object-fit: cover; /* Crop image to fill container */
+    transition: transform 0.4s ease; /* Smooth transition for zoom effect */
+}
+
+/* Hover effect for planet images */
+.planet-card:hover .planet-image img {
+    transform: scale(1.05); /* Zoom in slightly on hover */
+}
+
+/* Planet card heading */
+.planet-card h3 {
+    font-size: 1.5rem; /* Large font size */
+    margin-bottom: 0.5rem; /* Space below heading */
+    color: #fff; /* White text */
+    text-align: center; /* Center alignment */
+}
+
+/* Planet card paragraph text */
+.planet-card p {
+    color: #ccc; /* Light gray text */
+    text-align: center; /* Center alignment */
+    font-size: 1rem; /* Standard font size */
+}
+
+/* Responsive adjustments for planet categories on mobile */
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 2rem; /* Smaller font size on mobile */
+    }
+
+    .category-description {
+        font-size: 1rem; /* Smaller font size on mobile */
+        padding: 0 1rem; /* Add horizontal padding on mobile */
+    }
+
+    .planets-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minimum column width */
+        gap: 1.5rem; /* Reduced gap between items */
+        padding: 1rem; /* Add padding all around */
+    }
+}
+
+/* Planet details section - For displaying detailed information about selected planets */
+.planet-details {
+    margin-top: 4rem; /* Large margin above section */
+}
+
+/* Individual detail section - For different aspects of a planet (e.g., atmosphere, surface, etc.) */
+.planet-detail-section {
+    margin-bottom: 5rem; /* Large margin below each section */
+    padding: 2rem; /* Generous padding inside */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    border-radius: 15px; /* Rounded corners */
+    opacity: 0; /* Initially invisible for scroll animation */
+    transform: translateY(30px); /* Initially shifted down for scroll animation */
+    transition: all 0.5s ease; /* Smooth transition for scroll reveal */
+}
+
+/* Visible state for detail sections when scrolled into view */
+.planet-detail-section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* No vertical shift */
+}
+
+/* Detail section title styling */
+.planet-detail-title {
+    font-size: 2.5rem; /* Large font size */
+    color: #fff; /* White text */
+    text-align: center; /* Center alignment */
+    margin-bottom: 2rem; /* Large margin below */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Glowing text effect */
+}
+
+/* Two-column layout for detail content */
+.planet-detail-content {
+    display: grid; /* CSS grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 3rem; /* Large gap between columns */
+    align-items: center; /* Vertical center alignment */
+}
+
+/* Detail image container styling */
+.planet-detail-image {
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for detail images */
+.planet-detail-image:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Detail image styling */
+.planet-detail-image img {
+    width: 100%; /* Full width of container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom margin/spacing */
+}
+
+/* Detail information container */
+.planet-detail-info {
+    color: #ccc; /* Light gray text for better readability */
+}
+
+/* Detail description text */
+.planet-detail-description {
+    font-size: 1.1rem; /* Slightly larger text */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 2rem; /* Space below text */
+}
+
+/* Statistics grid for planet details */
+.planet-detail-stats {
+    display: grid; /* CSS grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1.5rem; /* Gap between items */
+}
+
+/* Statistic item styling in detail section */
+.planet-detail-stats .stat-item {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    padding: 1rem; /* Internal padding */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center alignment */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Hand cursor on hover */
+}
+
+/* Hover effect for statistic items */
+.planet-detail-stats .stat-item:hover {
+    background: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Responsive adjustments for planet details on mobile */
 @media (max-width: 768px) {
     .planet-detail-content {
-        grid-template-columns: 1fr; /* Mobile to single column */
-        gap: 1.5rem;
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
     
     .planet-detail-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
+        font-size: 2rem; /* Smaller font size on mobile */
     }
     
     .planet-detail-stats {
-        grid-template-columns: repeat(2, 1fr); /* Change to two columns for mobile */
-    }
-    
-    .planet-detail-section {
-        padding: 1.5rem;
-        margin-bottom: 3rem;
-    }
-    
-    .category {
-        padding: 0 1rem;
-        margin-bottom: 3rem;
-    }
-    
-    .category-title {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .category-description {
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-    }
-    
-    .planets-grid {
-        gap: 1.2rem;
-    }
-    
-    .planet-detail-description {
-        font-size: 1rem;
-        line-height: 1.6;
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
 }
 
-/* Animation Keyframe Definition */
+/* Fade-in and slide-up animation for elements as they scroll into view */
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 0; /* Start fully transparent */
+        transform: translateY(30px); /* Start shifted down */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* End with no vertical shift */
     }
 }
 
+/* Page load animation - Creating a smooth entrance effect when page loads */
 @keyframes pageLoad {
-    from {
-        opacity: 0;
+    0% {
+        opacity: 0; /* Start fully transparent */
+        transform: translateY(20px); /* Start shifted down */
     }
-    to {
-        opacity: 1;
+    100% {
+        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* End with no vertical shift */
     }
+}
+
+/* Star background styling - For creating space environment */
+.star-background {
+    position: fixed; /* Fixed position relative to viewport */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -1; /* Behind all content */
+    pointer-events: none; /* Ignore mouse events */
+}
+
+/* Individual star styling */
+.star {
+    position: absolute; /* Position freely within container */
+    background-color: #fff; /* White stars */
+    border-radius: 50%; /* Perfect circles */
+    pointer-events: none; /* Ignore mouse events */
+}
+
+/* Small star size variation */
+.star-small {
+    width: 1px; /* Tiny width */
+    height: 1px; /* Tiny height */
+}
+
+/* Medium star size variation */
+.star-medium {
+    width: 2px; /* Small width */
+    height: 2px; /* Small height */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+}
+
+/* Meteor effect - Disabled to simplify the visual effect */
+.meteor {
+    display: none; /* Hidden from view */
+}
+
+/* Page transition animations for smoother navigation experience */
+/* Fade-in animation class when page loads */
+.fade-in {
+    animation: simpleFadeIn 0.8s ease-in; /* Apply fade-in animation */
+}
+
+/* Fade-out animation class when leaving page */
+.fade-out {
+    animation: simpleFadeOut 0.5s forwards; /* Apply fade-out animation that keeps final state */
+}
+
+/* Simple fade-in animation definition */
+@keyframes simpleFadeIn {
+    from { opacity: 0; } /* Start fully transparent */
+    to { opacity: 1; } /* End fully visible */
+}
+
+/* Simple fade-out animation definition */
+@keyframes simpleFadeOut {
+    to { opacity: 0; } /* End fully transparent */
 } 
