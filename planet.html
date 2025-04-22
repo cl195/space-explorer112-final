@@ -1,377 +1,534 @@
-<!DOCTYPE html> <!-- Declaring document type as HTML5 -->
-<html lang="en"> <!-- Setting webpage language to English -->
+<!DOCTYPE html>
+<!-- 
+  Planet Page - Solar System Explorer website
+  This page provides detailed information about the planets in our solar system
+  with interactive elements, responsive design, and educational content
+-->
+<html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Setting character encoding to UTF-8, supporting various language characters -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design, ensuring proper display on mobile devices -->
-    <title>Solar System - Planets</title> <!-- Page title, displayed in browser tab -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link to main stylesheet -->
+    <meta charset="UTF-8">
+    <!-- Set viewport for mobile devices to ensure responsive design works properly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System - Planets</title>
+    <!-- Import main stylesheet for site-wide styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Import Font Awesome icon library for mobile menu icon and UI elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Mobile device specific meta tags to optimize mobile experience -->
+    <meta name="theme-color" content="#000000"> <!-- Set mobile browser theme color -->
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Enable iOS full-screen mode -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- iOS status bar style -->
 </head>
 <body>
-    <!-- Top navigation bar -->
+    <!-- 
+      Top navigation bar - Primary navigation component
+      Converts to fixed floating menu on mobile devices with hamburger menu
+    -->
     <nav class="top-nav">
         <div class="nav-content">
-            <div class="logo">Space Explorer</div> <!-- Website logo/name -->
-            <div class="nav-links"> <!-- Navigation links area -->
-                <a href="index.html" class="structure-link">STRUCTURE</a> <!-- Solar system structure page link -->
-                <a href="planet.html" class="active planet-link">PLANET</a> <!-- Current page: Planets, with active class showing current state -->
-                <a href="sun.html" class="sun-link">SUN</a> <!-- Sun page link -->
-                <a href="moon.html" class="moon-link">MOON</a> <!-- Moon page link -->
+            <!-- Website logo/name - Primary branding element -->
+            <div class="logo">Space Explorer</div>
+            <!-- Mobile menu toggle button - Only visible on smaller screens with accessibility label -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <!-- Hamburger menu icon - transforms to X icon when clicked via JavaScript -->
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Navigation links container - Hidden on mobile devices until toggle button is clicked -->
+            <div class="nav-links">
+                <!-- Page links, active class indicates current page for styling and user orientation -->
+                <a href="index.html" class="structure-link">STRUCTURE</a>
+                <a href="planet.html" class="active planet-link">PLANET</a>
+                <a href="sun.html" class="sun-link">SUN</a>
+                <a href="moon.html" class="moon-link">MOON</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero/banner section - Planets main visual -->
+    <!-- 
+      Hero section - Main visual introduction to the planets page
+      Creates dramatic entrance with large title and cosmic background 
+    -->
     <div class="hero-section planet-hero">
         <div class="hero-content">
-            <h1 class="hero-title">Our Solar<br>Planets</h1> <!-- Main title with line break for visual effect -->
+            <h1 class="hero-title">Our Solar<br>Planets</h1>
         </div>
     </div>
 
-    <!-- Main content section -->
+    <!-- 
+      Main content section - Contains all planet information
+      Organized into categories and detailed information sections
+    -->
     <div class="content-section">
         <div class="container">
-            <!-- Planet categories section - showcasing inner and outer planets classification -->
+            <!-- 
+              Planet categories section - Groups planets by type
+              Includes terrestrial (inner) and gas/ice giant (outer) planets 
+            -->
             <div class="planet-categories">
-                <!-- Inner/Terrestrial planets category -->
+                <!-- 
+                  Inner/Terrestrial planets category
+                  Mercury, Venus, Earth, and Mars
+                -->
                 <div class="category inner-planets">
-                    <h2 class="category-title">Inner/Terrestrial Planets</h2> <!-- Inner planets category title -->
+                    <h2 class="category-title">Inner/Terrestrial Planets</h2>
                     <p class="category-description">
                         The inner planets are made up mostly of rock. All terrestrial planets have the same basic structure, 
                         such as a central metallic core (mostly iron) with a surrounding silicate mantle. They can have surface 
                         structures such as canyons, craters, mountains, and volcanoes.
-                    </p> <!-- Inner planets category description -->
-                    <div class="planets-grid"> <!-- Inner planets grid layout -->
-                        <!-- Mercury card - click to jump to corresponding detail section -->
+                    </p>
+                    <!-- Grid layout for planet cards with responsive design -->
+                    <div class="planets-grid">
+                        <!-- 
+                          Planet card - Mercury
+                          Interactive element with onClick event to navigate to detailed section
+                        -->
                         <div class="planet-card" onclick="location.href='#mercury'">
                             <div class="planet-image">
-                                <img src="images/Mercury.jpg" alt="Mercury"> <!-- Mercury image -->
+                                <img src="images/Mercury.jpg" alt="Mercury">
                             </div>
-                            <h3>Mercury</h3> <!-- Mercury name -->
-                            <p>Closest planet to the Sun</p> <!-- Mercury brief description -->
+                            <h3>Mercury</h3>
+                            <p>Closest planet to the Sun</p>
+                            <p class="view-more">Tap to learn about Mercury</p>
                         </div>
-                        <!-- Venus card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Venus
+                          With hover/tap effect defined in CSS
+                        -->
                         <div class="planet-card" onclick="location.href='#venus'">
                             <div class="planet-image">
-                                <img src="images/Venus.avif" alt="Venus"> <!-- Venus image -->
+                                <img src="images/Venus.avif" alt="Venus">
                             </div>
-                            <h3>Venus</h3> <!-- Venus name -->
-                            <p>Earth's "sister" planet</p> <!-- Venus brief description -->
+                            <h3>Venus</h3>
+                            <p>Earth's "sister" planet</p>
+                            <p class="view-more">Tap to learn about Venus</p>
                         </div>
-                        <!-- Earth card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Earth
+                          Our home planet with smooth scrolling to detail section
+                        -->
                         <div class="planet-card" onclick="location.href='#earth'">
                             <div class="planet-image">
-                                <img src="images/Earth.jpg" alt="Earth"> <!-- Earth image -->
+                                <img src="images/Earth.jpg" alt="Earth">
                             </div>
-                            <h3>Earth</h3> <!-- Earth name -->
-                            <p>Our home planet</p> <!-- Earth brief description -->
+                            <h3>Earth</h3>
+                            <p>Our home planet</p>
+                            <p class="view-more">Tap to learn about Earth</p>
                         </div>
-                        <!-- Mars card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Mars
+                          The Red Planet with interactive features
+                        -->
                         <div class="planet-card" onclick="location.href='#mars'">
                             <div class="planet-image">
-                                <img src="images/Mars.jpg" alt="Mars"> <!-- Mars image -->
+                                <img src="images/Mars.jpg" alt="Mars">
                             </div>
-                            <h3>Mars</h3> <!-- Mars name -->
-                            <p>The Red Planet</p> <!-- Mars brief description -->
+                            <h3>Mars</h3>
+                            <p>The Red Planet</p>
+                            <p class="view-more">Tap to learn about Mars</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Outer planets/gas giants and ice giants category -->
+                <!-- 
+                  Outer planets category - Gas and Ice Giants
+                  Jupiter, Saturn, Uranus, and Neptune
+                -->
                 <div class="category outer-planets">
-                    <h2 class="category-title">Outer Planets (Gas Giants and Ice Giants)</h2> <!-- Outer planets category title -->
+                    <h2 class="category-title">Outer Planets (Gas Giants and Ice Giants)</h2>
                     <p class="category-description">
                         The outer planets are large balls of gases with rings around them. Jupiter, Saturn, Uranus, and Neptune 
                         are much larger than the inner planets and are made primarily of hydrogen and helium.
-                    </p> <!-- Outer planets category description -->
-                    <div class="planets-grid"> <!-- Outer planets grid layout -->
-                        <!-- Jupiter card - click to jump to corresponding detail section -->
+                    </p>
+                    <div class="planets-grid">
+                        <!-- 
+                          Planet card - Jupiter
+                          The largest planet in our solar system
+                        -->
                         <div class="planet-card" onclick="location.href='#jupiter'">
                             <div class="planet-image">
-                                <img src="images/Jupiter.jpeg" alt="Jupiter"> <!-- Jupiter image -->
+                                <img src="images/Jupiter.jpeg" alt="Jupiter">
                             </div>
-                            <h3>Jupiter</h3> <!-- Jupiter name -->
-                            <p>The largest planet</p> <!-- Jupiter brief description -->
+                            <h3>Jupiter</h3>
+                            <p>The largest planet</p>
+                            <p class="view-more">Tap to learn about Jupiter</p>
                         </div>
-                        <!-- Saturn card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Saturn
+                          Known for its distinctive ring system
+                        -->
                         <div class="planet-card" onclick="location.href='#saturn'">
                             <div class="planet-image">
-                                <img src="images/Saturn.jpg" alt="Saturn"> <!-- Saturn image -->
+                                <img src="images/Saturn.jpg" alt="Saturn">
                             </div>
-                            <h3>Saturn</h3> <!-- Saturn name -->
-                            <p>Famous for its rings</p> <!-- Saturn brief description -->
+                            <h3>Saturn</h3>
+                            <p>Famous for its rings</p>
+                            <p class="view-more">Tap to learn about Saturn</p>
                         </div>
-                        <!-- Uranus card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Uranus
+                          The tilted ice giant with unusual rotation
+                        -->
                         <div class="planet-card" onclick="location.href='#uranus'">
                             <div class="planet-image">
-                                <img src="images/Uranus.jpg" alt="Uranus"> <!-- Uranus image -->
+                                <img src="images/Uranus.jpg" alt="Uranus">
                             </div>
-                            <h3>Uranus</h3> <!-- Uranus name -->
-                            <p>The tilted planet</p> <!-- Uranus brief description -->
+                            <h3>Uranus</h3>
+                            <p>The tilted planet</p>
+                            <p class="view-more">Tap to learn about Uranus</p>
                         </div>
-                        <!-- Neptune card - click to jump to corresponding detail section -->
+                        <!-- 
+                          Planet card - Neptune
+                          The windiest and most distant planet
+                        -->
                         <div class="planet-card" onclick="location.href='#neptune'">
                             <div class="planet-image">
-                                <img src="images/Neptune.jpg" alt="Neptune"> <!-- Neptune image -->
+                                <img src="images/Neptune.jpg" alt="Neptune">
                             </div>
-                            <h3>Neptune</h3> <!-- Neptune name -->
-                            <p>The windiest planet</p> <!-- Neptune brief description -->
+                            <h3>Neptune</h3>
+                            <p>The windiest planet</p>
+                            <p class="view-more">Tap to learn about Neptune</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Planet detailed information section - displaying detailed data and descriptions for each planet -->
+            <!-- 
+              Planet detailed information section
+              Each planet has its own section with comprehensive information
+              These sections are targets for the smooth scrolling navigation
+            -->
             <div class="planet-details">
-                <!-- Mercury details section - ID mercury for anchor navigation -->
+                <!-- 
+                  Mercury details section
+                  Contains image, key facts, and description
+                -->
                 <div id="mercury" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Mercury</h2> <!-- Mercury details title -->
+                    <h2 class="planet-detail-title">Mercury</h2>
                     <div class="planet-detail-content">
+                        <!-- 
+                          Planet image with source attribution
+                          Includes metadata and external link
+                        -->
                         <div class="planet-detail-image">
-                            <img src="images/Mercury.jpg" alt="Mercury"> <!-- Mercury large image -->
+                            <img src="images/Mercury.jpg" alt="Mercury">
+                            <div class="image-info">
+                                <p class="image-date">Sep 5, 2021</p>
+                                <a href="https://www.alamy.com/stock-image-mercury-in-color-prockter07-centered-169366779.html?irclickid=zZp0-jxHuxycUYK11Bwh9QfKUksUx82kvWg2xo0&utm_source=77643&utm_campaign=Royalty-free%20stock%20photos%20and%20images%20%E2%80%93%20Alamy%20&utm_medium=impact&irgwc=1" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Mercury sourced from Alamy
+                                </a>
+                            </div>
                         </div>
+                        <!-- 
+                          Planet information and key statistics
+                          Organized in a clean, structured layout
+                        -->
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Mercury is the smallest and innermost planet in the Solar System. It has no natural satellites and no substantial atmosphere. 
                                 The planet has a large iron core which generates a magnetic field about 1% as strong as that of Earth's.
-                            </p> <!-- Mercury detailed description -->
-                            <div class="planet-detail-stats"> <!-- Mercury statistics grid -->
+                            </p>
+                            <!-- Key statistics grid with consistent formatting -->
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>0.39 AU</p> <!-- Mercury distance from Sun data -->
+                                    <p>0.39 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>88 days</p> <!-- Mercury orbital period data -->
+                                    <p>88 days</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>4,879 km</p> <!-- Mercury diameter data -->
+                                    <p>4,879 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>0</p> <!-- Mercury number of moons -->
+                                    <p>0</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Venus details section - ID venus for anchor navigation -->
+                <!-- 
+                  Venus details section
+                  Earth's "sister" planet information
+                -->
                 <div id="venus" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Venus</h2> <!-- Venus details title -->
+                    <h2 class="planet-detail-title">Venus</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Venus.avif" alt="Venus"> <!-- Venus large image -->
+                            <img src="images/Venus.avif" alt="Venus">
+                            <div class="image-info">
+                                <p class="image-date">Oct 2, 2022</p>
+                                <a href="https://www.alamy.com/computer-simulated-global-view-of-venus-2001-image483537209.html?irclickid=zZp0-jxHuxycUYK11Bwh9QfKUksUx%3A0svWg2xo0&utm_source=77643&utm_campaign=Royalty-free%20stock%20photos%20and%20images%20%E2%80%93%20Alamy%20&utm_medium=impact&irgwc=1" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Venus sourced from Alamy
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Venus is the second planet from the Sun and is Earth's closest planetary neighbor. 
                                 It's often called Earth's twin because it's similar in size and density. 
                                 Venus has a thick atmosphere that traps heat, making it the hottest planet in our solar system.
-                            </p> <!-- Venus detailed description -->
-                            <div class="planet-detail-stats"> <!-- Venus statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>0.72 AU</p> <!-- Venus distance from Sun data -->
+                                    <p>0.72 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>225 days</p> <!-- Venus orbital period data -->
+                                    <p>225 days</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>12,104 km</p> <!-- Venus diameter data -->
+                                    <p>12,104 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>0</p> <!-- Venus number of moons -->
+                                    <p>0</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Earth details section - ID earth for anchor navigation -->
+                <!-- 
+                  Earth details section
+                  Our home planet with comprehensive information
+                -->
                 <div id="earth" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Earth</h2> <!-- Earth details title -->
+                    <h2 class="planet-detail-title">Earth</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Earth.jpg" alt="Earth"> <!-- Earth large image -->
+                            <img src="images/Earth.jpg" alt="Earth">
+                            <div class="image-info">
+                                <p class="image-date">Aug 14, 2021</p>
+                                <a href="https://www.alamy.com/stock-photo-the-planet-earth-seen-from-outer-space-16259029.html?irclickid=zZp0-jxHuxycUYK11Bwh9QfKUksUx%3AREvWg2xo0&utm_source=77643&utm_campaign=Royalty-free%20stock%20photos%20and%20images%20%E2%80%93%20Alamy%20&utm_medium=impact&irgwc=1" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Earth sourced from Alamy
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Earth is the third planet from the Sun and the only astronomical object known to harbor life. 
                                 About 71% of Earth's surface is covered with water. Earth's atmosphere consists of 78% nitrogen, 
                                 21% oxygen, and other gases that protect life by absorbing solar radiation and regulating temperature.
-                            </p> <!-- Earth detailed description -->
-                            <div class="planet-detail-stats"> <!-- Earth statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>1.00 AU</p> <!-- Earth distance from Sun data -->
+                                    <p>1.00 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>365.25 days</p> <!-- Earth orbital period data -->
+                                    <p>365.25 days</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>12,742 km</p> <!-- Earth diameter data -->
+                                    <p>12,742 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>1</p> <!-- Earth number of moons -->
+                                    <p>1</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mars details section - ID mars for anchor navigation -->
+                <!-- 
+                  Mars details section
+                  The Red Planet with key statistics
+                -->
                 <div id="mars" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Mars</h2> <!-- Mars details title -->
+                    <h2 class="planet-detail-title">Mars</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Mars.jpg" alt="Mars"> <!-- Mars large image -->
+                            <img src="images/Mars.jpg" alt="Mars">
+                            <div class="image-info">
+                                <p class="image-date">Mar 16, 2024</p>
+                                <a href="https://www.alamy.com/planet-mars-photo-nasa-image599653473.html?irclickid=zZp0-jxHuxycUYK11Bwh9QfKUksUx%3AVovWg2xo0&utm_source=77643&utm_campaign=Royalty-free%20stock%20photos%20and%20images%20%E2%80%93%20Alamy%20&utm_medium=impact&irgwc=1" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Mars sourced from Alamy
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System. 
                                 Mars is often called the "Red Planet" due to its reddish appearance, which is caused by iron oxide (rust) on its surface. 
                                 Mars has two small moons, Phobos and Deimos.
-                            </p> <!-- Mars detailed description -->
-                            <div class="planet-detail-stats"> <!-- Mars statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>1.52 AU</p> <!-- Mars distance from Sun data -->
+                                    <p>1.52 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>687 days</p> <!-- Mars orbital period data -->
+                                    <p>687 days</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>6,779 km</p> <!-- Mars diameter data -->
+                                    <p>6,779 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>2</p> <!-- Mars number of moons -->
+                                    <p>2</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Jupiter details section - ID jupiter for anchor navigation -->
+                <!-- 
+                  Jupiter details section
+                  The largest planet in our solar system
+                -->
                 <div id="jupiter" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Jupiter</h2> <!-- Jupiter details title -->
+                    <h2 class="planet-detail-title">Jupiter</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Jupiter.jpeg" alt="Jupiter"> <!-- Jupiter large image -->
+                            <img src="images/Jupiter.jpeg" alt="Jupiter">
+                            <div class="image-info">
+                                <p class="image-date">Jul 29, 2023</p>
+                                <a href="https://www.shutterstock.com/zh/image-illustration/3d-illustration-planet-jupiter-on-star-1625364430" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Jupiter sourced from Shutterstock
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Jupiter is the fifth planet from the Sun and the largest in the Solar System. 
                                 It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined. 
                                 Jupiter has a strong magnetic field and at least 79 moons, including the four large Galilean moons.
-                            </p> <!-- Jupiter detailed description -->
-                            <div class="planet-detail-stats"> <!-- Jupiter statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>5.20 AU</p> <!-- Jupiter distance from Sun data -->
+                                    <p>5.20 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>11.86 years</p> <!-- Jupiter orbital period data -->
+                                    <p>11.86 years</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>139,820 km</p> <!-- Jupiter diameter data -->
+                                    <p>139,820 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>79+</p> <!-- Jupiter number of moons -->
+                                    <p>79+</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Saturn details section - ID saturn for anchor navigation -->
+                <!-- 
+                  Saturn details section
+                  Famous for its spectacular ring system
+                -->
                 <div id="saturn" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Saturn</h2> <!-- Saturn details title -->
+                    <h2 class="planet-detail-title">Saturn</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Saturn.jpg" alt="Saturn"> <!-- Saturn large image -->
+                            <img src="images/Saturn.jpg" alt="Saturn">
+                            <div class="image-info">
+                                <p class="image-date">Aug 23, 2021</p>
+                                <a href="https://en.wikipedia.org/wiki/Rings_of_Saturn" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Saturn sourced from Wikipedia
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. 
                                 It is a gas giant with an average radius about nine and a half times that of Earth. 
                                 Saturn is known for its prominent ring system, which consists of ice particles, rocky debris, and dust.
-                            </p> <!-- Saturn detailed description -->
-                            <div class="planet-detail-stats"> <!-- Saturn statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>9.58 AU</p> <!-- Saturn distance from Sun data -->
+                                    <p>9.58 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>29.46 years</p> <!-- Saturn orbital period data -->
+                                    <p>29.46 years</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>116,460 km</p> <!-- Saturn diameter data -->
+                                    <p>116,460 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>82+</p> <!-- Saturn number of moons -->
+                                    <p>82+</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Uranus details section - ID uranus for anchor navigation -->
+                <!-- 
+                  Uranus details section
+                  The sideways-tilted ice giant
+                -->
                 <div id="uranus" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Uranus</h2> <!-- Uranus details title -->
+                    <h2 class="planet-detail-title">Uranus</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Uranus.jpg" alt="Uranus"> <!-- Uranus large image -->
+                            <img src="images/Uranus.jpg" alt="Uranus">
+                            <div class="image-info">
+                                <p class="image-date">Jun 18, 2022</p>
+                                <a href="https://en.wikipedia.org/wiki/Uranus" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Uranus sourced from Wikipedia
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
                                 Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. 
                                 Uranus is similar in composition to Neptune, and both have bulk chemical compositions which differ from that of the larger gas giants Jupiter and Saturn. 
                                 Uranus's atmosphere is similar to Jupiter's and Saturn's in its primary composition of hydrogen and helium.
-                            </p> <!-- Uranus detailed description -->
-                            <div class="planet-detail-stats"> <!-- Uranus statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>19.22 AU</p> <!-- Uranus distance from Sun data -->
+                                    <p>19.22 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>84.01 years</p> <!-- Uranus orbital period data -->
+                                    <p>84.01 years</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>50,724 km</p> <!-- Uranus diameter data -->
+                                    <p>50,724 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>27</p> <!-- Uranus number of moons -->
+                                    <p>27</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Neptune details section - ID neptune for anchor navigation -->
+                <!-- 
+                  Neptune details section
+                  The most distant known planet in our solar system
+                -->
                 <div id="neptune" class="planet-detail-section">
-                    <h2 class="planet-detail-title">Neptune</h2> <!-- Neptune details title -->
+                    <h2 class="planet-detail-title">Neptune</h2>
                     <div class="planet-detail-content">
                         <div class="planet-detail-image">
-                            <img src="images/Neptune.jpg" alt="Neptune"> <!-- Neptune large image -->
+                            <img src="images/Neptune.jpg" alt="Neptune">
+                            <div class="image-info">
+                                <p class="image-date">Jun 21, 2021</p>
+                                <a href="https://telegraf.com.ua/nauka/5110589-uchenyie-obnaruzhili-super-zemlyu-i-dve-ekzoplanetyi-kotoryih-ne-sushhestvuet-v-solnechnoy-sisteme.html" class="image-source-button" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Photo of Neptune sourced from Telegraf
+                                </a>
+                            </div>
                         </div>
                         <div class="planet-detail-info">
                             <p class="planet-detail-description">
@@ -379,23 +536,23 @@
                                 It is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. 
                                 Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus. 
                                 Neptune is not visible to the unaided eye and is the only planet in the Solar System found by mathematical prediction rather than by empirical observation.
-                            </p> <!-- Neptune detailed description -->
-                            <div class="planet-detail-stats"> <!-- Neptune statistics grid -->
+                            </p>
+                            <div class="planet-detail-stats">
                                 <div class="stat-item">
                                     <h4>Distance from Sun</h4>
-                                    <p>30.05 AU</p> <!-- Neptune distance from Sun data -->
+                                    <p>30.05 AU</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Orbital Period</h4>
-                                    <p>164.8 years</p> <!-- Neptune orbital period data -->
+                                    <p>164.8 years</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Diameter</h4>
-                                    <p>49,244 km</p> <!-- Neptune diameter data -->
+                                    <p>49,244 km</p>
                                 </div>
                                 <div class="stat-item">
                                     <h4>Moons</h4>
-                                    <p>14</p> <!-- Neptune number of moons -->
+                                    <p>14</p>
                                 </div>
                             </div>
                         </div>
@@ -404,6 +561,27 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script> <!-- Importing main JavaScript file for page interaction functionality -->
+
+    <!-- 
+      Footer section with source attributions
+      Provides information about content sources and credits
+    -->
+    <footer class="source-information">
+        <div class="container">
+            <p class="sources-text">
+                Images sourced from <a href="https://en.wikipedia.org" target="_blank">Wikipedia</a>, 
+                <a href="https://www.google.com" target="_blank">Google</a> & 
+                <a href="https://tineye.com" target="_blank">Tineye</a> • 
+                Text content adapted from <a href="https://www.perplexity.ai" target="_blank">Perplexity AI</a> •
+                Icons from <a href="https://fontawesome.com" target="_blank">Font Awesome</a>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- 
+      JavaScript file reference
+      Contains functionality for navigation, animations, and interactive elements
+    -->
+    <script src="script.js"></script>
 </body>
 </html> 
